@@ -1,2 +1,38 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<% provide(:title, "Home") %>
+<!DOCTYPE html>
+<html>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-left">
+          <p>純喫茶Trip</p>
+        </div>
+        <div class="header-right">
+          <input type="search" name="shop_name_search" placeholder="店舗名">
+          <a href="#">エリア検索</a>
+          <a href="#">こだわり条件検索</a>
+          <a href="#">新規登録</a>
+          <a href="#">ログイン</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="top-wrapper">
+      <div class="container">
+        <h1>純喫茶Trip</h1>
+        <p>レトロな世界へタイムスリップ。</p>
+        <p>お気に入りの純喫茶を見つけよう</p>
+        <div class="btn-wrapper">
+          <a href='#'>エリアから検索</a>
+          <a href='#'>こだわり条件検索</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        ©️ 2022 HarpSeal
+      </div>
+    </footer>
+  </body>
+</html>
