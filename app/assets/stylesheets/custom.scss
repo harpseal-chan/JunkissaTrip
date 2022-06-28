@@ -1,0 +1,43 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+
+header {
+  background-color: #f0e5cf;
+  a {
+    color: #653e03;
+  }
+}
+
+body {
+  padding-top: 60px;
+  background-color: #f7f6f2;
+  color: #653e03;
+  
+  .btn {
+    background: #653e03;
+    color: #f7f6f2;
+  }
+}
+
+section {
+  overflow: auto;
+}
+  
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+footer {
+  background-color: #4b6587;
+  color: #f7f6f2;
+}

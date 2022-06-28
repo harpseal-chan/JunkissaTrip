@@ -1,38 +1,11 @@
 <% provide(:title, "Home") %>
-<!DOCTYPE html>
-<html>
-  <body>
-    <header>
-      <div class="container">
-        <div class="header-left">
-          <p>純喫茶Trip</p>
-        </div>
-        <div class="header-right">
-          <input type="search" name="shop_name_search" placeholder="店舗名">
-          <a href="#">エリア検索</a>
-          <a href="#">こだわり条件検索</a>
-          <a href="#">新規登録</a>
-          <a href="#">ログイン</a>
-        </div>
-      </div>
-    </header>
-
-    <div class="top-wrapper">
-      <div class="container">
-        <h1>純喫茶Trip</h1>
-        <p>レトロな世界へタイムスリップ。</p>
-        <p>お気に入りの純喫茶を見つけよう</p>
-        <div class="btn-wrapper">
-          <a href='#'>エリアから検索</a>
-          <a href='#'>こだわり条件検索</a>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <div class="container">
-        ©️ 2022 HarpSeal
-      </div>
-    </footer>
-  </body>
-</html>
+<div class="top-wrapper">
+  <h1>純喫茶Trip</h1>
+  <%= link_to image_tag("top.jpeg", alt: "Top", width: "200px") %>
+  <h3>レトロな世界へタイムスリップ。</h3>
+  <h3>お気に入りの純喫茶を見つけよう</h3>
+  <div class="btn-wrapper">
+    <a href='#' class="btn btn-lg">エリアから検索</a>
+    <a href='#' class="btn btn-lg">こだわり条件検索</a>
+  </div>
+</div>
