@@ -1,2 +1,11 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<% provide(:title, "Home") %>
+<div class="top-wrapper">
+  <h1>純喫茶Trip</h1>
+  <%= link_to image_tag("top.jpeg", alt: "Top", width: "200px") %>
+  <h3>レトロな世界へタイムスリップ。</h3>
+  <h3>お気に入りの純喫茶を見つけよう</h3>
+  <div class="btn-wrapper">
+    <a href='#' class="btn btn-lg">エリアから検索</a>
+    <a href='#' class="btn btn-lg">こだわり条件検索</a>
+  </div>
+</div>
