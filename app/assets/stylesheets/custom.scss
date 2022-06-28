@@ -1,24 +1,83 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$main: #f7f6f2;
+$sub: #f0e5cf;
+$accent-blown: #653e03;
+$accent-blue: #4b6587;
+
 /* universal */
 
 header {
-  background-color: #f0e5cf;
+  background-color: $sub;
   a {
-    color: #653e03;
+    color: $accent-blown;
+  }
+  div.container-fluid {
+    padding: 0 60px;
   }
 }
 
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: $accent-blown;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+.search-form {
+  padding-top: 9px;
+}
+
 body {
-  padding-top: 60px;
-  background-color: #f7f6f2;
-  color: #653e03;
-  
+  padding-top: 50px;
+  background-color: $main;
+  color: $accent-blown;
+
   .btn {
-    background: #653e03;
-    color: #f7f6f2;
+    background: $accent-blown;
+    color: $main;
   }
+}
+
+.top-wrapper {
+  width: 100%;
+  max-width: 2000px;
+  height: 100%;
+  min-width: 240px;
+  background-image: image-url("top.jpeg");
+  background-color:rgba(247,246,242,0.8);
+  background-blend-mode:lighten;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 300px 100px;
+  display: flex;
+  justify-content: center;
+  h1 {
+    letter-spacing: 0.08em;
+    font-size: 80px;
+    font-weight:bold; 
+    margin-top: 0;
+  }
+  h2 {
+    line-height: 1.5em;
+  }
+  .top-content {
+    float: left;
+  }
+  .btn-wrapper {
+    display:flex;
+    flex-flow: column;
+    .btn {
+      padding: 30px;
+      margin: 10px 50px;
+    }
+  }
+  
 }
 
 section {
@@ -38,6 +97,16 @@ textarea {
 }
 
 footer {
-  background-color: #4b6587;
-  color: #f7f6f2;
+  height: 50px;
+  background-color: $accent-blue;
+  color: $main;
+  p {
+    float: left;
+    margin-right: 10px;
+    letter-spacing: 0.08em;
+    padding-top: 15px;
+  }
+  div.container-fluid {
+    padding: 0 60px;
+  }
 }
