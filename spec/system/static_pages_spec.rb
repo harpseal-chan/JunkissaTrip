@@ -8,7 +8,6 @@ RSpec.describe "StaticPages", type: :system do
   describe 'header' do
     it 'リンクがroot_pathのロゴが存在すること' do
       visit root_path
-      link_to_root = page.find_all("a[href=\"#{root_path}\"]")
       expect(page).to have_link '純喫茶Trip', href: root_path
     end
   end
