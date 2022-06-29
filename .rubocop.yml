@@ -1,1 +1,7 @@
 inherit_from: .rubocop_todo.yml
+Style/Documentation:
+  Enabled: false
+
+# private/protected は一段深くインデントする
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
