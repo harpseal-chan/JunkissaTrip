@@ -2,46 +2,20 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title><%= yield(:title) %> | 純喫茶Trip</title>
+    <title><%= full_title(yield(:title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   </head>
 
   <body>
-    <header class="navbar navbar-fixed-top">
-      <div class="container">
-        <nav>
-          <div class="nav navbar-nav navbar-left">
-            <%= link_to "純喫茶Trip" '', id: "logo" %>
-          </div>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item">
-              <form class="form-inline">
-                <input class="form-control mr-sm-1" placeholder="店舗名を入力" type="search" name="" id="">
-                <button type="submit" class="btn search_btn">検索</button>
-              </form>
-            </li>
-            <li class="nav-item"><%= link_to "エリア検索", '#' %></li>
-            <li class="nav-item"><%= link_to "こだわり条件検索", '#' %></li>
-            <li class="nav-item"><%= link_to "新規登録", '#' %></li>
-            <li class="nav-item"><%= link_to "ログイン", '#' %></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <div class="container">
-      <%= yield %>
-    </div>
-
-    <footer>
-      <div class="container">
-        ©️ 2022 HarpSeal
-      </div>
-    </footer>
+    <%= render 'layouts/header' %>
+    <!-- 注意：bodyは<div class="container-fluid>で囲うこと -->
+    <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
