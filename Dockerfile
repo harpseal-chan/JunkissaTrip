@@ -1,15 +1,19 @@
 FROM ruby:2.7.4
 
+ENV RAILS_ENV=production
+
 # nodejsとyarnはwebpackをインストールする際に必要
 # yarnパッケージ管理ツールをインストール
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 RUN apt-get update -qq && apt-get install -y nodejs build-essential libpq-dev postgresql-client yarn
-WORKDIR /app
-COPY Gemfile /app/Gemfile
-COPY Gemfile.lock /app/Gemfile.lock
+RUN mkdir /junkissa_trip
+WORKDIR /junkissa_trip
+COPY Gemfile /junkissa_trip/Gemfile
+COPY Gemfile.lock /junkissa_trip/Gemfile.lock
 RUN bundle install
+COPY . /junkissa_trip
 
 RUN yarn install --check-files
 RUN bundle exec rails webpacker:install
