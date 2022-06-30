@@ -13,3 +13,8 @@ Style/Documentation:
 # private/protected は一段深くインデントする
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods
+
+# ブロックの行数チェック
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
