@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { User.new(name: 'ExampleUser', email: 'user@example.com')}
+  let(:user) { User.new(name: 'ExampleUser', email: 'user@example.com', password: 'foobar', password_confirmation: 'foobar') }
 
   context '有効な値で登録' do
     it 'userが有効であること' do
@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
       end
     end
   end
-  
+
   context '無効な値で登録' do
     it 'nameが空の場合、userが無効であること' do
       user.name = ''
@@ -51,6 +51,16 @@ RSpec.describe User, type: :model do
       duplicate_user.email = user.email.upcase
       user.save
       expect(duplicate_user).not_to be_valid
+    end
+
+    it 'passwordが空の場合、userが無効であること' do
+      user.password = user.password_confirmation = ' ' * 6
+      expect(user).not_to be_valid
+    end
+
+    it 'passwordが5文字以下の場合、userが無効であること' do
+      user.password = user.password_confirmation = 'a' * 5
+      expect(user).not_to be_valid
     end
   end
 
