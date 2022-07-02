@@ -17,5 +17,6 @@
     <!-- 注意：bodyは<div class="container-fluid>で囲うこと -->
     <%= yield %>
     <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

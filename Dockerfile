@@ -1,6 +1,6 @@
 FROM ruby:2.7.4
 
-# ENV RAILS_ENV=development
+# ENV RAILS_ENV=production
 
 # nodejsとyarnはwebpackをインストールする際に必要
 # yarnパッケージ管理ツールをインストール
