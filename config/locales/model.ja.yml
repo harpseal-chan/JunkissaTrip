@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    # model毎に定義したいattributesを記述
+    attributes:
+        user:
+          name: ユーザー名
+          email: メールアドレス
+          password: パスワード
+          password_confirmation: パスワード（確認）
