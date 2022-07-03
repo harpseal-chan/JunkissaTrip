@@ -1,22 +1,25 @@
 <% provide(:title, '新規登録') %>
 
-<div class="row">
-  <div class="form-wrapper">
-    <h1 class="h1">新規登録</h1>
-    <%= form_with(model: @user, local: true) do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+<div class="form-wrapper">
+  <h1>新規登録</h1>
+  <%= form_with(model: @user, local: true) do |f| %>
+    <%= render 'shared/error_messages' %>
+    
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email %>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
 
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+    <%= f.submit "アカウント作成", class: "btn" %>
+  <% end %>
+  <p>
+    すでにアカウントをお持ちの方は<a href="#">こちら</a>
+  </p>
 </div>

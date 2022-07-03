@@ -9,3 +9,13 @@ ja:
           email: メールアドレス
           password: パスワード
           password_confirmation: パスワード（確認）
+    errors:
+      models:
+        user:
+          blank: を入力してください
+          invalid: が不正な値です
+          attributes:
+            password:
+              too_short: は%{count}文字以上で入力してください
+              too_log: は%{count}文字以下で入力してください
+          
