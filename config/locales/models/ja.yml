@@ -4,11 +4,11 @@ ja:
       user: ユーザー
     # model毎に定義したいattributesを記述
     attributes:
-        user:
-          name: ユーザー名
-          email: メールアドレス
-          password: パスワード
-          password_confirmation: パスワード（確認）
+      user:
+        name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認）
     errors:
       models:
         user:
@@ -18,4 +18,3 @@ ja:
             password:
               too_short: は%{count}文字以上で入力してください
               too_log: は%{count}文字以下で入力してください
-          
