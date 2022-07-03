@@ -11,6 +11,8 @@
     <%= f.password_field :password %>
 
     <%= f.submit "ログイン", class: "btn" %>
+    <p>または</p>
+    <%= f.submit "ゲストログイン", class: "btn" %>
   <% end %>
   <p>
     初めて利用する場合は <%= link_to "新規登録", signup_path %>
