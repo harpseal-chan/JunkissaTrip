@@ -11,7 +11,7 @@ RSpec.describe "Sessions", type: :system do
     it 'flashが表示されること' do
       visit login_path
       fill_in 'メールアドレス', with: user.email
-      fill_in 'パスワード', with: ''
+      fill_in 'パスワード', with: 'invalid'
       click_button 'ログイン'
       expect(page).to have_selector 'div.alert.alert-danger'
       visit signup_path
