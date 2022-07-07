@@ -208,6 +208,10 @@ footer {
   @include edit_form;
 }
 
+.login-wrapper {
+  @include edit_form;
+}
+
 #error-explanation {
   ul {
     color: $error-message;
