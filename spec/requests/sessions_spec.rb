@@ -17,13 +17,20 @@ RSpec.describe "Sessions", type: :request do
   describe "DELETE /logout #destroy" do
     let(:user) { FactoryBot.create(:harpseal) }
 
-    it "ログアウトできること" do
+    before do
       post login_path, params: { session: { email: user.email,
                                             password: user.password } }
-      expect(logged_in?).to be_truthy
+    end
 
+    it "ログアウトできること" do
       delete logout_path
       expect(logged_in?).to be_falsy
+    end
+
+    it '2回連続でログアウトできること' do
+      delete logout_path
+      delete logout_path
+      expect(response).to redirect_to root_url
     end
   end
 end
