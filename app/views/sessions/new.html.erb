@@ -10,6 +10,11 @@
     <%= f.label :password, User.human_attribute_name(:password) %>
     <%= f.password_field :password %>
 
+    <%= f.label :remember_me, class: "checkbox" do %>
+      <%= f.check_box :remember_me %>
+      <span>ログインを保持する</span>
+    <% end %>
+
     <%= f.submit "ログイン", class: "btn" %>
     <p>または</p>
     <%= f.submit "ゲストログイン", class: "btn" %>

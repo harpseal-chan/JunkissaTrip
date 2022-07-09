@@ -219,3 +219,17 @@ footer {
     text-align: left;
   }
 }
+
+.checkbox {
+  margin-top: -10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  margin-top: -10px;
+  width: auto;
+  margin-left: 0;
+}
