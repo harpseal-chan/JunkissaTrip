@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:user) { User.new(name: 'ExampleUser', email: 'user@example.com', password: 'foobar', password_confirmation: 'foobar') }
 
-  context '有効な値で登録' do
+  context '有効な値でユーザー登録' do
     it 'userが有効であること' do
       expect(user).to be_valid
     end
@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context '無効な値で登録' do
+  context '無効な値でユーザー登録' do
     it 'nameが空の場合、userが無効であること' do
       user.name = ''
       expect(user).not_to be_valid
@@ -34,7 +34,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'emailが255文字以上の場合、userが無効であること' do
-      user.name = "a" * 244 + "@example.com"
+      user.name = format('%s@example.com', "a" * 244)
       expect(user).not_to be_valid
     end
 
@@ -70,6 +70,12 @@ RSpec.describe User, type: :model do
       user.email = mixed_case_email
       user.save
       expect(user.reload.email).to eq mixed_case_email.downcase
+    end
+  end
+
+  describe 'authenticatedメソッド' do
+    it 'remember_digestがnilの場合falseを返すこと' do
+      expect(user.authenticated?('')).to be_falsy
     end
   end
 end
