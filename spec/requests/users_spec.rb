@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
-  describe "GET /signup #new" do
+  describe "#new" do
     context '正常にアクセスした場合' do
       it "レスポンス 200 OK を返すこと" do
         get signup_path
@@ -14,7 +14,7 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "POST /users #create" do
+  describe "#create" do
     context '無効な値の場合' do
       let(:invalid_user_params) do
         { user: { name: '',
@@ -58,6 +58,72 @@ RSpec.describe "Users", type: :request do
       it 'ログイン状態であること' do
         post users_path, params: valid_user_params
         expect(logged_in?).to be_truthy
+      end
+    end
+  end
+
+  describe "#update" do
+    let!(:user) { FactoryBot.create(:harpseal) }
+
+    context '/users/id/editにアクセスした場合' do
+      it 'タイトルに"アカウント設定 | 純喫茶Trip"が表示されること' do
+        get edit_user_path(user)
+        expect(response.body).to include full_title('アカウント設定')
+      end
+    end
+
+    context '無効な値で更新した場合' do
+      @invalid_name = ''
+      @invalid_email = 'invalid'
+      @invalid_password = 'foo'
+      @invalid_password_cfm = 'bar'
+      let(:invalid_user_params) do
+        { user: { name: @invalid_name,
+                  email: @invalid_email,
+                  password: @invalid_password,
+                  password_confirmation: @invalid_password_cfm } }
+      end
+
+      it 'ユーザーの情報が変更されていないこと' do
+        patch user_path(user), params: invalid_user_params
+        user.reload
+        expect(user.name).not_to eq @invalid_name
+        expect(user.email).not_to eq @invalid_email
+        expect(user.password).not_to eq @invalid_password
+        expect(user.password_confirmation).not_to eq @invalid_password_cfm
+      end
+
+      it 'editページが再描画されること' do
+        get edit_user_path(user)
+        patch user_path(user), params: invalid_user_params
+        expect(response.body).to include full_title('アカウント設定')
+      end
+    end
+
+    context '有効な値で更新した場合' do
+      before do
+        @valid_name = 'foobar'
+        @valid_email = 'foo@bar.com'
+        @valid_password = ''
+        @valid_password_cfm = ''
+        patch user_path(user), params: { user: { name: @valid_name,
+                                                 email: @valid_email,
+                                                 password: @valid_password,
+                                                 password_confirmation: @valid_password_cfm } }
+      end
+
+      it 'ユーザーの情報が更新されていること' do
+        user.reload
+        expect(user.name).to eq @valid_name
+        expect(user.email).to eq @valid_email
+      end
+
+      it '/users/id にリダイレクトされること' do
+        expect(response).to redirect_to user
+      end
+
+      it 'flashが表示されること' do
+        expect(flash).to be_any
       end
     end
   end
