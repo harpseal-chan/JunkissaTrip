@@ -22,6 +22,10 @@ RSpec.describe "Users", type: :system do
   describe 'アカウント設定' do
     let!(:user) { FactoryBot.create(:harpseal) }
 
+    before do
+      log_in user
+    end
+
     context '無効な値で更新した場合' do
       it 'エラーメッセージが表示されること' do
         visit edit_user_path(user)

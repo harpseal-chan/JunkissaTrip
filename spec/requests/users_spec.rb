@@ -63,8 +63,12 @@ RSpec.describe "Users", type: :request do
   end
 
   describe "#update" do
-    let!(:user) { FactoryBot.create(:harpseal) }
+    let(:user) { FactoryBot.create(:harpseal) }
 
+    before do
+      log_in user
+    end
+    
     context '/users/id/editにアクセスした場合' do
       it 'タイトルに"アカウント設定 | 純喫茶Trip"が表示されること' do
         get edit_user_path(user)
@@ -73,19 +77,19 @@ RSpec.describe "Users", type: :request do
     end
 
     context '無効な値で更新した場合' do
-      @invalid_name = ''
-      @invalid_email = 'invalid'
-      @invalid_password = 'foo'
-      @invalid_password_cfm = 'bar'
-      let(:invalid_user_params) do
-        { user: { name: @invalid_name,
-                  email: @invalid_email,
-                  password: @invalid_password,
-                  password_confirmation: @invalid_password_cfm } }
+
+      before do
+        @invalid_name = ''
+        @invalid_email = 'invalid'
+        @invalid_password = 'foo'
+        @invalid_password_cfm = 'bar'
+        patch user_path(user), params: { user: { name: @invalid_name,
+                                                 email: @invalid_email,
+                                                 password: @invalid_password,
+                                                 password_confirmation: @invalid_password_cfm } }
       end
 
       it 'ユーザーの情報が変更されていないこと' do
-        patch user_path(user), params: invalid_user_params
         user.reload
         expect(user.name).not_to eq @invalid_name
         expect(user.email).not_to eq @invalid_email
@@ -94,8 +98,6 @@ RSpec.describe "Users", type: :request do
       end
 
       it 'editページが再描画されること' do
-        get edit_user_path(user)
-        patch user_path(user), params: invalid_user_params
         expect(response.body).to include full_title('アカウント設定')
       end
     end
