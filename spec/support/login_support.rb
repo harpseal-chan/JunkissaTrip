@@ -17,6 +17,10 @@ module LoginSupport
     def logged_in?
       !session[:user_id].nil?
     end
+
+    def log_out
+      session[:user_id] = nil
+    end
   end
 end
 

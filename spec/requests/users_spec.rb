@@ -198,4 +198,26 @@ RSpec.describe "Users", type: :request do
       end
     end
   end
+
+  describe 'フレンドリーフォワーディング' do
+    let(:user) { FactoryBot.create(:harpseal) }
+
+    context 'ログイン前に編集ページへアクセスした場合' do
+      it 'ログイン後に編集ページにリダイレクトすること' do
+        get edit_user_path(user)
+        log_in user
+        expect(response).to redirect_to edit_user_path(user)
+      end
+    end
+
+    context '次回ログイン時' do
+      it 'ログイン後にデフォルトのユーザー詳細ページにリダイレクトすること' do
+        get edit_user_path(user)
+        log_in user
+        log_out
+        log_in user
+        expect(response).to redirect_to user
+      end
+    end
+  end
 end
