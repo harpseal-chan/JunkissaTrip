@@ -27,7 +27,7 @@ $error-message: #D43131;
   h1 {
     font-weight: bold;
     display: inline-block;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     &:after {
       width: 70%;
       left: 50%;
@@ -213,6 +213,25 @@ footer {
 
 .login-wrapper {
   @include edit_form;
+}
+
+.setting-wrapper {
+  @include edit_form;
+  h3 {
+    width: 50%;
+    margin: 20px auto;
+    padding-bottom: 10px;
+    border-bottom: solid 2px;
+    border-color: $sub;
+  }
+  .account-delete-wrapper {
+    margin: auto;
+    width: 50%;
+    .btn {
+      text-align:center;
+      padding-top: 14px;
+    }
+  }
 }
 
 #error-explanation {
