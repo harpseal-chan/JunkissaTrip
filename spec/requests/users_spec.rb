@@ -198,4 +198,78 @@ RSpec.describe "Users", type: :request do
       end
     end
   end
+
+  describe '#destroy' do
+    let!(:user) { FactoryBot.create(:harpseal) }
+    let!(:other_user) { FactoryBot.create(:phoca) }
+
+    context 'ログアウト状態の場合' do
+      it 'アカウントを削除できないこと' do
+        expect do
+          delete user_path(user)
+        end.not_to change(User, :count)
+      end
+
+      it 'ログインページにリダイレクトすること' do
+        delete user_path(user)
+        expect(response).to redirect_to login_url
+      end
+    end
+
+    context '他のユーザーのアカウントを削除した場合' do
+      before do
+        log_in user
+      end
+
+      it 'アカウントを削除できないこと' do
+        expect do
+          delete user_path(other_user)
+        end.not_to change(User, :count)
+      end
+
+      it 'rootにリダイレクトすること' do
+        delete user_path(other_user)
+        expect(response).to redirect_to root_url
+      end
+    end
+
+    context 'ログイン状態の場合' do
+      before do
+        log_in user
+      end
+
+      it 'アカウントを削除できること' do
+        expect do
+          delete user_path(user)
+        end.to change(User, :count).by(-1)
+      end
+
+      it 'rootにリダイレクトすること' do
+        delete user_path(user)
+        expect(response).to redirect_to root_url
+      end
+    end
+  end
+
+  describe 'フレンドリーフォワーディング' do
+    let(:user) { FactoryBot.create(:harpseal) }
+
+    context 'ログイン前に編集ページへアクセスした場合' do
+      it 'ログイン後に編集ページにリダイレクトすること' do
+        get edit_user_path(user)
+        log_in user
+        expect(response).to redirect_to edit_user_path(user)
+      end
+    end
+
+    context '次回ログイン時' do
+      it 'ログイン後にデフォルトのユーザー詳細ページにリダイレクトすること' do
+        get edit_user_path(user)
+        log_in user
+        log_out
+        log_in user
+        expect(response).to redirect_to user
+      end
+    end
+  end
 end

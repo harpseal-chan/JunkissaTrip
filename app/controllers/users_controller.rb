@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def show
     @user = User.find(params[:id])
@@ -14,22 +14,30 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "ログインしました"
+      flash[:success] = 'ログインしました'
       redirect_to @user
     else
       render 'new'
     end
   end
 
-  def edit; end
+  def edit
+    @user = User.find(params[:id])
+  end
 
   def update
     if @user.update(user_params)
-      flash[:success] = "アカウント情報を更新しました"
+      flash[:success] = 'アカウント情報を更新しました'
       redirect_to @user
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = 'アカウントを削除しました'
+    redirect_to root_url
   end
 
   private
@@ -41,6 +49,7 @@ class UsersController < ApplicationController
     def logged_in_user
       return if logged_in?
 
+      store_location
       flash[:danger] = 'ログインしてください'
       redirect_to login_url
     end
