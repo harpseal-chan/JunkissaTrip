@@ -69,3 +69,111 @@ Shop.seed do |s|
   s.opening = '10:00 - 18:00'
   s.closed = '不定休'
 end
+
+Shop.seed do |s|
+  s.id = 9
+  s.name = '喫茶ソワレ'
+  s.address = '京都府京都市下京区真町95'
+  s.phone = '075-221-0351'
+  s.opening = '火〜金 13:00 - 19:00 / 土・日 13:00 - 19:30'
+  s.closed = '月曜'
+end
+
+Shop.seed do |s|
+  s.id = 10
+  s.name = '可否道 平河町店'
+  s.address = '東京都千代田区平河町2-12-2 ニュー福井ビルB1F'
+  s.phone = '03-3265-1374'
+  s.opening = '10:00 - 19:00'
+  s.closed = '日曜'
+end
+
+Shop.seed do |s|
+  s.id = 11
+  s.name = 'こぉひぃはうす 可否館'
+  s.address = '静岡県下田市1-10-1'
+  s.phone = '0558-22-8092'
+  s.opening = '10:30 - 20:00'
+  s.closed = '金曜'
+end
+
+Shop.seed do |s|
+  s.id = 12
+  s.name = 'ブリッヂ'
+  s.address = '東京都中央区銀座4-1 西銀座デパート B1F'
+  s.phone = '03-3566-4081'
+  s.opening = '11:00 - 19:30'
+  s.closed = '不定休'
+end
+
+Shop.seed do |s|
+  s.id = 13
+  s.name = '珈琲専門店 エース'
+  s.address = '東京都千代田区内神田3-10-6'
+  s.phone = '03-3256-3941'
+  s.opening = '月〜金 7:00 - 18:00 / 土 7:00 - 14:00'
+  s.closed = '日曜'
+end
+
+Shop.seed do |s|
+  s.id = 14
+  s.name = '邪宗門'
+  s.address = '静岡県下田市1-11-19'
+  s.phone = '0558-22-3582'
+  s.opening = '11:00 - 16:00'
+  s.closed = '水曜・木曜'
+end
+
+Shop.seed do |s|
+  s.id = 15
+  s.name = 'アール座読書館'
+  s.address = '東京都杉並区高円寺南3-57-6'
+  s.phone = '03-3312-7941'
+  s.opening = '12:00 - 22:00'
+  s.closed = '月曜'
+end
+
+Shop.seed do |s|
+  s.id = 16
+  s.name = '喫茶ココ'
+  s.address = '大阪府大阪市港区波除3-3'
+  s.phone = ''
+  s.opening = '金土日 12:00 - 18:30'
+  s.closed = '月〜木曜・祝日'
+end
+
+Shop.seed do |s|
+  s.id = 17
+  s.name = 'チェリー'
+  s.address = '東京都大田区蒲田5-19-8'
+  s.phone = '03-3735-3521'
+  s.opening = '9:00 - 20:00'
+  s.closed = '日曜'
+end
+
+Shop.seed do |s|
+  s.id = 18
+  s.name = '珈琲亭ルアン'
+  s.address = '東京都大田区大森北1-36-2'
+  s.phone = '03-3761-6077'
+  s.opening = '7:00 - 18:30'
+  s.closed = '木曜'
+end
+
+Shop.seed do |s|
+  s.id = 19
+  s.name = 'コーヒー＆プリン へッケルン'
+  s.address = '東京都港区西新橋1-20-11 安藤ビル 1F'
+  s.phone = '03-3580-5661'
+  s.opening = '月〜金 8:00 - 19:00 / 土 8:00 - 17:00'
+  s.closed = '日曜'
+end
+
+Shop.seed do |s|
+  s.id = 20
+  s.name = 'ショパン（CHOPIN）'
+  s.address = '東京都千代田区神田須田町1-19-9'
+  s.phone = '03-3251-8033'
+  s.opening = '月〜金 8:00 - 20:00 / 土 11:00 - 20:00'
+  s.closed = '日曜'
+end
