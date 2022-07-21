@@ -46,7 +46,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    it 'emailは重複して登録できないこと' do
+    it 'emailは一意であること' do
       duplicate_user = user.dup
       duplicate_user.email = user.email.upcase
       user.save

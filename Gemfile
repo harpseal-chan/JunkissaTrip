@@ -24,6 +24,9 @@ gem 'bcrypt', '~> 3.1.13'
 
 gem 'bootstrap-sass', '3.4.1'
 
+# For Inserting initial data
+gem 'seed-fu'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
