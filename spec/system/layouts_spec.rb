@@ -32,19 +32,38 @@ RSpec.describe "Layouts", type: :system do
         expect(page).to have_link 'ログアウト', href: logout_path
       end
     end
+
+    context 'ログアウト状態の場合' do
+      before do
+        visit root_path
+      end
+
+      it 'ログインのリンクが存在すること' do
+        expect(page).to have_link 'ログイン', href: login_path
+      end
+
+      it '新規登録のリンクが存在すること' do
+        expect(page).to have_link '新規登録', href: signup_path
+      end
+    end
   end
 
-  context 'ログアウト状態の場合' do
+  describe '店舗一覧ページ' do
     before do
-      visit root_path
+      20.times do
+        FactoryBot.create(:sample_shops)
+      end
+      visit shops_path
     end
 
-    it 'ログインのリンクが存在すること' do
-      expect(page).to have_link 'ログイン', href: login_path
+    it 'ページネーションが存在すること' do
+      expect(page).to have_selector '.pagination'
     end
 
-    it '新規登録のリンクが存在すること' do
-      expect(page).to have_link '新規登録', href: signup_path
+    it '各店舗の詳細リンクが存在すること' do
+      Shop.page(1).each do |shop|
+        expect(page).to have_link href: shop_path(shop)
+      end
     end
   end
 end

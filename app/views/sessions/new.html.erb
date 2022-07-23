@@ -1,25 +1,27 @@
 <% provide(:title, 'ログイン') %>
 
-<div class="login-wrapper">
-  <h1>ログイン</h1>
-  <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-    
-    <%= f.label :email, User.human_attribute_name(:email) %>
-    <%= f.email_field :email %>
-
-    <%= f.label :password, User.human_attribute_name(:password) %>
-    <%= f.password_field :password %>
-
-    <%= f.label :remember_me, class: "checkbox" do %>
-      <%= f.check_box :remember_me %>
-      <span>ログインを保持する</span>
+<div class="content-wrapper">
+  <div class="login-wrapper">
+    <h1>ログイン</h1>
+    <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+      
+      <%= f.label :email, User.human_attribute_name(:email) %>
+      <%= f.email_field :email %>
+  
+      <%= f.label :password, User.human_attribute_name(:password) %>
+      <%= f.password_field :password %>
+  
+      <%= f.label :remember_me, class: "checkbox" do %>
+        <%= f.check_box :remember_me %>
+        <span>ログインを保持する</span>
+      <% end %>
+  
+      <%= f.submit "ログイン", class: "btn" %>
+      <p>または</p>
+      <%= f.submit "ゲストログイン", class: "btn" %>
     <% end %>
-
-    <%= f.submit "ログイン", class: "btn" %>
-    <p>または</p>
-    <%= f.submit "ゲストログイン", class: "btn" %>
-  <% end %>
-  <p>
-    初めて利用する場合は <%= link_to "新規登録", signup_path %>
-  </p>
+    <p>
+      初めて利用する場合は <%= link_to "新規登録", signup_path %>
+    </p>
+  </div>  
 </div>

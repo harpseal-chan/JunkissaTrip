@@ -1,0 +1,17 @@
+<div class="shop">
+  <li>
+    <%= link_to shop.name, shop, class: "shop-name stretched-link" %>
+  </li>
+  <dl>
+    <dt>住所</dt>
+    <dd><%= shop.address %></dd>
+  </dl>
+  <dl>
+    <dt>営業時間</dt>
+    <dd><%= shop.opening %></dd>
+  </dl>
+  <dl>
+    <dt>定休日</dt>
+    <dd><%= shop.closed %></dd>
+  </dl>
+</div>
