@@ -1,10 +1,12 @@
 <% provide(:title, '新規登録') %>
 <% provide(:button_text, 'アカウント作成') %>
 
-<div class="form-wrapper">
-  <h1>新規登録</h1>
-  <%= render 'form' %>
-  <p>
-    すでにアカウントをお持ちの方は <%= link_to "ログイン", login_path %>
-  </p>
+<div class="content-wrapper">
+  <div class="form-wrapper">
+    <h1>新規登録</h1>
+    <%= render 'form' %>
+    <p>
+      すでにアカウントをお持ちの方は <%= link_to "ログイン", login_path %>
+    </p>
+  </div>
 </div>

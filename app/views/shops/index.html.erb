@@ -1,0 +1,28 @@
+<% provide(:title, '店舗一覧') %>
+
+<div class="content-wrapper">
+  <div class="shop-index-wrapper">
+    <h1>店舗一覧</h1>
+    <ul class="shops">
+      <% @shops.each do |shop| %>
+        <div class="shop">
+          <li>
+            <%= link_to shop.name, shop, class: "shop-name stretched-link" %>
+          </li>
+          <dl>
+            <dt>住所</dt>
+            <dd><%= shop.address %></dd>
+          </dl>
+          <dl>
+            <dt>営業時間</dt>
+            <dd><%= shop.opening %></dd>
+          </dl>
+          <dl>
+            <dt>定休日</dt>
+            <dd><%= shop.closed %></dd>
+          </dl>
+        </div>
+      <% end %>
+    </ul>
+  </div>  
+</div>
