@@ -66,4 +66,11 @@ RSpec.describe "Layouts", type: :system do
       end
     end
   end
+
+  describe '404ページ' do
+    it 'notfound-wrapperが存在すること' do
+      visit user_path('not-found')
+      expect(page).to have_selector '#notfound-wrapper'
+    end
+  end
 end
