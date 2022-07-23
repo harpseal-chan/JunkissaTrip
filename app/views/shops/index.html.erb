@@ -1,0 +1,13 @@
+<% provide(:title, '店舗一覧') %>
+
+<div class="content-wrapper">
+  <div class="shop-index-wrapper">
+    <h1>店舗一覧</h1>
+    <ul class="shops">
+      <% @shops.each do |shop| %>
+        <%= render shop %>
+      <% end %>
+    </ul>
+    <%= paginate @shops %>
+  </div>
+</div>

@@ -1,14 +1,16 @@
 <% provide(:title, 'アカウント設定') %>
 <% provide(:button_text, '変更') %>
 
-<div class="setting-wrapper">
-  <h1>アカウント設定</h1>
-  <div class="profile-edit-wrapper">
-    <h3>プロフィール編集</h3>
-    <%= render 'form' %>
-  </div>
-  <div class="account-delete-wrapper">
-    <h3>アカウント削除</h3>
-    <%= link_to "削除", @user, method: :delete, data: { confirm: "アカウントは復元できません。本当に削除しますか？" }, class: "btn" %>
-  </div>
+<div class="content-wrapper">
+  <div class="setting-wrapper">
+    <h1>アカウント設定</h1>
+    <div class="profile-edit-wrapper">
+      <h3>プロフィール編集</h3>
+      <%= render 'form' %>
+    </div>
+    <div class="account-delete-wrapper">
+      <h3>アカウント削除</h3>
+      <%= link_to "削除", @user, method: :delete, data: { confirm: "アカウントは復元できません。本当に削除しますか？" }, class: "btn" %>
+    </div>
+  </div>  
 </div>

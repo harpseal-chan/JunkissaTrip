@@ -4,6 +4,7 @@
 $main: #f7f6f2;
 $sub: #f0e5cf;
 $accent-blown: #653e03;
+$accent-blown-t: #653e03af;
 $accent-blue: #4b6587;
 $error-message: #D43131;
 
@@ -15,14 +16,14 @@ $error-message: #D43131;
   box-sizing:         border-box;
 }
 
-@mixin edit_form {
+@mixin content {
   margin: 70px auto;
   width: 50%;
   padding-top: 20px;
   padding-bottom: 50px;
   border: solid 2px;
   border-color: $sub;
-  border-radius: 3%;
+  border-radius: 6px;
   text-align: center;
   h1 {
     font-weight: bold;
@@ -39,6 +40,9 @@ $error-message: #D43131;
       transform: translate(20%, 50%);
     }
   }
+}
+
+@mixin edit_form {
   form {
     margin: auto;
     width: 50%;
@@ -104,6 +108,7 @@ header {
         background-color: $main;
         opacity: 0.7;
         color: $accent-blown;
+        transition:0.5s all;
       }
     }
   }
@@ -136,7 +141,7 @@ body {
   h1 {
     letter-spacing: 0.08em;
     font-size: 80px;
-    font-weight:bold; 
+    font-weight:bold;
     margin-top: 0;
   }
   h2 {
@@ -171,7 +176,7 @@ body {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.428571429;
-  border-radius: 4px;
+  border-radius: 6px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -206,6 +211,10 @@ footer {
 }
 
 /* forms */
+
+.content-wrapper {
+  @include content;
+}
 
 .form-wrapper {
   @include edit_form;
@@ -254,4 +263,74 @@ footer {
   margin-top: -10px;
   width: auto;
   margin-left: 0;
+}
+
+.shop-index-wrapper {
+  .shops {
+    margin: auto;
+    padding-left: 0;
+    width: 70%;
+    list-style: none;
+    .shop {
+      text-align: left;
+      position:  relative;
+      margin-bottom: 30px;
+      padding: 30px;
+      background-color: #ffffff;
+      box-shadow: 3px 3px 4px rgba(0,0,0,.15);
+      border-radius: 6px;
+      transition:0.3s all;
+      &:hover {
+        transform: translateY(2px);
+        box-shadow: 0px 0px 0px rgba(0,0,0,.15);
+      }
+      .shop-name {
+        font-size: 25px;
+        color: $accent-blown;
+        font-weight:bold;
+        text-decoration: none;
+      }
+      li {
+        padding-bottom: 10px;
+      }
+      dl {
+        margin-bottom: 5px;
+        color: $accent-blown-t; 
+      }
+    }
+  }
+}
+
+.stretched-link:after {
+  position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: "";
+}
+
+.pagination {
+  .active {
+    a, span {
+      background-color: $accent-blown;
+      border-color: $accent-blown-t;
+      &:hover, &:focus {
+        background-color: $accent-blown;
+        border-color: $accent-blown-t;
+      }
+    }
+  }
+  li {
+    a,span {
+      border-color: $accent-blown-t;
+      color: $accent-blown;
+      &:hover, &:focus {
+        border-color: $accent-blown-t;
+        color: $accent-blown;
+        transition:0.5s all;
+      }
+    }
+  }
 }
