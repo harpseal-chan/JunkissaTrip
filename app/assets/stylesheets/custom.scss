@@ -334,3 +334,26 @@ footer {
     }
   }
 }
+
+#notfound-wrapper {
+  h2 {
+    margin-bottom: 30px;
+  }
+  h4 {
+    margin: 0 0 20px 0;
+  }
+  #recommend-wrapper {
+    width: 50%;
+    padding: 30px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    box-shadow: 3px 3px 4px rgba(0,0,0,.15);
+    border-radius: 6px;
+    p {
+      margin-top: 10px;
+    }
+    img {
+      border-radius: 6px;
+    }
+  }
+}

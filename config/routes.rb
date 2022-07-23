@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   resources :users, except: [:index]
   resources :shops, only: [:index, :show]
+
+  get '*path', controller: 'application', action: 'render404'
 end
