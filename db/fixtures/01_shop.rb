@@ -218,16 +218,6 @@ Shop.seed do |s|
 end
 
 Shop.seed do |s|
-  s.id = 22
-  s.name = '神田珈琲園 神田駅北口店'
-  s.address = '東京都千代田区鍛冶町2-13-12'
-  s.phone = '03-3252-7608'
-  s.opening = '平日 7:00 - 22:00 / 土曜 8:00 - 18:00 / 日曜 9:00 - 18:00'
-  s.closed = '年中無休'
-  s.image = 'shop_22.jpg'
-end
-
-Shop.seed do |s|
   s.id = 23
   s.name = 'サンバード'
   s.address = '静岡県熱海市東海岸町2-15'
@@ -240,10 +230,10 @@ end
 Shop.seed do |s|
   s.id = 24
   s.name = 'DUN AROMA（ダン アロマ）'
-  s.address = '静岡県熱海市東海岸町2-15'
-  s.phone = '050-5492-9264'
-  s.opening = '9:00 - 16:00'
-  s.closed = '水曜・木曜'
+  s.address = '東京都目黒区平町１丁目２２−１２'
+  s.phone = '03-3718-4434'
+  s.opening = '12:00 - 18:00 / 20:00 - 0:00'
+  s.closed = '月曜'
   s.image = 'shop_24.jpg'
 end
 

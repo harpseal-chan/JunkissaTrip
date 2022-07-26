@@ -17,8 +17,8 @@ $error-message: #D43131;
 }
 
 @mixin content {
-  margin: 70px auto;
-  width: 70%;
+  margin: 35px auto;
+  width: 80%;
   padding-top: 20px;
   padding-bottom: 50px;
   text-align: center;
@@ -291,9 +291,11 @@ footer {
   .shops {
     margin: auto;
     padding-left: 0;
-    width: 70%;
+    width: 80%;
     list-style: none;
     .shop {
+      height: 60%;
+      overflow: auto;
       text-align: left;
       position:  relative;
       margin-bottom: 30px;
@@ -304,17 +306,35 @@ footer {
         box-shadow: 0px 0px 0px rgba(0,0,0,.15);
       }
       .shop-name {
+        float: left;
+        margin-bottom: 20px;
         font-size: 25px;
         color: $accent-blown;
         font-weight:bold;
         text-decoration: none;
+        clear: both;
       }
-      li {
-        padding-bottom: 10px;
+      img {
+        float: left;
+        width: 45%;
+        height: 220px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        object-fit: cover;
+        border-radius: 6px;
+        clear: both;
       }
       dl {
-        margin-bottom: 5px;
+        width: 50%;
+        float: left;
+        font-size: 17px;
         color: $accent-blown-t; 
+      }
+      dt {
+        margin-bottom: 5px;
+      }
+      dd {
+        margin-bottom: 10px;
       }
     }
   }
@@ -367,9 +387,10 @@ footer {
     }
     img {
       float: left;
+      margin-bottom: 20px;
       object-fit: cover;
       border-radius: 6px;
-      height: 400px;
+      height: 350px;
       width: 50%;
       clear: both;
     }
@@ -382,7 +403,7 @@ footer {
       font-size: 20px;
       margin-bottom: 10px;
     }
-    dd {
+    dd {      
       font-size: 17px;
       margin-bottom: 20px;
       margin-left: 20px;
