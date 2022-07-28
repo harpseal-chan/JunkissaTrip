@@ -17,40 +17,23 @@ $error-message: #D43131;
 }
 
 @mixin content {
-  margin: 70px auto;
-  width: 50%;
+  margin: 35px auto;
+  width: 80%;
   padding-top: 20px;
   padding-bottom: 50px;
-  border: solid 2px;
-  border-color: $sub;
-  border-radius: 6px;
   text-align: center;
-  h1 {
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: 30px;
-    &:after {
-      width: 70%;
-      left: 50%;
-      background-color: $accent-blue;
-      border-radius: 5px; /* 線幅の半分 */
-      content: "";
-      display: block;
-      height: 10px;
-      transform: translate(20%, 50%);
-    }
-  }
 }
 
-@mixin edit_form {
+@mixin form_layout {
+  @include wrapper_h1;
   form {
     margin: auto;
-    width: 50%;
+    width: 45%;
   }
   .btn {
     margin-top: 20px;
     height: 50px;
-    width: 70%;
+    width: 75%;
   }
   label {
     float: left;
@@ -64,9 +47,46 @@ $error-message: #D43131;
     @include box_sizing;
   }
   p {
-    @include box_sizing;
     a {
       color: $accent-blown;
+    }
+  }
+}
+
+@mixin frame {
+  border: solid 2px;
+  border-color: $sub;
+  border-radius: 6px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@mixin shop_block {
+  padding: 30px;
+  background-color: #ffffff;
+  box-shadow: 3px 3px 4px rgba(0,0,0,.15);
+  border-radius: 6px;
+  h1 {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+}
+
+@mixin wrapper_h1 {
+  h1 {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 30px;
+    &:after {
+      width: 70%;
+      left: 50%;
+      background-color: $accent-blue;
+      border-radius: 5px; /* 線幅の半分 */
+      content: "";
+      display: block;
+      height: 10px;
+      transform: translate(20%, 50%);
     }
   }
 }
@@ -216,16 +236,31 @@ footer {
   @include content;
 }
 
-.form-wrapper {
-  @include edit_form;
+.signin-wrapper {
+  @include form_layout;
+  @include frame;
 }
 
 .login-wrapper {
-  @include edit_form;
+  @include form_layout;
+  @include frame;
+  .checkbox {
+    margin-top: -10px;
+    span {
+      margin-left: 20px;
+      font-weight: normal;
+    }
+  }
+  #session_remember_me {
+    margin-top: -10px;
+    width: auto;
+    margin-left: 0;
+  }
 }
 
 .setting-wrapper {
-  @include edit_form;
+  @include form_layout;
+  @include frame;
   h3 {
     width: 50%;
     margin: 20px auto;
@@ -251,51 +286,55 @@ footer {
   }
 }
 
-.checkbox {
-  margin-top: -10px;
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
-}
-
-#session_remember_me {
-  margin-top: -10px;
-  width: auto;
-  margin-left: 0;
-}
-
 .shop-index-wrapper {
+  @include wrapper_h1;
   .shops {
     margin: auto;
     padding-left: 0;
-    width: 70%;
+    width: 80%;
     list-style: none;
     .shop {
+      height: 60%;
+      overflow: auto;
       text-align: left;
       position:  relative;
       margin-bottom: 30px;
-      padding: 30px;
-      background-color: #ffffff;
-      box-shadow: 3px 3px 4px rgba(0,0,0,.15);
-      border-radius: 6px;
+      @include shop_block;
       transition:0.3s all;
       &:hover {
         transform: translateY(2px);
         box-shadow: 0px 0px 0px rgba(0,0,0,.15);
       }
       .shop-name {
+        float: left;
+        margin-bottom: 20px;
         font-size: 25px;
         color: $accent-blown;
         font-weight:bold;
         text-decoration: none;
+        clear: both;
       }
-      li {
-        padding-bottom: 10px;
+      img {
+        float: left;
+        width: 45%;
+        height: 220px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        object-fit: cover;
+        border-radius: 6px;
+        clear: both;
       }
       dl {
-        margin-bottom: 5px;
+        width: 50%;
+        float: left;
+        font-size: 17px;
         color: $accent-blown-t; 
+      }
+      dt {
+        margin-bottom: 5px;
+      }
+      dd {
+        margin-bottom: 10px;
       }
     }
   }
@@ -335,6 +374,57 @@ footer {
   }
 }
 
+#shop-detail-wrapper {
+  @include shop_block;
+  overflow: auto;
+  padding: 50px 60px;
+  .shop-info {
+    overflow: hidden;
+    h1 {
+      float: left;
+      margin-top: 0;
+      margin-bottom: 40px;
+    }
+    img {
+      float: left;
+      margin-bottom: 20px;
+      object-fit: cover;
+      border-radius: 6px;
+      height: 350px;
+      width: 50%;
+      clear: both;
+    }
+    dl {
+      float: left;
+      text-align: left;
+      margin-left: 30px;
+    }
+    dt {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    dd {      
+      font-size: 17px;
+      margin-bottom: 20px;
+      margin-left: 20px;
+    }
+  }
+  .comment {
+    h3 {
+      margin-top: 50px;
+      padding-bottom: 5px;
+      border-bottom: solid 2px;
+      border-color: $sub;
+      text-align: left;
+      clear: both;
+    }
+    p {
+      margin-top: 20px;
+      text-align: left;
+    }
+  }
+}
+
 #notfound-wrapper {
   h2 {
     margin-bottom: 30px;
@@ -347,8 +437,7 @@ footer {
     padding: 30px;
     margin: 30px auto;
     background-color: #ffffff;
-    box-shadow: 3px 3px 4px rgba(0,0,0,.15);
-    border-radius: 6px;
+    @include shop_block;
     p {
       margin-top: 10px;
     }

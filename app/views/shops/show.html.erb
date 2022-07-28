@@ -1,0 +1,30 @@
+<% provide(:title, @shop.name) %>
+
+<div class="content-wrapper">
+  <div id="shop-detail-wrapper">
+    <div class="shop-info">
+      <h1><%= @shop.name %></h1>
+      <% if @shop.image.nil? %>
+        <%= image_tag 'no_image.png', alt: "店舗の写真", width: "50%" %>
+      <% else %>
+        <%= image_tag @shop.image, alt: "店舗の写真", width: "50%" %>
+      <% end %>
+      <dl>
+        <dt>住所</dt>
+        <dd><%= @shop.address %></dd>
+        <dt>電話番号</dt>
+        <dd><%= @shop.phone %></dd>
+        <dt>営業時間</dt>
+        <dd><%= @shop.opening %></dd>
+        <dt>定休日</dt>
+        <dd><%= @shop.closed %></dd>
+      </dl>
+    </div>
+
+    <div class="comment">
+      <h3>コメント一覧</h3>
+      <p>コメントはまだありません。</p>
+    </div>
+
+  </div>
+</div>

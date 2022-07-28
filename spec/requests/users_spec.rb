@@ -163,9 +163,16 @@ RSpec.describe "Users", type: :request do
     let(:user) { FactoryBot.create(:harpseal) }
 
     context 'ログイン状態で/users/id/editにアクセスした場合' do
-      it 'タイトルに"アカウント設定 | 純喫茶Trip"が表示されること' do
+      before do
         log_in user
         get edit_user_path(user)
+      end
+
+      it "レスポンス 200 OK を返すこと" do
+        expect(response).to have_http_status :ok
+      end
+
+      it 'タイトルに"アカウント設定 | 純喫茶Trip"が表示されること' do
         expect(response.body).to include full_title('アカウント設定')
       end
     end
