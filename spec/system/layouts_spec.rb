@@ -49,10 +49,9 @@ RSpec.describe "Layouts", type: :system do
   end
 
   describe '店舗一覧ページ' do
+    let!(:shops) { FactoryBot.create_list(:sample_shops, 30) }
+
     before do
-      20.times do
-        FactoryBot.create(:sample_shops)
-      end
       visit shops_path
     end
 
@@ -64,6 +63,22 @@ RSpec.describe "Layouts", type: :system do
       Shop.page(1).each do |shop|
         expect(page).to have_link href: shop_path(shop)
       end
+    end
+  end
+
+  describe '店舗詳細ページ' do
+    let(:shop) { FactoryBot.create(:shop) }
+
+    before do
+      visit shop_path(shop)
+    end
+
+    it '店舗情報がすべて表示されていること' do
+      expect(page).to have_content shop.name
+      expect(page).to have_content shop.address
+      expect(page).to have_content shop.phone
+      expect(page).to have_content shop.opening
+      expect(page).to have_content shop.closed
     end
   end
 
