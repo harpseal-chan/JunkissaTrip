@@ -1,21 +1,27 @@
 class BookmarksController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
-  before_action :correct_user, only: [:create, :destroy]
+  before_action :set_shop, only: [:create, :destroy]
 
   def create
-    @user = current_user
-    @bookmark = Bookmark.new(user_id: @user.id, shop_id: @shop.id)
-    @bookmark.save
+    # Rails.logger.debug @user.inspect
+    # @user.methods
+    @bookmark = Bookmark.new(user_id: current_user.id, shop_id: @shop.id)
+    if @bookmark.save
+      flash[:success] = 'ブックマーク成功'
+    else
+      flash[:danger] = 'ブックマーク失敗'
+    end
+    render "shops/show"
   end
 
   def destroy
-    bookmark = current_user.bookmarks.find_by!(shop_id: @shop.id)
-    bookmark.destroy!
+    @bookmark = Bookmark.find_by(user_id: current_user.id, shop_id: @shop.id)
+    @bookmark.destroy
   end
 
   private
 
     def set_shop
-      @shop = Shop.find(params[:shop_id])
+      @shop = Shop.find_by(id: params[:shop_id])
     end
 end
