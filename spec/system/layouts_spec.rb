@@ -8,6 +8,11 @@ RSpec.describe "Layouts", type: :system do
   end
 
   describe 'ヘッダー' do
+    it '店舗一覧のリンクが存在すること' do
+      visit root_path
+      expect(page).to have_link '店舗一覧', href: shops_path
+    end
+
     context 'ログイン状態の場合' do
       before do
         log_in user
