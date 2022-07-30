@@ -10,6 +10,8 @@
 #  closed     :string
 
 class Shop < ApplicationRecord
+  has_many :bookmarks, dependent: :destroy
+
   validates :name, presence: true, length: { maximum: 255 }
   validates :address, presence: true, uniqueness: true, length: { maximum: 255 }
   validates :phone, length: { maximum: 20 }

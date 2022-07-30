@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :bookmarks, dependent: :destroy
+
   attr_accessor :remember_token
 
   before_save { email.downcase! }
