@@ -4,6 +4,9 @@
   <div id="shop-detail-wrapper">
     <div class="shop-info">
       <h1><%= @shop.name %></h1>
+      <%= link_to shop_bookmarks_path(@shop), method: :post, class: "btn btn-bm col-sm-2 fa-lg" do %>
+        ブックマーク<i class="fa-solid fa-bookmark"></i>
+      <% end %>
       <% if @shop.image.nil? %>
         <%= image_tag 'no_image.png', alt: "店舗の写真", width: "50%" %>
       <% else %>
