@@ -3,7 +3,9 @@ class BookmarksController < ApplicationController
   before_action :correct_user, only: [:create, :destroy]
 
   def create
-    current_user.bookmarks.find_or_create_by(shop_id: @shop.id)
+    @user = current_user
+    @bookmark = Bookmark.new(user_id: @user.id, shop_id: @shop.id)
+    @bookmark.save
   end
 
   def destroy
