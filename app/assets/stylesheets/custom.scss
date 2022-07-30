@@ -94,7 +94,6 @@ $error-message: #D43131;
 /* universal */
 
 header {
-  background-color: $sub;
   a {
     color: $accent-blown;
   }
@@ -105,7 +104,7 @@ header {
 
 #logo {
   float: left;
-  margin-right: 10px;
+  margin-left: 10px;
   font-size: 1.7em;
   color: $accent-blown;
   padding-top: 9px;
@@ -113,22 +112,32 @@ header {
   text-decoration: none;
 }
 
-.search-form {
-  padding-top: 9px;
-}
-
 .fa-magnifying-glass {
   padding-left: 5px;
 }
 
-.navbar-nav {
-  li {
-    a {
-      &:hover {
-        background-color: $main;
-        opacity: 0.7;
+.navbar {
+  background-color: $sub;
+  .navbar-toggle {
+    border-color: $accent-blown;
+    &:hover {
+      background-color: $main;
+      opacity: 0.5;
+      transition:0.3s all;
+    }
+    .icon-bar {
+      background-color: $accent-blown;
+    }
+  }
+  .navbar-nav {
+    li {
+      a {
         color: $accent-blown;
-        transition:0.5s all;
+        &:hover {
+          opacity: 0.5;
+          color: $accent-blown;
+          transition:0.3s all;
+        }
       }
     }
   }
