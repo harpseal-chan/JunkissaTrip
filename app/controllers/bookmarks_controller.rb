@@ -3,20 +3,15 @@ class BookmarksController < ApplicationController
   before_action :set_shop, only: [:create, :destroy]
 
   def create
-    # Rails.logger.debug @user.inspect
-    # @user.methods
-    @bookmark = Bookmark.new(user_id: current_user.id, shop_id: @shop.id)
-    if @bookmark.save
-      flash[:success] = 'ブックマーク成功'
-    else
-      flash[:danger] = 'ブックマーク失敗'
-    end
-    render "shops/show"
+    bookmark = Bookmark.new(user_id: current_user.id, shop_id: @shop.id)
+    bookmark.save
+    render 'shops/show'
   end
 
   def destroy
-    @bookmark = Bookmark.find_by(user_id: current_user.id, shop_id: @shop.id)
-    @bookmark.destroy
+    bookmark = Bookmark.find_by(user_id: current_user.id, shop_id: @shop.id)
+    bookmark.destroy if bookmark.present?
+    render 'shops/show'
   end
 
   private

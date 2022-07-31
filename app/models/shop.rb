@@ -17,4 +17,8 @@ class Shop < ApplicationRecord
   validates :phone, length: { maximum: 20 }
   validates :opening, length: { maximum: 255 }
   validates :closed, length: { maximum: 255 }
+
+  def bookmarked_by?(user)
+    bookmarks.where(user_id: user).exists?
+  end
 end

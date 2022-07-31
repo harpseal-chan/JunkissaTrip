@@ -210,10 +210,6 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  &:hover {
-    opacity: 0.7;
-    color: rgba(247,246,242,0.8);
-  }
 }
 
 .btn-bm {
@@ -222,11 +218,24 @@ body {
   color: $accent-blown;
   border: 1px solid;
   padding: 15px;
+  font-size: 1.5rem;
   &:hover {
-    opacity: 0.7;
-    color: $main;
-    background-color: $accent-blown;
-    transition:0.5s all;
+    color: $accent-blown;  
+  }
+  .fa-bookmark {
+    margin-left: 8px;
+  }
+}
+
+.btn-ubm {
+  float: right;
+  background-color: $accent-blown;
+  color: $main;
+  border: 1px solid;
+  padding: 15px;
+  font-size: 1.5rem;
+  &:hover {
+    color: $main;  
   }
   .fa-bookmark {
     margin-left: 8px;
