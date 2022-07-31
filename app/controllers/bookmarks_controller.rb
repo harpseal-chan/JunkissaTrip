@@ -5,13 +5,19 @@ class BookmarksController < ApplicationController
   def create
     bookmark = Bookmark.new(user_id: current_user.id, shop_id: @shop.id)
     bookmark.save
-    render 'shops/show'
+    respond_to do |format|
+      format.html { redirect_to @shop }
+      format.js
+    end
   end
 
   def destroy
     bookmark = Bookmark.find_by(user_id: current_user.id, shop_id: @shop.id)
     bookmark.destroy if bookmark.present?
-    render 'shops/show'
+    respond_to do |format|
+      format.html { redirect_to @shop }
+      format.js
+    end
   end
 
   private

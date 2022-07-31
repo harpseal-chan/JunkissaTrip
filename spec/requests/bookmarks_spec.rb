@@ -32,13 +32,20 @@ RSpec.describe "Bookmarks", type: :request do
                                                                   shop_id: shop.id } }
           end.to change(Bookmark, :count).by(1)
         end
+
+        it 'Ajaxでブックマーク登録できること' do
+          expect do
+            post shop_bookmarks_path(shop), params: { bookmark: { user_id: user.id,
+                                                                  shop_id: shop.id } }, xhr: true
+          end.to change(Bookmark, :count).by(1)
+        end
       end
     end
   end
 
   describe "#destroy" do
     context 'ログアウト状態' do
-      it 'ブックマーク登録解除できないこと' do
+      it 'ブックマーク解除できないこと' do
         expect do
           delete shop_bookmarks_path(shop), params: { bookmark: { user_id: user.id,
                                                                   shop_id: shop.id } }
@@ -57,9 +64,15 @@ RSpec.describe "Bookmarks", type: :request do
         post shop_bookmarks_path(shop), params: { bookmark: { user_id: user.id, shop_id: shop.id } }
       end
 
-      it 'ブックマーク登録解除できること' do
+      it 'ブックマーク解除できること' do
         expect do
           delete shop_bookmarks_path(shop)
+        end.to change(Bookmark, :count).by(-1)
+      end
+
+      it 'Ajaxでブックマーク解除できること' do
+        expect do
+          delete shop_bookmarks_path(shop), xhr: true
         end.to change(Bookmark, :count).by(-1)
       end
     end
