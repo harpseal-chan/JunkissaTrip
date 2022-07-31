@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Layouts", type: :system do
-  let(:user) { FactoryBot.create(:harpseal) }
+  let!(:user) { FactoryBot.create(:harpseal) }
 
   before do
     driven_by(:rack_test)
@@ -75,6 +75,7 @@ RSpec.describe "Layouts", type: :system do
     let(:shop) { FactoryBot.create(:shop) }
 
     before do
+      log_in user
       visit shop_path(shop)
     end
 
@@ -84,6 +85,14 @@ RSpec.describe "Layouts", type: :system do
       expect(page).to have_content shop.phone
       expect(page).to have_content shop.opening
       expect(page).to have_content shop.closed
+    end
+
+    context 'ブックマーク' do
+      it 'ブックマーク登録/解除ボタンが表示されていること' do
+        expect(page).to have_selector '.btn-bm'
+        page.first(".btn-bm").click
+        expect(page).to have_selector '.btn-ubm'
+      end
     end
   end
 

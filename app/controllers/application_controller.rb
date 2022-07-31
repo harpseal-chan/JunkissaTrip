@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
 
     def correct_user
       @user = User.find(params[:id])
+      Rails.logger.debug @user.inspect
       return if current_user?(@user)
 
       flash[:danger] = '無効なページです'
