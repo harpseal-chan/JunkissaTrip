@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :users, except: [:index]
-  resources :shops, only: [:index, :show]
+  resources :shops, only: [:index, :show] do
+    resource :bookmarks, only: [:create, :destroy]
+  end
 
   get '*path', controller: 'application', action: 'render404'
 end

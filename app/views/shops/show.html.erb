@@ -4,6 +4,9 @@
   <div id="shop-detail-wrapper">
     <div class="shop-info">
       <h1><%= @shop.name %></h1>
+      
+      <%= render 'shops/bookmark_button' %>
+      
       <% if @shop.image.nil? %>
         <%= image_tag 'no_image.png', alt: "店舗の写真", width: "50%" %>
       <% else %>
