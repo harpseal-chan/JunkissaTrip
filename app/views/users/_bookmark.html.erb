@@ -1,8 +1,13 @@
-<div class="col-lg-3 col-md-4 col-xs-6">
-  <% if shop.image.nil? %>
-    <%= image_tag 'no_image.png', alt: "店舗の写真" %>
-  <% else %>
-    <%= image_tag shop.image, alt: "店舗の写真" %>
+<div class="bm-shop col-lg-3 col-md-4 col-xs-6">
+  <%= link_to shop, class: "bm-shop-link" do %>
+    <% if shop.image.nil? %>
+      <%= image_tag 'no_image.png', alt: "店舗の写真" %>
+    <% else %>
+      <%= image_tag shop.image, alt: "店舗の写真" %>
+    <% end %>  
+    <div class="mask">
+      <h4><%= shop.name %></h4>
+      <p>詳細ページへ</p>
+    </div>
   <% end %>
-  <li><%= shop.name %></li>
 </div>
