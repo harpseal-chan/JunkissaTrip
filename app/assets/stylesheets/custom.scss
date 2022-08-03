@@ -489,41 +489,44 @@ footer {
 .user-detail-wrapper {
   @include wrapper_h1;
   .profile {
-    background-color: $sub;
+    @include shop_block;
     margin: 30px auto;
     padding: 30px 10px;
-    width: 80%;
+    .icon {
+      border-radius: 500rem;
+      object-fit: cover;
+    }
   }
   .bm-shop-wrapper {
     h3 {
       @include title_border;
     }
+    .bm-shops {
+      display: flex;
+      overflow-x: scroll;
+    }
     .bm-shop {
+      flex-shrink: 0;
       position: relative;
       margin-right: 20px;
       margin-top: 20px;
-      &:hover {
-        filter: blur(1px);
-      }
-      img { 
+      .bm-shop-img { 
         width: 100%;
         height: 210px; 
         object-fit: cover;
         border-radius: 6px;
         box-shadow: 3px 3px 4px rgba(0,0,0, .15);
+        margin-bottom: 10px;
       }
       .mask {
-        color: #fff;
+        width: 70%;
+        text-align: center;
+        padding: 5px 10px;
+        color: $accent-blown;
         position: absolute;
-        // visibility: hidden;
-        background-color: rgba(255, 255, 255, .5);
-        top: 100px;
-        &:hover {
-          visibility: visible;
-        }
+        background-color: $sub;
+        top: 125px;
       }      
-    } 
-    
-    
+    }
   }
 }

@@ -65,6 +65,55 @@ RSpec.describe "Users", type: :request do
     end
   end
 
+  describe '#show' do
+    let!(:user) { FactoryBot.create(:harpseal) }
+    let!(:other_user) { FactoryBot.create(:phoca) }
+
+    context 'ログアウト状態で/users/idにアクセスした場合' do
+      before do
+        get user_path(user)
+      end
+
+      it 'flashが空ではないこと' do
+        expect(flash).not_to be_empty
+      end
+
+      it 'ログインページにリダイレクトすること' do
+        expect(response).to redirect_to login_url
+      end
+    end
+
+    context 'ログインしたユーザーの/users/idにアクセスした場合' do
+      before do
+        log_in user
+        get user_path(user)
+      end
+
+      it "レスポンス 200 OK を返すこと" do
+        expect(response).to have_http_status :ok
+      end
+
+      it 'タイトルに"マイページ | 純喫茶Trip"が表示されること' do
+        expect(response.body).to include full_title('マイページ')
+      end
+    end
+
+    context '他のユーザーの/users/idにアクセスした場合' do
+      before do
+        log_in user
+        get user_path(other_user)
+      end
+
+      it "レスポンス 200 OK を返すこと" do
+        expect(response).to have_http_status :ok
+      end
+
+      it 'タイトルに"ユーザー名 | 純喫茶Trip"が表示されること' do
+        expect(response.body).to include full_title(other_user.name)
+      end
+    end
+  end
+
   describe '#update' do
     let(:user) { FactoryBot.create(:harpseal) }
 
