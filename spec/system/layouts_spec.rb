@@ -96,9 +96,31 @@ RSpec.describe "Layouts", type: :system do
     end
   end
 
+  describe 'ユーザー詳細ページ(マイページ)' do
+    let!(:user) { FactoryBot.create(:harpseal) }
+    let!(:shop) { FactoryBot.create(:shop) }
+    let!(:bookmark) { FactoryBot.create(:bookmark, user: user, shop: shop) }
+
+    before do
+      log_in user
+      visit user_path(user)
+    end
+
+    context 'プロフィール' do
+      it 'ユーザーの情報がすべて表示されていること' do
+        expect(page).to have_content user.name
+        expect(page).to have_content user.email
+      end
+
+      it 'ブックマークした店舗が表示されること' do
+        expect(page).to have_link href: shop_path(bookmark.shop)
+      end
+    end
+  end
+
   describe '404ページ' do
     it 'notfound-wrapperが存在すること' do
-      visit user_path('not-found')
+      visit users_path
       expect(page).to have_selector '#notfound-wrapper'
     end
   end
