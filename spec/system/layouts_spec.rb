@@ -97,7 +97,9 @@ RSpec.describe "Layouts", type: :system do
   end
 
   describe 'ユーザー詳細ページ(マイページ)' do
-    let(:user) { FactoryBot.create(:harpseal) }
+    let!(:user) { FactoryBot.create(:harpseal) }
+    let!(:shop) { FactoryBot.create(:shop) }
+    let!(:bookmark) { FactoryBot.create(:bookmark, user: user, shop: shop) }
 
     before do
       log_in user
@@ -108,6 +110,10 @@ RSpec.describe "Layouts", type: :system do
       it 'ユーザーの情報がすべて表示されていること' do
         expect(page).to have_content user.name
         expect(page).to have_content user.email
+      end
+
+      it 'ブックマークした店舗が表示されること' do
+        expect(page).to have_link href: shop_path(bookmark.shop)
       end
     end
   end
