@@ -1,7 +1,15 @@
 FactoryBot.define do
-  factory :shop, class: Shop do
-    name { '純喫茶' }
-    address { '住所' }
+  factory :shop1, class: Shop do
+    name { '純喫茶はーぷしーる' }
+    address { '東京都' }
+    phone { '000-0000-0000' }
+    opening { '10:00 - 20:00' }
+    closed { '日曜' }
+  end
+
+  factory :shop2, class: Shop do
+    name { 'きっさ ふぉーか' }
+    address { '大阪府' }
     phone { '000-0000-0000' }
     opening { '10:00 - 20:00' }
     closed { '日曜' }

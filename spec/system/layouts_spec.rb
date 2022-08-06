@@ -13,6 +13,11 @@ RSpec.describe "Layouts", type: :system do
       expect(page).to have_link '店舗一覧', href: shops_path
     end
 
+    it '検索欄が存在すること' do
+      visit root_path
+      expect(page).to have_selector '#shop_search'
+    end
+
     context 'ログイン状態の場合' do
       before do
         log_in user
@@ -72,7 +77,7 @@ RSpec.describe "Layouts", type: :system do
   end
 
   describe '店舗詳細ページ' do
-    let(:shop) { FactoryBot.create(:shop) }
+    let(:shop) { FactoryBot.create(:shop1) }
 
     before do
       log_in user
@@ -98,7 +103,7 @@ RSpec.describe "Layouts", type: :system do
 
   describe 'ユーザー詳細ページ(マイページ)' do
     let!(:user) { FactoryBot.create(:harpseal) }
-    let!(:shop) { FactoryBot.create(:shop) }
+    let(:shop) { FactoryBot.create(:shop1) }
     let!(:bookmark) { FactoryBot.create(:bookmark, user: user, shop: shop) }
 
     before do
