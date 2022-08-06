@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Bookmarks", type: :request do
   let!(:user) { FactoryBot.create(:harpseal) }
-  let!(:shop) { FactoryBot.create(:shop) }
+  let(:shop) { FactoryBot.create(:shop1) }
 
   describe "#create" do
     describe 'ログアウト状態' do

@@ -3,9 +3,15 @@
 <div class="content-wrapper">
   <div class="shop-index-wrapper">
     <h1>店舗一覧</h1>
-    <ul class="shops">
-      <%= render partial: 'shop', collection: @shops, as: 'shop' %>
-    </ul>
-    <%= paginate @shops %>
+    <% unless @shops.blank? %>
+      <ul class="shops">
+        <%= render partial: 'shop', collection: @shops, as: 'shop' %>
+      </ul>
+      <%= paginate @shops %>
+    <% else %>
+      <div id="shop-not-found">
+        <h4>条件に合う純喫茶がありません</h4>
+      </div>
+    <% end %>
   </div>
 </div>

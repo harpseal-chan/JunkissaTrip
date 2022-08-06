@@ -19,7 +19,7 @@ RSpec.describe "Shops", type: :request do
 
   describe "#show" do
     context '正常にアクセスした場合' do
-      let(:shop) { FactoryBot.create(:shop) }
+      let(:shop) { FactoryBot.create(:shop1) }
 
       before do
         get shop_path(shop)

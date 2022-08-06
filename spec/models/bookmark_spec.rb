@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Bookmark, type: :model do
   let!(:user) { FactoryBot.create(:harpseal) }
-  let!(:shop) { FactoryBot.create(:shop) }
+  let(:shop) { FactoryBot.create(:shop1) }
   let!(:bookmark) { Bookmark.new(user_id: user.id, shop_id: shop.id) }
 
   context '有効な値の場合' do

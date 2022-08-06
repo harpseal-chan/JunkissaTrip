@@ -30,6 +30,9 @@ gem 'seed-fu'
 # Pagination
 gem 'kaminari'
 
+# For Search
+gem 'ransack'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
 
+  before_action :set_q
+
   rescue_from ActiveRecord::RecordNotFound, with: :render404
   rescue_from ActionController::RoutingError, with: :render404
 
@@ -25,5 +27,9 @@ class ApplicationController < ActionController::Base
 
       flash[:danger] = '無効なページです'
       redirect_to root_url
+    end
+
+    def set_q
+      @q = Shop.ransack(params[:q])
     end
 end
