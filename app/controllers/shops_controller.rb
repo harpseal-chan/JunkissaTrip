@@ -1,6 +1,7 @@
 class ShopsController < ApplicationController
   def index
-    @shops = Shop.all.page(params[:page])
+    result = @q.result
+    @shops = result.page(params[:page])
   end
 
   def show

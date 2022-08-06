@@ -31,6 +31,5 @@ class ApplicationController < ActionController::Base
 
     def set_q
       @q = Shop.ransack(params[:q])
-      @results = @q.result
     end
 end

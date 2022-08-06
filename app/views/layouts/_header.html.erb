@@ -15,15 +15,11 @@
       </div>
       
       <div class="collapse navbar-collapse navbar-right" id="navbarEexample">
-        <form class="navbar-form navbar-left" role="search">
-          <input class="form-control mr-sm-1" placeholder="店舗名を入力" type="search" name="" id="">
-            <a href="#" class="btn">
-              検索<i class="fa-solid fa-magnifying-glass"></i>
-            </a>
-        </form>
-        <%= search_form_for @q, url: search_shops_path do |f| %>
-          <%= f.search_field :name_cont %>
-          <%= f.submit '検索' %>
+        <%= search_form_for @q, class: "navbar-form navbar-left", url: shops_path do |f| %>
+          <%= f.search_field :name_cont, class: "form-control mr-sm-1", placeholder: '店舗名を入力' %>
+          <%= f.button :type => "submit", class: "btn" do %>
+            検索<i class='fa-solid fa-magnifying-glass'></i>
+          <% end %>
         <% end %>
         
         <ul class="nav navbar-nav">

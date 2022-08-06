@@ -8,9 +8,6 @@ Rails.application.routes.draw do
   resources :users, except: [:index]
   resources :shops, only: [:index, :show] do
     resource :bookmarks, only: [:create, :destroy]
-    collection do
-      get 'search'
-    end
   end
 
   get '*path', controller: 'application', action: 'render404'
