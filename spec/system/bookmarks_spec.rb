@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Bookmarks", type: :system do
   let(:user) { FactoryBot.create(:harpseal) }
-  let!(:shop) { FactoryBot.create(:shop) }
+  let(:shop) { FactoryBot.create(:shop1) }
 
   before do
     driven_by(:rack_test)
