@@ -256,3 +256,13 @@ Shop.seed do |s|
   s.closed = '日曜'
   s.image = 'shop_26.jpg'
 end
+
+Shop.seed do |s|
+  s.id = 27
+  s.name = 'シビタス'
+  s.address = '東京都大田区西蒲田７丁目６９−１ 東急プラザ蒲田4F'
+  s.phone = '03-3733-5775'
+  s.opening = '10:00 - 19:30'
+  s.closed = '東急プラザに準ずる'
+  s.image = 'shop_27.jpg'
+end
