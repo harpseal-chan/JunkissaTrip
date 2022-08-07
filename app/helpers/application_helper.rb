@@ -7,4 +7,10 @@ module ApplicationHelper
       "#{page_title} | #{base_title}"
     end
   end
+
+  def home_page?
+    return true if (controller_name == 'static_pages') && (action_name == 'home')
+
+    false
+  end
 end
