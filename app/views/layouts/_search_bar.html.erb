@@ -1,4 +1,4 @@
-<%= search_form_for @q, url: shops_path do |f| %>
+<%= search_form_for @q, url: shops_path, id: "header-search-bar" do |f| %>
   <%= f.search_field :name_cont, class: "form-control", placeholder: '店舗名を入力' %>
   <%= f.button :type => "submit", class: "btn header-search-btn" do %>
     検索<i class='fa-solid fa-magnifying-glass'></i>

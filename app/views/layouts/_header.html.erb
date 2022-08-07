@@ -15,9 +15,11 @@
       </div>
 
       <div class="collapse navbar-collapse navbar-right" id="navbarEexample">
-        <div class="navbar-form navbar-left">
-          <%= render partial: 'layouts/search_bar' %>
-        </div>
+        <% if !home_page? %>
+          <div class="navbar-form navbar-left">
+            <%= render partial: 'layouts/search_bar' %>
+          </div>
+        <% end %>
 
           <ul class="nav navbar-nav">
             <li>
