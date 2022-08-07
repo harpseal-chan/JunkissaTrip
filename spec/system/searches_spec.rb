@@ -6,7 +6,7 @@ RSpec.describe "Searches", type: :system do
 
   before do
     driven_by(:rack_test)
-    visit root_path
+    visit shops_path
   end
 
   context '店舗名で検索' do

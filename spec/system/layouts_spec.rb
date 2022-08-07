@@ -58,6 +58,17 @@ RSpec.describe "Layouts", type: :system do
     end
   end
 
+  describe 'トップページ' do
+    before do
+      visit root_path
+    end
+
+    it '検索欄が存在すること' do
+      visit root_path
+      expect(page).to have_selector '.top-form-control'
+    end
+  end
+
   describe '店舗一覧ページ' do
     let!(:shops) { FactoryBot.create_list(:sample_shops, 30) }
 
