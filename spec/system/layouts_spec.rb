@@ -13,11 +13,6 @@ RSpec.describe "Layouts", type: :system do
       expect(page).to have_link '店舗一覧', href: shops_path
     end
 
-    it '検索欄が存在すること' do
-      visit root_path
-      expect(page).to have_selector '#shop_search'
-    end
-
     context 'ログイン状態の場合' do
       before do
         log_in user
@@ -55,6 +50,34 @@ RSpec.describe "Layouts", type: :system do
       it '新規登録のリンクが存在すること' do
         expect(page).to have_link '新規登録', href: signup_path
       end
+    end
+
+    describe '検査バー' do
+      context 'トップページにアクセスした場合' do
+        it '検索バーがトップページに表示され、ヘッダーの検索バーが非表示になること' do
+          visit root_path
+          expect(page).to have_selector '#top-search-bar'
+          expect(page).not_to have_selector '#header-search-bar'
+        end
+      end
+
+      context 'トップページ以外にアクセスした場合' do
+        it 'ヘッダーの検索バーが表示されること' do
+          visit shops_path
+          expect(page).to have_selector '#header-search-bar'
+        end
+      end
+    end
+  end
+
+  describe 'トップページ' do
+    before do
+      visit root_path
+    end
+
+    it '検索欄が存在すること' do
+      visit root_path
+      expect(page).to have_selector '.top-form-control'
     end
   end
 
