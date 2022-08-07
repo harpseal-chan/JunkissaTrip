@@ -2,9 +2,9 @@
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-left">
-        <%= link_to "純喫茶Trip", root_path, id: "logo" %>
+        <%= link_to "純喫茶Trip" , root_path, id: "logo" %>
       </div>
-  
+
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample">
           <span class="sr-only">Toggle navigation</span>
@@ -13,35 +13,42 @@
           <span class="icon-bar"></span>
         </button>
       </div>
-      
+
       <div class="collapse navbar-collapse navbar-right" id="navbarEexample">
-        <%= search_form_for @q, class: "navbar-form navbar-left", url: shops_path do |f| %>
-          <%= f.search_field :name_cont, class: "form-control mr-sm-1", placeholder: '店舗名を入力' %>
-          <%= f.button :type => "submit", class: "btn header-search-btn" do %>
-            検索<i class='fa-solid fa-magnifying-glass'></i>
-          <% end %>
-        <% end %>
-        
-        <ul class="nav navbar-nav">
-          <li><%= link_to "店舗一覧", shops_path %></li>
-          <% if logged_in? %>
-            <li class="nav-item"><%= link_to "マイページ", current_user %></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" id="header-dropdown" data-toggle="dropdown">
-                <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "アカウント設定", edit_user_path(current_user) %></li>
-                <li>
-                  <%= link_to "ログアウト", logout_path, method: :delete %>
-                </li>
-              </ul>
+        <div class="navbar-form navbar-left">
+          <%= render partial: 'layouts/search_bar' %>
+        </div>
+
+          <ul class="nav navbar-nav">
+            <li>
+              <%= link_to "店舗一覧" , shops_path %>
             </li>
-          <% else %>
-            <li><%= link_to "新規登録", signup_path %></li>
-            <li><%= link_to "ログイン", login_path %></li>
-          <% end %>
-        </ul>
+            <% if logged_in? %>
+              <li class="nav-item">
+                <%= link_to "マイページ" , current_user %>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" id="header-dropdown" data-toggle="dropdown">
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <%= link_to "アカウント設定" , edit_user_path(current_user) %>
+                  </li>
+                  <li>
+                    <%= link_to "ログアウト" , logout_path, method: :delete %>
+                  </li>
+                </ul>
+              </li>
+              <% else %>
+                <li>
+                  <%= link_to "新規登録" , signup_path %>
+                </li>
+                <li>
+                  <%= link_to "ログイン" , login_path %>
+                </li>
+                <% end %>
+          </ul>
       </div>
     </div>
   </nav>

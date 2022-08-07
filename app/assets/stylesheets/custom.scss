@@ -99,6 +99,25 @@ $error-message: #D43131;
   border-color: $sub;
 }
 
+@mixin fade_up {
+  animation-name: fadeUpAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
+}
+
 /* universal */
 
 header {
@@ -162,38 +181,42 @@ body {
 }
 
 .top-wrapper {
-  width: 100%;
-  max-width: 2000px;
-  height: 100vh;
-  min-width: 240px;
+  position: relative;
+  height: calc(95vh);
   background-image: image-url("top.jpeg");
   background-color:rgba(247,246,242,0.8);
   background-blend-mode:lighten;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 300px 100px;
-  display: flex;
   justify-content: center;
+  .top-content {
+    position: absolute;
+    top: calc(40% - 50px);
+    left: calc(30% - 100px);
+    @include fade_up;
+  }
+  .col-xs-12 {
+    padding-left: 0;
+    padding-right: 0;
+  }
   h1 {
     letter-spacing: 0.08em;
-    font-size: 80px;
+    font-size: 7rem;
     font-weight: bold;
     margin-top: 0;
   }
   h2 {
-    line-height: 1.5em;
+    font-weight: bold;
+    font-size: 3rem;
   }
-  .btn-wrapper {
-    display:flex;
-    flex-flow: column;
-    .top-btn {
-      padding: 30px;
-      margin: 10px 50px;
-    }
+  .search-bar-content {
+    margin-top: 20px;
   }
-  .fa-location-dot {
-    padding-right: 5px;
+  .top-form-control {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 34px;
   }
 }
 
