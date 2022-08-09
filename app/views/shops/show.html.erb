@@ -29,5 +29,33 @@
       <p>コメントはまだありません。</p>
     </div>
 
+    <button type="button" class="btn" data-toggle="modal" data-target="#PostCommentModal">
+      コメントを投稿する
+    </button>
+    
+    <div class="modal fade" id="PostCommentModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+            <h4 class="modal-title">コメントを投稿</h4>
+          </div>
+          <div class="modal-body">
+            <%= form_with model: [@shop, @comment] do |f| %>
+              <div class="row">
+                <%= f.label :content do %>
+                  <i class="icon-user"></i>
+                  <%= Comment.human_attribute_name :content %>
+                <% end %>
+                <%= f.text_area :comment, required: true, rows: '4' %>
+                <%= f.submit "投稿", class: 'btn'%>
+                <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

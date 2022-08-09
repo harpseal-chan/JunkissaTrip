@@ -6,5 +6,6 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @comment = current_user.comments.new
   end
 end
