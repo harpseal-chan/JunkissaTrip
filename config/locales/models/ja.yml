@@ -16,6 +16,8 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード（確認）
+      comment:
+        content: コメント
     errors:
       models:
         user:
