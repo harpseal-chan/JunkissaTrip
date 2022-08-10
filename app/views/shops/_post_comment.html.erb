@@ -1,7 +1,7 @@
 <button type="button" class="btn" data-toggle="modal" data-target="#PostCommentModal">
   コメントを投稿する
 </button>
-<div class="modal fade" id="PostCommentModal" tabindex="-1">
+<div class="modal fade modal-wrapper" id="PostCommentModal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -15,11 +15,11 @@
             <i class="fa-solid fa-comment"></i>
               <%= Comment.human_attribute_name :content %>
             <% end %>
-            <%= f.text_area :content, required: true, rows: '4' %>
+            <%= f.text_area :content, required: true, rows: '6', placeholder: 'おすすめのメニューやお店の雰囲気などを入力してください' %>
             <%= f.hidden_field :shop_id, value: shop.id %>
             <div class="modal-footer">
-              <%= f.submit "投稿", class: 'btn'%>
-              <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                <%= f.submit "投稿", class: 'btn'%>
+                <button type="button" class="btn" data-dismiss="modal">閉じる</button>
             </div>
           </div>
         <% end %>

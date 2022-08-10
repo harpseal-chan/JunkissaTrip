@@ -483,6 +483,24 @@ footer {
     margin-top: 20px;
     text-align: left;
   }
+  .modal-dialog {
+    margin: 10rem auto;
+    label {
+      width: 80%;
+      text-align: left;
+      font-size: 1.5rem;
+    }
+    textarea, select {
+      resize: vertical;
+      border: 1px solid #bbb;
+      width: 80%;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+    .modal-footer {
+      text-align: center;
+    }
+  }
 }
 
 #notfound-wrapper {
