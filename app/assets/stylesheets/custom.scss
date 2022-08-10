@@ -471,19 +471,17 @@ footer {
       margin-left: 20px;
     }
   }
-  .comment {
-    h3 {
-      margin-top: 50px;
-      padding-bottom: 5px;
-      border-bottom: solid 2px;
-      border-color: $sub;
-      text-align: left;
-      clear: both;
-    }
-    p {
-      margin-top: 20px;
-      text-align: left;
-    }
+  h3 {
+    margin-top: 50px;
+    padding-bottom: 5px;
+    border-bottom: solid 2px;
+    border-color: $sub;
+    text-align: left;
+    clear: both;
+  }
+  p {
+    margin-top: 20px;
+    text-align: left;
   }
 }
 

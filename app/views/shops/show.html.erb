@@ -26,39 +26,22 @@
 
     <div class="comment">
       <h3>コメント一覧</h3>
-      <p>コメントはまだありません。</p>
     </div>
-
-    <button type="button" class="btn" data-toggle="modal" data-target="#PostCommentModal">
-      コメントを投稿する
-    </button>
     
-    <div class="modal fade" id="PostCommentModal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-            <h4 class="modal-title">コメントを投稿</h4>
-          </div>
-          <div class="modal-body">
-            <%= form_with model: [@shop, @comment], method: :post do |f| %>
-              <div class="row">
-                <%= f.label :content do %>
-                <i class="fa-solid fa-comment"></i>
-                  <%= Comment.human_attribute_name :content %>
-                <% end %>
-                <%= f.text_area :content, required: true, rows: '4' %>
-                <%= f.hidden_field :shop_id, value: @shop.id %>
-                <div class="modal-footer">
-                  <%= f.submit "投稿", class: 'btn'%>
-                  <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                </div>
-              </div>
-            <% end %>
+    <div class="container">
+      <% if @comments.blank? %>
+        <div class="row">
+          <div id="comment-not-found">
+            <p>コメントはまだ投稿されていません。</p>
           </div>
         </div>
-      </div>
+      <% else %>
+        <% @comments.each do |comment| %>
+          <%= comment.content %>
+        <% end %>
+      <% end %>
     </div>
 
+    <%= render 'post_comment', { shop: @shop, comment: @comment } %>    
   </div>
 </div>
