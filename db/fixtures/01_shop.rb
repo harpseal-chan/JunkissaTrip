@@ -40,7 +40,7 @@ end
 
 Shop.seed do |s|
   s.id = 5
-  s.name = '喫茶&Bar King of Kings'
+  s.name = '喫茶＆Bar King of Kings'
   s.address = '大阪市北区梅田1-3-1 大阪駅前第1ビルB1F'
   s.phone = '06-6345-3100'
   s.opening = '月～土 12:00 - 23:00'
