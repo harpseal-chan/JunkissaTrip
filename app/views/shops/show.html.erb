@@ -24,7 +24,7 @@
       </dl>
     </div>
 
-    <div class="comment">
+    <div class="">
       <h3>コメント一覧</h3>
     </div>
     
@@ -36,9 +36,9 @@
           </div>
         </div>
       <% else %>
-        <% @comments.each do |comment| %>
-          <%= comment.content %>
-        <% end %>
+        <div class="row">
+          <%= render partial: 'comments', collection: @comments, as: 'comment' %>
+        </div>
       <% end %>
     </div>
 
