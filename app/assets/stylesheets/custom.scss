@@ -18,7 +18,7 @@ $error-message: #D43131;
 
 @mixin content {
   margin: 35px auto;
-  width: 80%;
+  // width: 85%;
   padding-top: 20px;
   padding-bottom: 50px;
   text-align: center;
@@ -250,6 +250,7 @@ body {
   border: 1px solid;
   padding: 15px;
   font-size: 1.5rem;
+  margin-bottom: 15px;
   &:hover {
     color: $accent-blown;  
   }
@@ -265,6 +266,7 @@ body {
   border: 1px solid;
   padding: 15px;
   font-size: 1.5rem;
+  margin-bottom: 15px;
   &:hover {
     color: $main;  
   }
@@ -438,24 +440,24 @@ footer {
 
 #shop-detail-wrapper {
   @include shop_block;
-  overflow: auto;
+  // overflow: auto;
   padding: 50px 60px;
-  .shop-info {
+  h1 {
+    text-align: left;
+    margin-top: 0;
+  }
+  .shop-img {
     overflow: hidden;
-    h1 {
-      float: left;
-      margin-top: 0;
-      margin-bottom: 40px;
-    }
+    border-radius: 6px;
+    margin-bottom: 20px;
+    object-fit: cover;
+    width: 100%;
+    height: 375px;
     img {
-      float: left;
-      margin-bottom: 20px;
-      object-fit: cover;
-      border-radius: 6px;
-      height: 350px;
-      width: 50%;
-      clear: both;
+      padding: 0;
     }
+  }
+  .shop-info {
     dl {
       float: left;
       text-align: left;
@@ -471,19 +473,42 @@ footer {
       margin-left: 20px;
     }
   }
+  h3 {
+    margin-top: 50px;
+    padding-bottom: 5px;
+    border-bottom: solid 2px;
+    border-color: $sub;
+    text-align: left;
+    clear: both;
+  }
+  p {
+    margin-top: 20px;
+    text-align: left;
+  }
+  .modal-dialog {
+    margin: 10rem auto;
+    label {
+      width: 80%;
+      text-align: left;
+      font-size: 1.5rem;
+    }
+    textarea, select {
+      resize: vertical;
+      border: 1px solid #bbb;
+      width: 80%;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+    .modal-footer {
+      text-align: center;
+    }
+  }
   .comment {
-    h3 {
-      margin-top: 50px;
-      padding-bottom: 5px;
-      border-bottom: solid 2px;
-      border-color: $sub;
-      text-align: left;
-      clear: both;
-    }
-    p {
-      margin-top: 20px;
-      text-align: left;
-    }
+    margin-top: 30px;
+    background-color: $sub;
+  }
+  .btn-pc {
+    margin-top: 30px;
   }
 }
 

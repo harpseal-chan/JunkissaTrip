@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
   before_action :set_shop, only: [:create, :destroy]
 
   def create
-    bookmark = Bookmark.new(user_id: current_user.id, shop_id: @shop.id)
+    bookmark = current_user.bookmarks.new(shop_id: @shop.id)
     bookmark.save
     respond_to do |format|
       format.html { redirect_to @shop }
