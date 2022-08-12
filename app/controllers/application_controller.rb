@@ -20,15 +20,6 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
 
-    def correct_user
-      @user = User.find(params[:id])
-      Rails.logger.debug @user.inspect
-      return if current_user?(@user)
-
-      flash[:danger] = '無効なページです'
-      redirect_to root_url
-    end
-
     def set_q
       @q = Shop.ransack(params[:q])
     end
