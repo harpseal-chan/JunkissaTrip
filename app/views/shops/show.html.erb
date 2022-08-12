@@ -46,9 +46,11 @@
         <% else %>
             <%= render partial: 'comments', collection: @comments, as: 'comment' %>
         <% end %>
-        <button type="button" class="btn btn-pc" data-toggle="modal" data-target="#PostCommentModal">
-          コメントを投稿する
-        </button>
+        <% if current_user %>
+          <button type="button" class="btn btn-pc" data-toggle="modal" data-target="#PostCommentModal">
+            コメントを投稿する
+          </button>
+        <% end %>
         <%= render 'post_comment', { shop: @shop, comment: @comment } %>    
       </div>
     </div>

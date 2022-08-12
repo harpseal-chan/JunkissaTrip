@@ -103,7 +103,6 @@ RSpec.describe "Layouts", type: :system do
     let(:shop) { FactoryBot.create(:shop1) }
 
     before do
-      log_in user
       visit shop_path(shop)
     end
 
@@ -115,11 +114,37 @@ RSpec.describe "Layouts", type: :system do
       expect(page).to have_content shop.closed
     end
 
-    context 'ブックマーク' do
-      it 'ブックマーク登録/解除ボタンが表示されていること' do
-        expect(page).to have_selector '.btn-bm'
-        page.first(".btn-bm").click
-        expect(page).to have_selector '.btn-ubm'
+    describe 'ブックマーク' do
+      context 'ログイン状態の場合' do
+        before do
+          log_in user
+          visit shop_path(shop)
+        end
+
+        it 'ブックマーク登録/解除ボタンが表示されていること' do
+          expect(page).to have_selector '.btn-bm'
+          page.first(".btn-bm").click
+          expect(page).to have_selector '.btn-ubm'
+        end
+      end
+    end
+
+    describe 'コメント' do
+      context 'ログアウト状態の場合' do
+        it 'コメント投稿ボタンが表示されないこと' do
+          expect(page).not_to have_selector '.btn-pc'
+        end
+      end
+
+      context 'ログイン状態の場合' do
+        before do
+          log_in user
+          visit shop_path(shop)
+        end
+
+        it 'コメント投稿ボタンが表示されること' do
+          expect(page).to have_selector '.btn-pc'
+        end
       end
     end
   end
