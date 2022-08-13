@@ -260,11 +260,12 @@ body {
 }
 
 .btn-ubm {
-  float: right;
+  float: left;
+  width: 90%;
   background-color: $accent-blown;
   color: $main;
   border: 1px solid;
-  padding: 15px;
+  padding: 5px;
   font-size: 1.5rem;
   margin-bottom: 15px;
   &:hover {
@@ -441,7 +442,7 @@ footer {
 #shop-detail-wrapper {
   @include shop_block;
   // overflow: auto;
-  padding: 50px 60px;
+  padding: 50px 35px;
   h1 {
     text-align: left;
     margin-top: 0;

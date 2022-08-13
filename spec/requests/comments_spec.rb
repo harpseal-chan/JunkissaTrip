@@ -37,12 +37,11 @@ RSpec.describe "Comments", type: :request do
 
       it '複数回同じ店舗にコメントを投稿できること' do
         expect do
-          post shop_comments_path(shop), params: { comment: { user_id: user.id,
-                                                              shop_id: shop.id,
-                                                              content: 'コメント' } }
-          post shop_comments_path(shop), params: { comment: { user_id: user.id,
-                                                              shop_id: shop.id,
-                                                              content: 'コメント' } }
+          2.times do
+            post shop_comments_path(shop), params: { comment: { user_id: user.id,
+                                                                shop_id: shop.id,
+                                                                content: 'コメント' } }
+          end
         end.to change(Comment, :count).by(2)
       end
     end
