@@ -1,0 +1,39 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev-rails
+    command: bundle exec puma -C config/puma.rb -e production
+    volumes:
+      - .:/junkissa_trip
+      - public-data:/junkissa_trip/public
+      - tmp-data:/junkissa_trip/tmp
+      - log-data:/junkissa_trip/log
+    ports:
+      - "3000:3000"
+    networks:
+      - jt-network
+
+  web:
+    build:
+      context: ./nginx_docker
+      dockerfile: Dockerfile.dev-nginx
+    volumes:
+      - public-data:/junkissa_trip/public
+      - tmp-data:/junkissa_trip/tmp
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    networks:
+      - jt-network
+
+volumes:
+  public-data:
+  tmp-data:
+  log-data:
+
+networks:
+  jt-network:
+    external: true
