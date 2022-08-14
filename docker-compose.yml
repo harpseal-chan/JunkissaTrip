@@ -1,0 +1,55 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev-rails
+    command: bundle exec puma -C config/puma.rb
+    volumes:
+      - .:/junkissa_trip
+      - public-data:/junkissa_trip/public
+      - tmp-data:/junkissa_trip/tmp
+      - log-data:/junkissa_trip/log
+    ports:
+      - "3000:3000"
+    networks:
+      - jt-network
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: jt_development
+    platform: linux/x86_64
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./db/mysql_data:/var/lib/mysql
+    networks:
+      - jt-network
+
+  web:
+    build:
+      context: ./nginx_docker
+      dockerfile: Dockerfile.dev-nginx
+    volumes:
+      - public-data:/junkissa_trip/public
+      - tmp-data:/junkissa_trip/tmp
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    networks:
+      - jt-network
+
+volumes:
+  public-data:
+  tmp-data:
+  log-data:
+
+networks:
+  jt-network:
+    external: true
