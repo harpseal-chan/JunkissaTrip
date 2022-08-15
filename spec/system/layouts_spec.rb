@@ -128,25 +128,6 @@ RSpec.describe "Layouts", type: :system do
         end
       end
     end
-
-    describe 'コメント' do
-      context 'ログアウト状態の場合' do
-        it 'コメント投稿ボタンが表示されないこと' do
-          expect(page).not_to have_selector '.btn-pc'
-        end
-      end
-
-      context 'ログイン状態の場合' do
-        before do
-          log_in user
-          visit shop_path(shop)
-        end
-
-        it 'コメント投稿ボタンが表示されること' do
-          expect(page).to have_selector '.btn-pc'
-        end
-      end
-    end
   end
 
   describe 'ユーザー詳細ページ(マイページ)' do
