@@ -1,3 +1,9 @@
-<div class="comment col-xs-12" >
-  <%= comment.content %>
+<div class="comment col-xs-10 col-xs-offset-1" >
+  <div class="cm-user-info col-xs-12">
+    <%= image_tag "no_image.png", alt: "アイコン", class: "icon", width: "55", height: "55" %>
+    <%= comment.user.name %>さんのコメント
+  </div>
+  <div class="cm-content col-xs-12">
+    <p><%= comment.content %></p>
+  </div>
 </div>

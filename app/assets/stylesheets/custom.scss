@@ -118,6 +118,10 @@ $error-message: #D43131;
   }
 }
 
+@mixin icon {
+  border-radius: 500rem;
+  object-fit: cover;
+}
 /* universal */
 
 header {
@@ -506,7 +510,20 @@ footer {
   }
   .comment {
     margin-top: 30px;
+    margin-right: 10px;
     background-color: $sub;
+    padding: 10px;
+    .icon {
+      @include icon;
+      margin-right: 10px;
+    }
+    .cm-user-info {
+      text-align: left;
+    }
+    .cm-content {
+      text-align: left;
+    }
+    
   }
   .btn-pc {
     margin-top: 30px;
@@ -542,8 +559,7 @@ footer {
     margin: 30px auto;
     padding: 30px 10px;
     .icon {
-      border-radius: 500rem;
-      object-fit: cover;
+      @include icon
     }
   }
   .bm-shop-wrapper {
