@@ -47,7 +47,7 @@
             <div id='comment-pagenate'>
               <%= render partial: 'comments', collection: @comments, as: 'comment' %>
             </div>
-            <%= link_to_next_page @comments, 'もっと見る', remote: true, class: 'more-link', id: 'more-link' %>
+            <%= link_to_next_page @comments, 'もっと見る', remote: true, class: 'more-link col-xs-12', id: 'more-link' %>
         <% end %>
         <% if current_user %>
           <div class="row">
