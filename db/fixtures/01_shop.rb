@@ -266,3 +266,13 @@ Shop.seed do |s|
   s.closed = '東急プラザに準ずる'
   s.image = 'shop_27.jpg'
 end
+
+Shop.seed do |s|
+  s.id = 28
+  s.name = 'サガン'
+  s.address = '神奈川県横浜市港北区綱島西１丁目６−１５'
+  s.phone = ' 045-543-2725'
+  s.opening = '9:00 - 19:00'
+  s.closed = '年中無休'
+  s.image = 'shop_28.jpg'
+end

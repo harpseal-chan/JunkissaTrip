@@ -32,4 +32,13 @@ RSpec.describe Bookmark, type: :model do
       expect(bookmark).not_to be_valid
     end
   end
+
+  context 'ユーザーを削除した場合' do
+    it 'ユーザーのブックマークが削除されること' do
+      bookmark.save
+      expect do
+        user.destroy
+      end.to change(Bookmark, :count).by(-1)
+    end
+  end
 end

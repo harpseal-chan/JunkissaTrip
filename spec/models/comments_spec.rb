@@ -44,4 +44,13 @@ RSpec.describe Comment, type: :model do
       expect(comment).not_to be_valid
     end
   end
+
+  context 'ユーザーを削除した場合' do
+    it 'ユーザーが投稿したコメントが削除されること' do
+      comment.save
+      expect do
+        user.destroy
+      end.to change(Comment, :count).by(-1)
+    end
+  end
 end

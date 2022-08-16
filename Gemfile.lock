@@ -87,6 +87,10 @@ GEM
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     diff-lcs (1.5.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.8.1)
     factory_bot (6.2.1)
@@ -281,6 +285,7 @@ DEPENDENCIES
   bootstrap-sass (= 3.4.1)
   byebug
   capybara (>= 3.26)
+  dotenv-rails
   factory_bot_rails
   jbuilder (~> 2.7)
   kaminari

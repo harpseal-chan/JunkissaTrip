@@ -33,6 +33,9 @@ gem 'kaminari'
 # For Search
 gem 'ransack'
 
+# Environment Valiable
+gem 'dotenv-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
