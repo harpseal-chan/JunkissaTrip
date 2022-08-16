@@ -3,6 +3,11 @@
     <%= image_tag "no_image.png", alt: "アイコン", class: "icon", width: "55", height: "55" %>
     <%= comment.user.name %>さんのコメント
   </div>
+  <% if logged_in? && comment.posted_by?(current_user) %>
+    <%= link_to shop_comment_path(@shop, comment), class:'', method: :delete, data: { confirm: 'コメントを削除しますか？' } do %>
+      <i class="fa-solid fa-trash"></i>
+    <% end %>
+  <% end %>
   <div class="cm-content col-xs-12">
     <p><%= comment.content %></p>
   </div>

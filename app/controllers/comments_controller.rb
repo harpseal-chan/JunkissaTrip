@@ -12,6 +12,16 @@ class CommentsController < ApplicationController
     redirect_to @shop
   end
 
+  def destroy
+    comment = Comment.find(params[:id])
+    if comment.destroy
+      flash[:success] = 'コメントを削除しました'
+    else
+      flash[:danger] = 'コメントの削除に失敗しました'
+    end
+    redirect_to shop_url(comment.shop_id)
+  end
+
   private
 
     def comment_params

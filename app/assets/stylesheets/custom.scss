@@ -122,6 +122,7 @@ $error-message: #D43131;
   border-radius: 500rem;
   object-fit: cover;
 }
+
 /* universal */
 
 header {
@@ -248,18 +249,19 @@ body {
 }
 
 .btn-bm {
-  float: right;
+  float: left;
+  width: 90%;
   background-color: transparent;
   color: $accent-blown;
   border: 1px solid;
-  padding: 15px;
+  padding: 5px;
   font-size: 1.5rem;
   margin-bottom: 15px;
   &:hover {
     color: $accent-blown;  
   }
   .fa-bookmark {
-    margin-left: 8px;
+    margin-left: 5px;
   }
 }
 
@@ -445,7 +447,6 @@ footer {
 
 #shop-detail-wrapper {
   @include shop_block;
-  // overflow: auto;
   padding: 50px 35px;
   h1 {
     text-align: left;
@@ -512,6 +513,7 @@ footer {
     margin-top: 30px;
     margin-right: 10px;
     background-color: $sub;
+    border-radius: 4px;
     padding: 10px;
     .icon {
       @include icon;
@@ -527,10 +529,21 @@ footer {
   }
   .btn-pc {
     margin-top: 25px;
+    box-shadow: 3px 3px 4px rgba(0,0,0, .15);
+    transition:0.3s all;
+    &:hover {
+      color: $main;
+      transform: translateY(2px);
+      box-shadow: 0px 0px 0px rgba(0,0,0,.15);
+    }
+    &:focus {
+      color: $main;
+    }
   }
   .more-link {
     color: $accent-blown;
     margin-top: 20px;
+    text-decoration: none;
   }
 }
 
