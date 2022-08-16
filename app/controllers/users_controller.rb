@@ -45,4 +45,12 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
+
+    def correct_user
+      @user = User.find(params[:id])
+      return if current_user?(@user)
+
+      flash[:danger] = '無効なページです'
+      redirect_to root_url
+    end
 end

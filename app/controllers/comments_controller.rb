@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
-  # before_action :correct_user, only: [:create, :destroy]
 
   def create
     @shop = Shop.find(params[:shop_id])
@@ -11,6 +10,16 @@ class CommentsController < ApplicationController
       flash[:danger] = 'コメントの投稿に失敗しました'
     end
     redirect_to @shop
+  end
+
+  def destroy
+    comment = Comment.find(params[:id])
+    if comment.destroy
+      flash[:success] = 'コメントを削除しました'
+    else
+      flash[:danger] = 'コメントの削除に失敗しました'
+    end
+    redirect_to shop_url(comment.shop_id)
   end
 
   private

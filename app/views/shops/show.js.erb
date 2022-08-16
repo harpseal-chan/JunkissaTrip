@@ -1,0 +1,4 @@
+$('#comment-pagenate').append("<%= escape_javascript(render partial: 'comments', collection: @comments, as: 'comment') %>")
+$("#more-link").replaceWith("<%= escape_javascript(
+  link_to_next_page @comments, 'もっと見る', remote: true, class: 'more-link col-xs-12', id: 'more-link'
+) %>");

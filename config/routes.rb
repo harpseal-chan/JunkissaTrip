@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users, except: [:index]
   resources :shops, only: [:index, :show] do
     resource :bookmarks, only: [:create, :destroy]
-    resource :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
 
   get '*path', controller: 'application', action: 'render404'
