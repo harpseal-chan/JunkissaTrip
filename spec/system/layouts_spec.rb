@@ -132,22 +132,51 @@ RSpec.describe "Layouts", type: :system do
 
   describe 'ユーザー詳細ページ(マイページ)' do
     let!(:user) { FactoryBot.create(:harpseal) }
-    let(:shop) { FactoryBot.create(:shop1) }
-    let!(:bookmark) { FactoryBot.create(:bookmark, user: user, shop: shop) }
+    let!(:shop) { FactoryBot.create(:shop1) }
 
     before do
       log_in user
       visit user_path(user)
     end
 
-    context 'プロフィール' do
-      it 'ユーザーの情報がすべて表示されていること' do
-        expect(page).to have_content user.name
-        expect(page).to have_content user.email
+    it 'ユーザーの情報がすべて表示されていること' do
+      expect(page).to have_content user.name
+      expect(page).to have_content user.email
+    end
+
+    context 'ブックマークが0件の場合' do
+      it '「ブックマークした店舗はありません」と表示されること' do
+        expect(page).to have_selector '#bm-not-found'
+      end
+    end
+
+    context 'ブックマークが1件以上ある場合' do
+      before do
+        @bookmark = FactoryBot.create(:bookmark, user: user, shop: shop)
+        visit user_path(user)
       end
 
       it 'ブックマークした店舗が表示されること' do
-        expect(page).to have_link href: shop_path(bookmark.shop)
+        expect(page).to have_selector '.bm-shop'
+        expect(page).to have_link href: shop_path(@bookmark.shop)
+      end
+    end
+
+    context '投稿したコメントが0件の場合' do
+      it '「投稿したコメントはありません」と表示されること' do
+        expect(page).to have_selector '#cm-not-found'
+      end
+    end
+
+    context '投稿コメントが1件以上ある場合' do
+      before do
+        @comment = FactoryBot.create(:comment, user: user, shop: shop)
+        visit user_path(user)
+      end
+
+      it '投稿したコメントが表示されること' do
+        expect(page).to have_selector '.user-comment'
+        expect(page).to have_link href: shop_path(@comment.shop)
       end
     end
   end
