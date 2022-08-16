@@ -1,17 +1,20 @@
 <div class="comment col-md-10 col-md-offset-1 col-xs-12">
-  <div class="cm-user-info col-md-11">
+  <div class="cm-user-info col-xs-12">
     <%= image_tag "no_image.png", alt: "アイコン", class: "icon", width: "55", height: "55" %>
-    <%= comment.user.name %>さんのコメント
+    <div class="cm-title">
+      <%= comment.user.name %>さんのコメント
+    </div>
   </div>
   
+  <div class="col-xs-12">
+    <p class="cm-content"><%= comment.content %></p>
+  </div>
+
   <% if logged_in? && comment.posted_by?(current_user) %>
-    <div class="cm-delete col-md-1 col-xs-12">
+    <div class="cm-delete col-xs-12">
       <%= link_to shop_comment_path(@shop, comment), class:'', method: :delete, data: { confirm: 'コメントを削除しますか？' } do %>
         <i class="fa-solid fa-trash fa-lg"></i>
       <% end %>
     </div>
   <% end %>
-  <div class="cm-content col-xs-12">
-    <p><%= comment.content %></p>
-  </div>
 </div>

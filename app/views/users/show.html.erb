@@ -30,9 +30,24 @@
     <div class="container">
       <div class="row bm-shop-wrapper">
         <h3>ブックマーク一覧</h3>
-        <div class="bm-shops">
-          <%= render partial: 'bookmarks', collection: @user.bookmark_shops, as: 'shop' %>
-        </div>
+        <% if @user.bookmark_shops.blank? %>
+          <p id="bm-not-found">ブックマークした店舗はありません</p>
+        <% else %>
+          <div class="bm-shops">
+            <%= render partial: 'bookmarks', collection: @user.bookmark_shops, as: 'shop' %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="row">
+        <h3>コメント一覧</h3>
+        <% if @user.comments.blank? %>
+          <p id="cm-not-found">投稿したコメントはありません</p>
+        <% else %>
+          <div class="user-comments">
+            <%= render partial: 'comments', collection: @user.comments, as: 'comment' %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
