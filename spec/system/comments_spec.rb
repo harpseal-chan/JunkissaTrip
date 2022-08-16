@@ -69,7 +69,7 @@ RSpec.describe "Comments", type: :system do
     end
   end
 
-  describe 'コメント削除', js: true do
+  describe 'コメント削除' do
     describe 'ログイン状態' do
       before do
         log_in user
