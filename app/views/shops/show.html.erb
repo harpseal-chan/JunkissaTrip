@@ -56,9 +56,17 @@
             </button>
           </div>
         <% end %>
-        <%= render 'post_comment', { shop: @shop, comment: @comment } %>    
+        <%= render 'post_comment', { shop: @shop, comment: @comment } %>
+        <div class="row">
+          <div class="col-xs-12">
+            <h3>マップ</h3>
+          </div>
+          <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <%= render 'map', { shop: @shop } %>
+          </div>
+        </div>
       </div>
     </div>
-        
   </div>
 </div>
+<%= javascript_include_tag "googlemap.js" %>
