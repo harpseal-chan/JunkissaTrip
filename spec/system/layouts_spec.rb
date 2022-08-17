@@ -114,6 +114,10 @@ RSpec.describe "Layouts", type: :system do
       expect(page).to have_content shop.closed
     end
 
+    it '店舗の地図（GoogleMap）が表示されていること' do
+      expect(page).to have_selector '#map'
+    end
+
     describe 'ブックマーク' do
       context 'ログイン状態の場合' do
         before do
@@ -176,6 +180,7 @@ RSpec.describe "Layouts", type: :system do
 
       it '投稿したコメントが表示されること' do
         expect(page).to have_selector '.user-comment'
+        expect(page).to have_content @comment.content
         expect(page).to have_link href: shop_path(@comment.shop)
       end
     end
