@@ -1,18 +1,25 @@
 <div class="shop">
-  <%= link_to shop.name, shop, class: "shop-name stretched-link" %>
-  
-  <% if shop.image.nil? %>
-    <%= image_tag 'no_image.png', alt: "店舗の写真" %>
-  <% else %>
-    <%= image_tag shop.image, alt: "店舗の写真" %>
-  <% end %>
-
-  <dl>
-    <dt>住所</dt>
-    <dd><%= shop.address %></dd>
-    <dt>営業時間</dt>
-    <dd><%= shop.opening %></dd>
-    <dt>定休日</dt>
-    <dd><%= shop.closed %></dd>
-  </dl>
+  <div class="row">
+    <%= link_to "", shop, class: "shop-name stretched-link" %>
+    <div class="shop-name col-xs-12">
+      <%= shop.name %>
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <% if shop.image.nil? %>
+        <%= image_tag 'no_image.png', alt: "店舗の写真" %>
+      <% else %>
+        <%= image_tag shop.image, alt: "店舗の写真" %>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <dl>
+        <dt>住所</dt>
+        <dd><%= shop.address %></dd>
+        <dt>営業時間</dt>
+        <dd><%= shop.opening %></dd>
+        <dt>定休日</dt>
+        <dd><%= shop.closed %></dd>
+      </dl>
+    </div>
+  </div>
 </div>

@@ -1,17 +1,19 @@
 <% provide(:title, '店舗一覧') %>
 
-<div class="content-wrapper">
-  <div class="shop-index-wrapper">
-    <h1>店舗一覧</h1>
-    <% unless @shops.blank? %>
-      <ul class="shops">
-        <%= render partial: 'shop', collection: @shops, as: 'shop' %>
-      </ul>
-      <%= paginate @shops %>
-    <% else %>
-      <div id="shop-not-found">
-        <h4>条件に合う純喫茶がありません</h4>
-      </div>
-    <% end %>
+<div class="container-fluid">
+  <div class="row content-wrapper">
+    <div class="shop-index-wrapper col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      <h1>店舗一覧</h1>
+      <% unless @shops.blank? %>
+        <div class="shops">
+          <%= render partial: 'shop', collection: @shops, as: 'shop' %>
+        </div>
+        <%= paginate @shops %>
+      <% else %>
+        <div id="shop-not-found">
+          <h4>条件に合う純喫茶がありません</h4>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
