@@ -39,6 +39,9 @@ gem 'dotenv-rails'
 # Geocoding
 gem "geocoder"
 
+# Use Rails Valiable in JS
+gem "gon"
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

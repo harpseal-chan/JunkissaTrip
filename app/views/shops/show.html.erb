@@ -63,9 +63,10 @@
           </div>
         </div> 
         <div>
-          <%= render 'map' %>
+          <%= render 'map', { shop: @shop } %>
         </div>
       </div>
     </div>
   </div>
 </div>
+<%= javascript_include_tag "googlemap.js" %>

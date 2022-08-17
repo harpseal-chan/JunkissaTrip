@@ -6,6 +6,8 @@ Shop.seed do |s|
   s.opening = '11:00 - 18:00'
   s.closed = '水曜'
   s.image = 'shop_1.jpg'
+  s.latitude = nil
+  s.longitude = nil
 end
 
 Shop.seed do |s|
