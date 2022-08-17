@@ -20,23 +20,23 @@ RSpec.describe "Comments", type: :system do
       it 'コメント投稿ボタンが表示されること' do
         expect(page).to have_selector '.btn-pc'
       end
-  
+
       context 'コメントを1件投稿した場合' do
         before do
           click_button 'コメントを投稿する'
           fill_in 'コメント', with: 'コメント'
           click_button '投稿'
         end
-  
+
         it '投稿したコメントが表示されること' do
           expect(page).to have_selector '.comment'
         end
-  
+
         it '「もっと見る」が表示されていないこと' do
           expect(page).not_to have_selector '#more-link'
         end
       end
-  
+
       context '3件以上コメントを投稿した場合' do
         before do
           3.times do
@@ -45,13 +45,13 @@ RSpec.describe "Comments", type: :system do
             click_button '投稿'
           end
         end
-  
+
         it '「もっと見る」が表示されてクリックすると消えること' do
           expect(page).to have_selector '#more-link'
           click_link 'more-link'
           expect(page).not_to have_selector '#more-link'
         end
-  
+
         it 'コメントが2件のみ表示されること' do
           expect(page).to have_selector '.comment', count: 2
         end
@@ -74,7 +74,7 @@ RSpec.describe "Comments", type: :system do
       before do
         log_in user
       end
-    
+
       it '自身が投稿したコメントに削除アイコンが表示されること' do
         visit shop_path(shop)
         click_button 'コメントを投稿する'
@@ -84,7 +84,7 @@ RSpec.describe "Comments", type: :system do
       end
 
       it '他のユーザーが投稿したコメントに削除アイコンが表示されないこと' do
-        comment_by_other_user = FactoryBot.create(:comment, user: other_user, shop: other_shop)
+        FactoryBot.create(:comment, user: other_user, shop: other_shop)
         visit shop_path(other_shop)
         expect(page).not_to have_selector '.cm-delete'
       end
@@ -94,7 +94,7 @@ RSpec.describe "Comments", type: :system do
       before do
         visit shop_path(shop)
       end
-  
+
       it 'コメント削除アイコンが表示されないこと' do
         expect(page).not_to have_selector '.cm-delete'
       end
