@@ -6,8 +6,6 @@ Shop.seed do |s|
   s.opening = '11:00 - 18:00'
   s.closed = '水曜'
   s.image = 'shop_1.jpg'
-  s.latitude = nil
-  s.longitude = nil
 end
 
 Shop.seed do |s|
@@ -207,6 +205,7 @@ Shop.seed do |s|
   s.phone = '03-3338-4381'
   s.opening = '9:00 - 00:00'
   s.closed = '年中無休'
+  s.image = 'shop_21.jpg'
 end
 
 Shop.seed do |s|

@@ -59,11 +59,11 @@
         <%= render 'post_comment', { shop: @shop, comment: @comment } %>
         <div class="row">
           <div class="col-xs-12">
-            <h3>地図</h3>
+            <h3>マップ</h3>
           </div>
-        </div> 
-        <div>
-          <%= render 'map', { shop: @shop } %>
+          <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <%= render 'map', { shop: @shop } %>
+          </div>
         </div>
       </div>
     </div>

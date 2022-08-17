@@ -7,7 +7,7 @@ function initMap() {
       lat: lat,
       lng: lng
     },
-    zoom: 15,
+    zoom: 19,
   });
 
   var transitLayer = new google.maps.TransitLayer();
