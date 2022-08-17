@@ -36,6 +36,9 @@ gem 'ransack'
 # Environment Valiable
 gem 'dotenv-rails'
 
+# Geocoding
+gem "geocoder"
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
