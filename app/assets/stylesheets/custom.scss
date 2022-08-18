@@ -28,16 +28,11 @@ $error-message: #D43131;
   form {
     margin: auto;
   }
-  .btn {
-    margin-top: 20px;
-    height: 50px;
-    width: clamp(100px, 50%, 250px);
-  }
   label {
     text-align: left;
     width: clamp(300px, 100%, 700px);
   }
-  input, textarea, select, .uneditable-input {
+  .input-field, textarea, select {
     border: 1px solid #bbb;
     width: clamp(300px, 100%, 700px);
     height: 40px;
@@ -46,9 +41,15 @@ $error-message: #D43131;
     @include box_sizing;
   }
   p {
+    margin-top: 20px;
     a {
       color: $accent-blown;
     }
+  }
+  .btn {
+    margin-top: 20px;
+    height: 50px;
+    width: clamp(100px, 50%, 250px);
   }
 }
 
@@ -313,30 +314,26 @@ footer {
   @include content;
 }
 
-.signin-wrapper {
-  @include form_layout;
-  @include frame;
-}
-
 .signup-wrapper {
   height: calc(87vh);
   @include form_layout;
 }
 
-.login-wrapper {
+.signin-wrapper {
+  height: calc(87vh);
   @include form_layout;
-  @include frame;
-  .checkbox {
-    margin-top: -10px;
-    span {
-      margin-left: 20px;
-      font-weight: normal;
+  #remember-me {
+    width: clamp(300px, 100%, 700px);
+    font-weight: normal;
+    #rmm-chbx {
+      float: left;
+      width: 20px;
+      height: 20px;
+      margin-top: -1px;
     }
-  }
-  #session_remember_me {
-    margin-top: -10px;
-    width: auto;
-    margin-left: 0;
+    span {
+      margin-left: 10px;
+    }
   }
 }
 
@@ -400,7 +397,6 @@ footer {
         clear: both;
       }
       dl {
-        width: 50%;
         float: left;
         font-size: 17px;
         color: $accent-blown-t; 
