@@ -1,0 +1,23 @@
+<%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+  <div class="col-xs-12">
+    <%= f.label :email, User.human_attribute_name(:email) %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.email_field :email, class: "input-field" %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.label :password, User.human_attribute_name(:password) %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.password_field :password, class: "input-field" %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.label :remember_me, id: "remember-me" do %>
+      <%= f.check_box :remember_me, id: "rmm-chbx" %>
+      <span>ログインを保持する</span>
+    <% end %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.submit "ログイン", class: "btn" %>
+  </div>        
+<% end %>
