@@ -1,17 +1,34 @@
 <%= form_with(model: @user, local: true) do |f| %>
   <%= render 'shared/error_messages', object: @user %>
+  <div class="col-xs-12">
+    <%= f.label :name %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="col-xs-12">
+    <%= f.label :email %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.email_field :email %>  
+  </div>
+
+  <div class="col-xs-12">
+    <%= f.label :password %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="col-xs-12">
+    <%= f.label :password_confirmation %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.password_field :password_confirmation %>  
+  </div>
   
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.submit yield(:button_text), class: "btn" %>
+  <div class="col-xs-12">
+    <%= f.submit yield(:button_text), class: "btn" %>
+  </div>
 <% end %>

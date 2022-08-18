@@ -1,12 +1,18 @@
 <% provide(:title, '新規登録') %>
 <% provide(:button_text, 'アカウント作成') %>
 
-<div class="content-wrapper">
-  <div class="signin-wrapper">
-    <h1>新規登録</h1>
-    <%= render 'form' %>
-    <p>
-      すでにアカウントをお持ちの方は <%= link_to "ログイン", login_path %>
-    </p>
+<div class="content-wrapper container-fluid">
+  <div class="signup-wrapper row">
+    <div class="col-xs-12">
+      <h1>新規登録</h1>
+    </div>
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <%= render 'form' %>
+    </div>
+    <div class="col-xs-12">
+      <p>
+        すでにアカウントをお持ちの方は <%= link_to "ログイン", login_path %>
+      </p>
+    </div>
   </div>
 </div>
