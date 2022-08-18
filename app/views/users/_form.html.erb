@@ -1,5 +1,7 @@
 <%= form_with(model: @user, local: true) do |f| %>
-  <%= render 'shared/error_messages', object: @user %>
+  <div class="col-xs-12">
+    <%= render 'shared/error_messages', object: @user %>
+  </div>
   <div class="col-xs-12">
     <%= f.label :name %>
   </div>
@@ -29,6 +31,6 @@
   </div>
   
   <div class="col-xs-12">
-    <%= f.submit yield(:button_text), class: "btn" %>
+    <%= f.submit yield(:button_text), class: "btn btn-submit" %>
   </div>
 <% end %>

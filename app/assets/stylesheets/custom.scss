@@ -25,6 +25,13 @@ $error-message: #D43131;
 
 @mixin form_layout {
   @include wrapper_h1;
+  #error-explanation {
+    display: inline-block;
+    color: $error-message;
+    margin: 0 0 30px 0;
+    text-align: left;
+    width: clamp(300px, 100%, 700px);
+  }
   form {
     margin: auto;
   }
@@ -93,7 +100,7 @@ $error-message: #D43131;
 
 @mixin title_border {
   width: 50%;
-  margin: 20px auto;
+  margin: 50px auto 30px auto;
   padding-bottom: 10px;
   border-bottom: solid 2px;
   border-color: $sub;
@@ -121,6 +128,16 @@ $error-message: #D43131;
 @mixin icon {
   border-radius: 500rem;
   object-fit: cover;
+}
+
+@mixin shadow_btn {
+  box-shadow: 3px 3px 4px rgba(0,0,0,.15);
+  transition:0.3s all;
+  &:hover {
+    color: #fff;
+    transform: translateY(2px);
+    box-shadow: 0px 0px 0px rgba(0,0,0,.15);
+  }
 }
 
 /* universal */
@@ -230,24 +247,6 @@ body {
 .btn {
   background: $accent-blown;
   color: $main;
-  display: inline-block;
-  margin-bottom: 0;
-  font-weight: normal;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none;
-  border: 1px solid transparent;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.428571429;
-  border-radius: 6px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .btn-bm {
@@ -339,25 +338,19 @@ footer {
 
 .setting-wrapper {
   @include form_layout;
-  @include frame;
   h3 {
     @include title_border;
-  }
-  .account-delete-wrapper {
-    margin: auto;
-    width: 50%;
-    .btn {
-      text-align:center;
-      padding-top: 14px;
-    }
-  }
-}
 
-#error-explanation {
-  ul {
-    color: $error-message;
-    margin: 0 0 30px 0;
-    text-align: left;
+  }
+  .btn-usr-rm {
+    text-align:center;
+    padding-top: 14px;
+    background-color: $error-message;
+    margin-bottom: 30px;
+    @include shadow_btn;
+  }
+  .btn-submit {
+    @include shadow_btn;
   }
 }
 
