@@ -10,7 +10,7 @@
     </div>
     <div class="col-xs-12">
       <p>または</p>
-      <p>ゲストログイン</p>
+      <%= link_to 'ゲストログイン', guest_login_path, method: :post, class: "btn" %>
       <p>
         初めて利用する場合は <%= link_to "新規登録", signup_path %>
       </p>
