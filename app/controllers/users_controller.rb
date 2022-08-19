@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :check_guest_user, only: [:edit]
 
   def show
     @user = User.find(params[:id])
@@ -51,6 +52,14 @@ class UsersController < ApplicationController
       return if current_user?(@user)
 
       flash[:danger] = '無効なページです'
+      redirect_to root_url
+    end
+
+    def check_guest_user
+      user = User.find_by(email: "guest@example.com")
+      return unless current_user?(user)
+
+      flash[:danger] = 'ゲストユーザーはアカウント設定を変更できません'
       redirect_to root_url
     end
 end

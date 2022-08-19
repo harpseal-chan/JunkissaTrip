@@ -30,14 +30,4 @@ RSpec.describe "Sessions", type: :system do
       expect(page).not_to have_selector '.alert-success'
     end
   end
-
-  context 'ゲストログインした場合' do
-    it 'flash[:success]が表示されること' do
-      visit login_path
-      click_link 'ゲストログイン'
-      expect(page).to have_selector '.alert-success'
-      visit user_path(user)
-      expect(page).not_to have_selector '.alert-success'
-    end
-  end
 end
