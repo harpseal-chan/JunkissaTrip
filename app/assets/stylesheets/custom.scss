@@ -334,6 +334,16 @@ footer {
       margin-left: 10px;
     }
   }
+  .btn-glogin {
+    @include shadow_btn;
+    padding-top: 15px;
+  }
+  .btn-login {
+    @include shadow_btn;
+  }
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .setting-wrapper {
