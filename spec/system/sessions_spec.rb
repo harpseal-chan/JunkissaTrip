@@ -8,7 +8,7 @@ RSpec.describe "Sessions", type: :system do
   end
 
   context '無効な値を入力してログインした場合' do
-    it 'flashが表示されること' do
+    it 'flash[:danger]が表示されること' do
       visit login_path
       fill_in 'メールアドレス', with: user.email
       fill_in 'パスワード', with: 'invalid'
@@ -20,15 +20,24 @@ RSpec.describe "Sessions", type: :system do
   end
 
   context '有効な値を入力してログインした場合' do
-    it 'ヘッダー表示がログイン時の内容に変わっていること' do
+    it 'flash[:success]が表示されること' do
       visit login_path
       fill_in 'メールアドレス', with: user.email
       fill_in 'パスワード', with: user.password
       click_button 'ログイン'
+      expect(page).to have_selector '.alert-success'
+      visit user_path(user)
+      expect(page).not_to have_selector '.alert-success'
+    end
+  end
 
-      expect(page).not_to have_selector "a[href=\"#{login_path}\"]"
-      expect(page).to have_selector "a[href=\"#{logout_path}\"]"
-      expect(page).to have_selector "a[href=\"#{user_path(user)}\"]"
+  context 'ゲストログインした場合' do
+    it 'flash[:success]が表示されること' do
+      visit login_path
+      click_link 'ゲストログイン'
+      expect(page).to have_selector '.alert-success'
+      visit user_path(user)
+      expect(page).not_to have_selector '.alert-success'
     end
   end
 end

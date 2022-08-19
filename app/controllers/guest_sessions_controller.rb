@@ -7,6 +7,6 @@ class GuestSessionsController < ApplicationController
     log_in user
     remember(user)
     flash[:success] = "ゲストユーザーとしてログインしました"
-    redirect_to user
+    redirect_back_or user
   end
 end
