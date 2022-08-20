@@ -3,8 +3,9 @@
     <%= render 'shared/error_messages', object: @user %>
   </div>
   <div class="col-xs-12">
-    <span class="icon_image">
-      <%= f.file_field :icon_image %>
+    <span class="avatar">
+      <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png" %>
+      <%= image_tag @user.avatar, alt: "アイコン" if @user.avatar.attached? %>
     </span>
   </div>
   <div class="col-xs-12">

@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_shops, through: :bookmarks, source: :shop
   has_many :comments, dependent: :destroy
-  has_one_attached :icon_image
+  has_one_attached :avatar
 
   attr_accessor :remember_token
 
@@ -17,6 +17,11 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+
+  validates :avatar, content_type: { in: %w[image/jpeg image/gif image/png],
+                                         message: "無効なファイル形式です" },
+                         size:         { less_than: 5.megabytes,
+                                         message: "サイズは5MB以下にしてください" }
 
   def self.digest(string)
     cost = if ActiveModel::SecurePassword.min_cost

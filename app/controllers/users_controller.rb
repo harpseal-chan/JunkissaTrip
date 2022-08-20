@@ -13,10 +13,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.icon_image.attach(params[:user][:icon_image])
+    @user.avatar.attach(params[:user][:avatar])
     if @user.save
       log_in @user
-      flash[:success] = 'ログインしました'
+      flash[:success] = 'アカウントを作成しました'
       redirect_to @user
     else
       render 'new'
@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      @user.avatar.attach(params[:user][:avatar])
       flash[:success] = 'アカウント情報を更新しました'
       redirect_to @user
     else
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :icon_image)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
     end
 
     def correct_user
