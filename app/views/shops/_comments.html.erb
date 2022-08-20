@@ -1,6 +1,10 @@
 <div class="comment col-md-10 col-md-offset-1 col-xs-12">
   <div class="cm-user-info col-xs-12">
-    <%= image_tag "no_image.png", alt: "アイコン", class: "icon", width: "55", height: "55" %>
+    <% if comment.user.avatar.attached? %>
+      <%= image_tag comment.user.avatar.variant(resize_to_limit: [200, 200]).processed, class: "avatar" %>
+    <% else %>
+      <%= image_tag "no_image.png", alt: "アイコン", class: "avatar" %>
+    <% end %>
     <div class="cm-title">
       <%= comment.user.name %>さんのコメント
     </div>

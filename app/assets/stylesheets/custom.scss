@@ -32,6 +32,11 @@ $error-message: #D43131;
     text-align: left;
     width: clamp(300px, 100%, 700px);
   }
+  .avatar {
+    @include avatar;
+    width: 150px;
+    height: 150px;
+  }
   form {
     margin: auto;
   }
@@ -46,6 +51,10 @@ $error-message: #D43131;
     margin-bottom: 20px;
     border-radius: 4px;
     @include box_sizing;
+  }
+  .file_field {
+    width: clamp(300px, 100%, 700px);
+    margin: 30px auto;
   }
   p {
     margin-top: 20px;
@@ -125,7 +134,7 @@ $error-message: #D43131;
   }
 }
 
-@mixin icon {
+@mixin avatar {
   border-radius: 500rem;
   object-fit: cover;
 }
@@ -174,7 +183,7 @@ header {
       opacity: 0.5;
       transition:0.3s all;
     }
-    .icon-bar {
+    .avatar-bar {
       background-color: $accent-blown;
     }
   }
@@ -518,11 +527,13 @@ footer {
     background-color: $sub;
     border-radius: 4px;
     padding: 10px;
-    .icon {
-      @include icon;
+    .avatar {
+      @include avatar;
       float: left;
       margin-right: 10px;
       margin-top: 10px;
+      width: 60px;
+      height: 60px;
     }
     .cm-user-info {
       text-align: left;
@@ -596,8 +607,10 @@ footer {
     @include shop_block;
     margin: 30px auto;
     padding: 30px 10px;
-    .icon {
-      @include icon
+    .avatar {
+      @include avatar;
+      width: 150px;
+      height: 150px;
     }
   }
   h3 {
