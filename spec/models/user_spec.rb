@@ -62,6 +62,18 @@ RSpec.describe User, type: :model do
       user.password = user.password_confirmation = 'a' * 5
       expect(user).not_to be_valid
     end
+
+    it 'avatarのサイズが5MB以上の場合、userが無効であること' do
+      user.avatar = Rack::Test::UploadedFile.new('spec/fixtures/images/6MB.png', 'image/png')
+      expect(user).not_to be_valid
+      expect(user.errors[:avatar]).to include 'サイズは5MB以下にしてください'
+    end
+
+    it 'avatarの画像形式がjpeg, gif, png以外の場合、userが無効であること' do
+      user.avatar = Rack::Test::UploadedFile.new('spec/fixtures/invalid.txt', 'text/plain')
+      expect(user).not_to be_valid
+      expect(user.errors[:avatar]).to include '無効なファイル形式です'
+    end
   end
 
   context 'emailのDB登録' do

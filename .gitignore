@@ -38,3 +38,5 @@ yarn-debug.log*
 db/mysql_data
 
 .env*
+
+/spec/fixtures/images/6MB.png
