@@ -13,7 +13,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.avatar.attach(params[:user][:avatar])
     if @user.save
       log_in @user
       flash[:success] = 'アカウントを作成しました'
@@ -29,7 +28,6 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      @user.avatar.attach(params[:user][:avatar])
       flash[:success] = 'アカウント情報を更新しました'
       redirect_to @user
     else

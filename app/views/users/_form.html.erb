@@ -4,8 +4,8 @@
   </div>
   <div class="col-xs-12">
     <span class="avatar">
-      <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png" %>
-      <%= image_tag @user.avatar, alt: "アイコン" if @user.avatar.attached? %>
+      <%= f.file_field :avatar, accept: "image/jpeg, image/gif, image/png" %>
+      <%= image_tag @user.avatar.variant(resize_to_limit: [100, 100]), alt: "アイコン" if @user.avatar.attached? %>
     </span>
   </div>
   <div class="col-xs-12">
