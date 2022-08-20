@@ -160,16 +160,19 @@ RSpec.describe "Users", type: :request do
           @valid_email = 'foo@bar.com'
           @valid_password = ''
           @valid_password_cfm = ''
+          @valid_avatar_fname = 'test_avatar2.png'
           patch user_path(user), params: { user: { name: @valid_name,
                                                    email: @valid_email,
                                                    password: @valid_password,
-                                                   password_confirmation: @valid_password_cfm } }
+                                                   password_confirmation: @valid_password_cfm,
+                                                   avatar: fixture_file_upload("spec/fixtures/images/#{@valid_avatar_fname}", 'image/png') } }
         end
 
         it 'ユーザーの情報が更新されていること' do
           user.reload
           expect(user.name).to eq @valid_name
           expect(user.email).to eq @valid_email
+          expect(user.avatar.filename.to_s).to include @valid_avatar_fname.to_s
         end
 
         it '/users/id にリダイレクトされること' do

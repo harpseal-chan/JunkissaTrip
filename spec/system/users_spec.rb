@@ -21,18 +21,17 @@ RSpec.describe "Users", type: :system do
       end
     end
 
-    # context '有効な値で登録した場合' do
-    #   it 'アカウントが1つ増加すること' do
-    #     expect do
-    #       fill_in 'ユーザー名', with: 'valid'
-    #       fill_in 'メールアドレス', with: 'user@valid.com'
-    #       fill_in 'パスワード', with: 'foobar'
-    #       fill_in 'パスワード（確認）', with: 'foobar'
-    #       attach_file 'user[avatar]', "#{Rails.root}/spec/fixtures/images/test_avatar.png"
-    #       click_button 'アカウント作成'
-    #     end.to change(User, :count).by(1)
-    #   end
-    # end
+    context '有効な値で登録した場合' do
+      it 'アカウントが1つ増加すること' do
+        fill_in 'ユーザー名', with: 'valid'
+        fill_in 'メールアドレス', with: 'user@valid.com'
+        fill_in 'パスワード', with: 'foobar'
+        fill_in 'パスワード（確認）', with: 'foobar'
+        expect do
+          click_button 'アカウント作成'
+        end.to change(User, :count).by(1)
+      end
+    end
   end
 
   describe 'アカウント設定' do

@@ -36,7 +36,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    user = User.find(params[:id])
+    user.avatar.purge
+    user.destroy
     flash[:success] = 'アカウントを削除しました'
     redirect_to root_url
   end
