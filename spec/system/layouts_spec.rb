@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe "Layouts", type: :system do
-  let!(:user) { FactoryBot.create(:harpseal) }
-
   before do
     driven_by(:rack_test)
   end
 
   describe 'ヘッダー' do
+    let!(:user) { FactoryBot.create(:harpseal) }
+
     it '店舗一覧のリンクが存在すること' do
       visit root_path
       expect(page).to have_link '店舗一覧', href: shops_path
@@ -119,6 +119,8 @@ RSpec.describe "Layouts", type: :system do
     end
 
     describe 'ブックマーク' do
+      let!(:user) { FactoryBot.create(:harpseal) }
+
       context 'ログイン状態の場合' do
         before do
           log_in user
@@ -182,6 +184,43 @@ RSpec.describe "Layouts", type: :system do
         expect(page).to have_selector '.user-comment'
         expect(page).to have_content @comment.content
         expect(page).to have_link href: shop_path(@comment.shop)
+      end
+    end
+  end
+
+  describe 'アイコン画像' do
+    let(:attached_user) { FactoryBot.create(:harpseal) }
+    let(:not_attached_user) { FactoryBot.create(:phoca) }
+
+    context 'アイコン画像がアタッチされている場合' do
+      before do
+        log_in attached_user
+      end
+
+      it 'アタッチしたアイコン画像がマイページとヘッダーに表示されていること' do
+        visit user_path(attached_user)
+        expect(page).to have_selector("img[src$='test_avatar.png']", count: 2)
+      end
+
+      it 'アタッチしたアイコン画像がアカウント設定ページとヘッダーに表示されていること' do
+        visit edit_user_path(attached_user)
+        expect(page).to have_selector("img[src$='test_avatar.png']", count: 2)
+      end
+    end
+
+    context 'アイコン画像がアタッチされていない場合' do
+      before do
+        log_in not_attached_user
+      end
+
+      it 'デフォルトアイコン画像がマイページとヘッダーに表示されていること' do
+        visit user_path(not_attached_user)
+        expect(page).to have_selector("#avatar-default", count: 2)
+      end
+
+      it 'デフォルトアイコン画像がアカウント設定ページとヘッダーに表示されていること' do
+        visit edit_user_path(not_attached_user)
+        expect(page).to have_selector("#avatar-default", count: 2)
       end
     end
   end

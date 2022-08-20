@@ -38,7 +38,8 @@ RSpec.describe "Users", type: :request do
         { user: { name: 'Example User',
                   email: 'user@example.com',
                   password: 'password',
-                  password_confirmation: 'password' } }
+                  password_confirmation: 'password',
+                  avatar: fixture_file_upload('spec/fixtures/images/test_avatar.png', 'image/png') } }
       end
 
       it 'ユーザーを登録できること' do
@@ -61,6 +62,12 @@ RSpec.describe "Users", type: :request do
       it 'ログイン状態であること' do
         post users_path, params: valid_user_params
         expect(logged_in?).to be_truthy
+      end
+
+      it 'アイコン画像がアタッチされていること' do
+        post users_path, params: valid_user_params
+        user = User.last
+        expect(user.avatar).to be_attached
       end
     end
   end
