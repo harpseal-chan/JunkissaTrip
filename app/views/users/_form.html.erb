@@ -4,11 +4,7 @@
   </div>
   <div class="col-xs-12">
     <span class="avatar">
-      <% if @user.avatar.attached? %>
-        <%= image_tag @user.avatar.variant(resize_to_limit: [200, 200]).processed, class: "avatar" %>
-      <% else %>
-        <%= image_tag "no_image.png", alt: "アイコン", class: "avatar" %>
-      <% end %>
+      <%= render 'shared/avatar', { user: @user } %>
       <%= f.file_field :avatar, accept: "image/jpeg, image/gif, image/png", class: "file_field" %>
     </span>
   </div>

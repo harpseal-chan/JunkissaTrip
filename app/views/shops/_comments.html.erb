@@ -1,10 +1,6 @@
 <div class="comment col-md-10 col-md-offset-1 col-xs-12">
   <div class="cm-user-info col-xs-12">
-    <% if comment.user.avatar.attached? %>
-      <%= image_tag comment.user.avatar.variant(resize_to_limit: [200, 200]).processed, class: "avatar" %>
-    <% else %>
-      <%= image_tag "no_image.png", alt: "アイコン", class: "avatar" %>
-    <% end %>
+    <%= render 'shared/avatar', { user: comment.user } %>
     <div class="cm-title">
       <%= comment.user.name %>さんのコメント
     </div>
