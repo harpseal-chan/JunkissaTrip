@@ -3,6 +3,12 @@
     <%= render 'shared/error_messages', object: @user %>
   </div>
   <div class="col-xs-12">
+    <span class="avatar">
+      <%= render 'shared/avatar', { user: @user } %>
+      <%= f.file_field :avatar, accept: "image/jpeg, image/gif, image/png", class: "file_field" %>
+    </span>
+  </div>
+  <div class="col-xs-12">
     <%= f.label :name %>
   </div>
   <div class="col-xs-12">

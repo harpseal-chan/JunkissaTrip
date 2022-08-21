@@ -32,6 +32,11 @@ $error-message: #D43131;
     text-align: left;
     width: clamp(300px, 100%, 700px);
   }
+  .avatar {
+    @include avatar;
+    width: 150px;
+    height: 150px;
+  }
   form {
     margin: auto;
   }
@@ -46,6 +51,10 @@ $error-message: #D43131;
     margin-bottom: 20px;
     border-radius: 4px;
     @include box_sizing;
+  }
+  .file_field {
+    width: clamp(300px, 100%, 700px);
+    margin: 30px auto;
   }
   p {
     margin-top: 20px;
@@ -125,7 +134,7 @@ $error-message: #D43131;
   }
 }
 
-@mixin icon {
+@mixin avatar {
   border-radius: 500rem;
   object-fit: cover;
 }
@@ -143,53 +152,58 @@ $error-message: #D43131;
 /* universal */
 
 header {
-  a {
+  #logo {
+    float: left;
+    margin-left: 10px;
+    font-size: 1.7em;
     color: $accent-blown;
+    margin-top: 13px;
+    font-weight: bold;
+    text-decoration: none;
   }
   div.container-fluid {
     padding: 0 60px;
   }
-}
-
-#logo {
-  float: left;
-  margin-left: 10px;
-  font-size: 1.7em;
-  color: $accent-blown;
-  padding-top: 9px;
-  font-weight: bold;
-  text-decoration: none;
+  #header-search-bar {
+    margin-top: 8px;
+  }
+  .avatar {
+    @include avatar;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+  }
+  .navbar {
+    background-color: $sub;
+    .navbar-toggle {
+      border-color: $accent-blown;
+      &:hover {
+        background-color: $main;
+        opacity: 0.5;
+        transition:0.3s all;
+      }
+    }
+    .navbar-nav {
+      li {
+        a {
+          margin-top: 5px;
+          color: $accent-blown;
+          &:hover {
+            opacity: 0.5;
+            color: $accent-blown;
+            transition:0.3s all;
+          }
+        }
+      }
+    }
+  }  
+  .nav-item {
+    margin-top: 5px;
+  }
 }
 
 .fa-magnifying-glass {
   padding-left: 5px;
-}
-
-.navbar {
-  background-color: $sub;
-  .navbar-toggle {
-    border-color: $accent-blown;
-    &:hover {
-      background-color: $main;
-      opacity: 0.5;
-      transition:0.3s all;
-    }
-    .icon-bar {
-      background-color: $accent-blown;
-    }
-  }
-  .navbar-nav {
-    li {
-      a {
-        color: $accent-blown;
-        &:hover {
-          opacity: 0.5;
-          color: $accent-blown;
-          transition:0.3s all;
-        }
-      }
-    }
-  }
 }
 
 .alert {
@@ -518,11 +532,13 @@ footer {
     background-color: $sub;
     border-radius: 4px;
     padding: 10px;
-    .icon {
-      @include icon;
+    .avatar {
+      @include avatar;
       float: left;
       margin-right: 10px;
       margin-top: 10px;
+      width: 60px;
+      height: 60px;
     }
     .cm-user-info {
       text-align: left;
@@ -596,8 +612,10 @@ footer {
     @include shop_block;
     margin: 30px auto;
     padding: 30px 10px;
-    .icon {
-      @include icon
+    .avatar {
+      @include avatar;
+      width: 150px;
+      height: 150px;
     }
   }
   h3 {

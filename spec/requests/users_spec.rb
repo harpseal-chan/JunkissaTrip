@@ -38,7 +38,8 @@ RSpec.describe "Users", type: :request do
         { user: { name: 'Example User',
                   email: 'user@example.com',
                   password: 'password',
-                  password_confirmation: 'password' } }
+                  password_confirmation: 'password',
+                  avatar: fixture_file_upload('spec/fixtures/images/test_avatar.png', 'image/png') } }
       end
 
       it 'ユーザーを登録できること' do
@@ -61,6 +62,12 @@ RSpec.describe "Users", type: :request do
       it 'ログイン状態であること' do
         post users_path, params: valid_user_params
         expect(logged_in?).to be_truthy
+      end
+
+      it 'アイコン画像がアタッチされていること' do
+        post users_path, params: valid_user_params
+        user = User.last
+        expect(user.avatar).to be_attached
       end
     end
   end
@@ -153,16 +160,19 @@ RSpec.describe "Users", type: :request do
           @valid_email = 'foo@bar.com'
           @valid_password = ''
           @valid_password_cfm = ''
+          @valid_avatar_fname = 'test_avatar2.png'
           patch user_path(user), params: { user: { name: @valid_name,
                                                    email: @valid_email,
                                                    password: @valid_password,
-                                                   password_confirmation: @valid_password_cfm } }
+                                                   password_confirmation: @valid_password_cfm,
+                                                   avatar: fixture_file_upload("spec/fixtures/images/#{@valid_avatar_fname}", 'image/png') } }
         end
 
         it 'ユーザーの情報が更新されていること' do
           user.reload
           expect(user.name).to eq @valid_name
           expect(user.email).to eq @valid_email
+          expect(user.avatar.filename.to_s).to include @valid_avatar_fname.to_s
         end
 
         it '/users/id にリダイレクトされること' do

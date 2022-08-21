@@ -63,4 +63,9 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   include ApplicationHelper
+
+  # Cleanup Active Storage Test Data
+  # config.after(:all) do
+  #   FileUtils.rm_rf(ActiveStorage::Blob.service.root) if Rails.env.test?
+  # end
 end

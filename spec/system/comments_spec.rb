@@ -35,6 +35,10 @@ RSpec.describe "Comments", type: :system do
         it '「もっと見る」が表示されていないこと' do
           expect(page).not_to have_selector '#more-link'
         end
+
+        it '投稿したユーザのアイコンが表示されること' do
+          expect(page).to have_selector("img[src$='test_avatar.png']")
+        end
       end
 
       context '3件以上コメントを投稿した場合' do

@@ -4,6 +4,7 @@ FactoryBot.define do
     email { 'harpseal@example.com' }
     password { 'password' }
     password_confirmation { 'password' }
+    avatar { Rack::Test::UploadedFile.new('spec/fixtures/images/test_avatar.png', 'image/png') }
   end
 
   factory :phoca, class: User do

@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = 'ログインしました'
+      flash[:success] = 'アカウントを作成しました'
       redirect_to @user
     else
       render 'new'
@@ -36,7 +36,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    user = User.find(params[:id])
+    user.avatar.purge
+    user.destroy
     flash[:success] = 'アカウントを削除しました'
     redirect_to root_url
   end
@@ -44,7 +46,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
     end
 
     def correct_user
