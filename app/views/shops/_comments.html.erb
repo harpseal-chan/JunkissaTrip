@@ -1,6 +1,6 @@
 <div class="comment col-md-10 col-md-offset-1 col-xs-12">
   <div class="cm-user-info col-xs-12">
-    <%= image_tag "no_image.png", alt: "アイコン", class: "icon", width: "55", height: "55" %>
+    <%= render 'shared/avatar', { user: comment.user } %>
     <div class="cm-title">
       <%= comment.user.name %>さんのコメント
     </div>

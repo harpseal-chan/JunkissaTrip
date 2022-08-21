@@ -11,6 +11,4 @@ Rails.application.routes.draw do
     resource :bookmarks, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
-
-  get '*path', controller: 'application', action: 'render404'
 end
