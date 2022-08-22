@@ -12,7 +12,7 @@ RUN rm -f /etc/nginx/conf.d/*
 ENV LC_ALL ja_JP.UTF-8
 
 # Nginxの設定ファイルをコンテナにコピー
-ADD /containers/nginx/nginx.conf /etc/nginx/conf.d/myapp.conf
+ADD nginx.conf /etc/nginx/conf.d/junkissa_trip.conf
 
 # ビルド完了後にNginxを起動
 CMD /usr/sbin/nginx -g 'daemon off;' -c /etc/nginx/nginx.conf
