@@ -277,3 +277,13 @@ Shop.seed do |s|
   s.closed = '年中無休'
   s.image = 'shop_28.jpg'
 end
+
+Shop.seed do |s|
+  s.id = 29
+  s.name = '喫茶 宝石箱'
+  s.address = '東京都世田谷区南烏山４丁目１８−１８ 小山マンション'
+  s.phone = ' 03-5969-8577'
+  s.opening = '12:00 - 17:00'
+  s.closed = '月〜木'
+  s.image = 'shop_29.jpg'
+end
