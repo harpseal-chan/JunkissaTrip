@@ -62,21 +62,9 @@ namespace :deploy do
     end
   end
 
-  task :build do
-    on roles(:app) do
-      execute "cd #{application};" "#{docker_compose_path} build"
-    end
-  end
-
   task :application_compile do
     on roles(:app) do
       execute "cd #{application};" "#{rails_compile}"
-    end
-  end
-
-  task :up_containers do
-    on release_roles(:all) do
-      execute "cd #{deploy_to};" "#{docker_compose_path} up -d"
     end
   end
 
@@ -98,12 +86,6 @@ namespace :deploy do
     end
   end
 
-  task :down_containers do
-    on roles(:app) do
-      execute "cd #{application};" "#{docker_compose_path} down"
-    end
-  end
-
   task :destroy_images do
     on roles(:app) do
       execute "cd #{application};" "docker rmi -f `docker images -q`"
@@ -111,11 +93,10 @@ namespace :deploy do
   end
 
   task :application_set_up do
-    on roles(:app) do
-      execute "cd #{application};" "git pull origin master;" "#{docker_compose_path} down;" "docker rmi -f `docker images -q`"
-      execute "cd #{application};" "#{docker_compose_path} build;" "#{rails_compile};" "#{docker_compose_path} up -d"
+    on roles(:all) do
+      execute "cd #{deploy_to};" "git fetch origin;" "git merge origin/main;" "#{docker_compose_path} down;" "#{docker_compose_path} build;" "#{docker_compose_path} up -d"
     end
   end
 
-  after :finished, :up_containers
+  after :finished, :application_set_up
 end
