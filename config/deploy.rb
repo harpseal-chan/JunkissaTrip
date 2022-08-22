@@ -51,26 +51,13 @@ namespace :deploy do
   docker_compose_path = fetch :docker_compose_path
   rails_env = fetch :RAILS_ENV
   rails_compile = "#{docker_compose_path} run app rails assets:precompile #{rails_env}"
-  # db_drop = "#{docker_compose_path} exec -T app rails db:drop #{rails_env} DISABLE_DATABASE_ENVIRONMENT_CHECK=1"
   db_migrate = "#{docker_compose_path} exec -T app rails db:migrate #{rails_env}"
   db_create = "#{docker_compose_path} exec -T app rails db:create #{rails_env}"
   db_seed = "#{docker_compose_path} exec -T app rails db:seed_fu #{rails_env}"
 
-  task :application_update do
-    on roles(:app) do # config/deploy/production.rbのroles: %w{app}を指定している。
-      execute "cd #{application};" "git pull origin master"
-    end
-  end
-
   task :application_compile do
     on roles(:app) do
       execute "cd #{application};" "#{rails_compile}"
-    end
-  end
-
-  task :database_create do
-    on roles(:app) do
-      execute "cd #{application};" "#{db_create}"
     end
   end
 
@@ -80,15 +67,9 @@ namespace :deploy do
     end
   end
 
-  task :database_reset do
+  task :dc_down do
     on roles(:app) do
-      execute "cd #{application};" "#{db_drop};" "#{db_create};" "#{db_migrate};" "#{db_seed};"
-    end
-  end
-
-  task :destroy_images do
-    on roles(:app) do
-      execute "cd #{application};" "docker rmi -f `docker images -q`"
+      execute "cd #{application};" "#{docker_compose_path} down"
     end
   end
 

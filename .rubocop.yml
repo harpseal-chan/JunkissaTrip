@@ -6,6 +6,7 @@ AllCops:
     - "vendor/**/*" # rubocop config/default.yml
     - 'db/**/*'
     - 'Capfile'
+    - 'config/deploy.rb'
     
   DisplayCopNames: true
 
