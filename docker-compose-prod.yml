@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile.rails-prod
+      dockerfile: Dockerfile.prod-rails
     command: bundle exec puma -C config/puma.rb -e production
     volumes:
       - .:/junkissa_trip
@@ -17,7 +17,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile.nginx-prod
+      dockerfile: Dockerfile.prod-nginx
     volumes:
       - public-data:/junkissa_trip/public
       - tmp-data:/junkissa_trip/tmp
