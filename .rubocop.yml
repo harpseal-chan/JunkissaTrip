@@ -5,6 +5,8 @@ AllCops:
   Exclude:
     - "vendor/**/*" # rubocop config/default.yml
     - 'db/**/*'
+    - 'Capfile'
+    
   DisplayCopNames: true
 
 Style/Documentation:

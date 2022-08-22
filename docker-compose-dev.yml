@@ -10,6 +10,7 @@ services:
       - public-data:/junkissa_trip/public
       - tmp-data:/junkissa_trip/tmp
       - log-data:/junkissa_trip/log
+      - ~/.ssh:/root/.ssh
     ports:
       - "3000:3000"
     networks:
@@ -33,7 +34,7 @@ services:
 
   web:
     build:
-      context: ./nginx_docker
+      context: .
       dockerfile: Dockerfile.dev-nginx
     volumes:
       - public-data:/junkissa_trip/public
