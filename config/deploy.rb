@@ -75,7 +75,7 @@ namespace :deploy do
 
   task :application_set_up do
     on roles(:all) do
-      execute "cd #{deploy_to};" "git fetch origin;" "git merge origin/main;" "#{docker_compose_path} down;" "#{docker_compose_path} build;" "#{docker_compose_path} up -d"
+      execute "cd #{deploy_to};" "git fetch origin;" "git merge origin/main;" "#{docker_compose_path} down;" "#{docker_compose_path} build;" "docker network create jt-network;" "#{docker_compose_path} up -d"
     end
   end
 

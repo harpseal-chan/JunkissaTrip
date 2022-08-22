@@ -70,10 +70,6 @@ group :development do
   gem 'spring'
   # A deployment automation tool built on Ruby, Rake, and SSH.
   gem 'capistrano'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano3-puma'
 end
 
 group :test do
