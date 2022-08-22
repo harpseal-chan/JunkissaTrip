@@ -68,6 +68,8 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # A deployment automation tool built on Ruby, Rake, and SSH.
+  gem 'capistrano'
 end
 
 group :test do
