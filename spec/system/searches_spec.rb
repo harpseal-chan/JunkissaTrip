@@ -40,7 +40,7 @@ RSpec.describe "Searches", type: :system do
     context '店舗名で検索' do
       it '条件に合う店舗のみ表示されること' do
         fill_in 'q[name_cont]', with: match_shop.name
-        page.first(".top-search-btn").click
+        page.first(".btn-search").click
         expect(page).to have_content match_shop.name
         expect(page).not_to have_content not_match_shop.name
       end
