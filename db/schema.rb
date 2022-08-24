@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_23_221227) do
+ActiveRecord::Schema.define(version: 2022_08_24_115622) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 2022_08_23_221227) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "shop_features", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "shop_id", null: false
+    t.bigint "feature_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["feature_id"], name: "index_shop_features_on_feature_id"
+    t.index ["shop_id"], name: "index_shop_features_on_shop_id"
+  end
+
   create_table "shops", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -96,4 +105,6 @@ ActiveRecord::Schema.define(version: 2022_08_23_221227) do
   add_foreign_key "bookmarks", "users"
   add_foreign_key "comments", "shops"
   add_foreign_key "comments", "users"
+  add_foreign_key "shop_features", "features"
+  add_foreign_key "shop_features", "shops"
 end

@@ -12,6 +12,8 @@
 class Shop < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :shop_features, dependent: :destroy
+  has_many :features, through: :shop_features
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :address, presence: true, uniqueness: true, length: { maximum: 255 }
