@@ -21,11 +21,11 @@ RSpec.describe ShopFeature, type: :model do
     end
   end
 
-  # context '重複した値が存在する場合' do
-  #   it 'shop_featureが無効であること' do
-  #     dup_shop_feature = shop_feature.dup
-  #     shop_feature.save
-  #     expect(dup_shop_feature).not_to be_valid
-  #   end
-  # end
+  context '重複した値が存在する場合' do
+    it 'shop_featureが無効であること' do
+      dup_shop_feature = shop_feature.dup
+      shop_feature.save
+      expect(dup_shop_feature).not_to be_valid
+    end
+  end
 end
