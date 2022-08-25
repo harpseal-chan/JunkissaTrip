@@ -11,7 +11,7 @@ RSpec.describe Bookmark, type: :model do
     end
   end
 
-  context '重複した値の場合' do
+  context '重複した値が存在する場合' do
     it 'bookmarkが無効であること' do
       duplicate_bookmark = bookmark.dup
       bookmark.save

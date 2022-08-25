@@ -82,7 +82,7 @@ RSpec.describe "Layouts", type: :system do
   end
 
   describe '店舗一覧ページ' do
-    let!(:shops) { FactoryBot.create_list(:sample_shops, 30) }
+    let!(:shops) { FactoryBot.create_list(:shop1, 30) }
 
     before do
       visit shops_path
