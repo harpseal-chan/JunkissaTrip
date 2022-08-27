@@ -101,6 +101,7 @@ RSpec.describe "Layouts", type: :system do
 
   describe '店舗詳細ページ' do
     let(:shop) { FactoryBot.create(:shop1) }
+    let!(:shop_feature) { FactoryBot.create(:shop_feature) }
 
     before do
       visit shop_path(shop)
@@ -116,6 +117,13 @@ RSpec.describe "Layouts", type: :system do
 
     it '店舗の地図（GoogleMap）が表示されていること' do
       expect(page).to have_selector '#map'
+    end
+
+    it '店舗の特徴アイコンが表示されていること' do
+      shop.features.each do |feature|
+        expect(page).to have_content feature.detail
+        expect(page).to have_content feature.icon_name
+      end
     end
 
     describe 'ブックマーク' do
