@@ -1,6 +1,6 @@
 Feature.seed(
   { :id => 1, :icon_name => 'coffee-beans', :detail => 'コーヒーにこだわりあり' },
-  { :id => 2, :icon_name => 'cake-slice', :detail => 'スイーツメニューが充実' },
+  { :id => 2, :icon_name => 'pancakes', :detail => 'スイーツメニューが充実' },
   { :id => 3, :icon_name => 'fork-knife', :detail => '食事メニューが充実' },
   { :id => 4, :icon_name => 'glass', :detail => 'ドリンクメニューが充実' },
   { :id => 5, :icon_name => 'person', :detail => '一人でも入りやすい' },
