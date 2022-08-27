@@ -1,12 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-$main: #f7f6f2;
-$sub: #f0e5cf;
-$accent-blown: #653e03;
-$accent-blown-t: #653e03af;
-$accent-blue: #4b6587;
-$error-message: #D43131;
+@import "_variables";
 
 /* mixins */
 
