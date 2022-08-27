@@ -85,7 +85,7 @@ $error-message: #D43131;
   h1 {
     font-weight: bold;
     display: inline-block;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 }
 
@@ -492,11 +492,19 @@ footer {
     text-align: left;
     margin-top: 0;
   }
+  .features {
+    text-align: left;
+    margin-bottom: 20px;
+    .feature-icon {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+  }
   .shop-img {
     overflow: hidden;
     border-radius: 6px;
     margin-bottom: 20px;
-
     object-fit: cover;
     width: 100%;
     height: 400px;
