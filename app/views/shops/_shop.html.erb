@@ -4,6 +4,9 @@
     <div class="shop-name col-xs-12">
       <%= shop.name %>
     </div>
+    <div class="features col-xs-12">
+      <%= render partial: 'shared/features', collection: shop.features, as: 'feature' %>
+    </div>
     <div class="col-xs-12 col-md-8">
       <% if shop.image.nil? %>
         <%= image_tag 'no_image.png', alt: "店舗の写真" %>
