@@ -1,6 +1,73 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-div.container-fluid {
-  padding: 0;
+@import "_variables";
+@import "_mixins";
+
+.top-wrapper {
+  position: relative;
+  height: calc(95vh);
+  background-image: image-url("top.jpeg");
+  background-color:rgba(247,246,242,0.8);
+  background-blend-mode:lighten;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  justify-content: center;
+  .top-content {
+    padding: 0 clamp(6px, 10%, 60px);;
+    position: absolute;
+    top: calc(40% - 50px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    @include fade_up;
+  }
+  h1 {
+    letter-spacing: 0.08em;
+    font-size: clamp(45px, 4.5vw, 120px);
+    font-weight: bold;
+    margin-top: 0;
+    padding-top: 10px;
+  }
+  h2 {
+    font-weight: bold;
+    font-size: clamp(20px, 1.5vw, 35px);
+  }
+  .search-bar-content {
+    margin-top: 30px;
+  }
+  .top-form-control {
+    border: none;
+    border-radius: 30px;
+    height: 34px;
+    padding-left: 20px;
+    height: 50px;
+  }
+  .btn-search {
+    background-color: $accent-blown;
+    border-color: transparent;
+    color: $main;
+    padding: 0 15px;
+    font-size: 25px;
+    font-size: 15px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    height: 46px;
+    .fa-magnifying-glass {
+      padding-left: 10px;
+      color: $main;
+    }
+  }
+  .btn-explore {
+    background-color: $accent-blue;
+    margin-top: 30px;
+    padding-top: 10px;
+    @include shadow_btn;
+    border-radius: 30px;
+    height: 50px;
+    width: clamp(260px, 75%, 500px);
+    font-size: 20px;
+  }
 }

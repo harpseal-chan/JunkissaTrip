@@ -1,3 +1,97 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import "_variables";
+@import "_mixins";
+
+.signup-wrapper {
+  height: calc(87vh);
+  @include form_layout;
+}
+
+.setting-wrapper {
+  @include form_layout;
+  h3 {
+    @include title_border;
+
+  }
+  .btn-usr-rm {
+    text-align:center;
+    padding-top: 14px;
+    background-color: $error-message;
+    margin-bottom: 30px;
+    @include shadow_btn;
+  }
+  .btn-submit {
+    @include shadow_btn;
+  }
+}
+
+.user-detail-wrapper {
+  @include wrapper_h1;
+  .profile {
+    @include shop_block;
+    margin: 30px auto;
+    padding: 30px 10px;
+    .avatar {
+      @include avatar;
+      width: 150px;
+      height: 150px;
+    }
+  }
+  h3 {
+    @include title_border;
+
+  }
+  .bm-shop-wrapper {
+    .bm-shop {
+      flex-shrink: 0;
+      position: relative;
+      margin-right: 20px;
+      margin-top: 20px;
+      .bm-shop-img { 
+        width: 100%;
+        min-width: 150px;
+        height: 210px; 
+        object-fit: cover;
+        border-radius: 6px;
+        box-shadow: 3px 3px 4px rgba(0,0,0, .15);
+        margin-bottom: 10px;
+      }
+      .mask {
+        width: 70%;
+        text-align: center;
+        padding: 5px 10px;
+        color: $accent-blown;
+        position: absolute;
+        background-color: $sub;
+        top: 125px;
+      }      
+    }
+  }
+  .bm-shops, .user-comments {
+    display: flex;
+    overflow-x: scroll;
+  }
+  .user-comment {
+    margin-right: 15px;
+    .user-cm-title {
+      font-weight: bold;
+    }
+    background-color: $sub;
+    border-radius: 6px;
+    box-shadow: 3px 3px 4px rgba(0,0,0, .15);
+    margin-bottom: 10px;
+    padding: 15px;
+    a {
+      color: $accent-blown;
+      text-decoration: none;
+    }
+    .cm-content {
+      overflow: hidden;
+      text-align: left;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}
