@@ -3,23 +3,17 @@
 @import "_variables";
 @import "_mixins";
 
-/* universal */
-
 header {
   #logo {
     float: left;
-    margin-left: 10px;
     font-size: 1.7em;
     color: $accent-blown;
-    margin-top: 13px;
+    padding: 7px;
     font-weight: bold;
     text-decoration: none;
   }
   div.container-fluid {
     padding: 0 60px;
-  }
-  #header-search-bar {
-    margin-top: 8px;
   }
   .avatar {
     @include avatar;
@@ -36,17 +30,23 @@ header {
         opacity: 0.5;
         transition:0.3s all;
       }
+      .icon-bar {
+        background-color: $accent-blown;
+      }
     }
     .navbar-nav {
       li {
         a {
-          margin-top: 5px;
           color: $accent-blown;
+          padding: 10px;
           &:hover {
             opacity: 0.5;
             color: $accent-blown;
             transition:0.3s all;
           }
+        }
+        #header-dropdown {
+          padding: 10px;
         }
       }
     }
