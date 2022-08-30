@@ -54,6 +54,14 @@ header {
   .nav-item {
     margin-top: 5px;
   }
+  .header-search-btn {
+    &:hover {
+      color: $main;
+    }
+    .fa-magnifying-glass {
+      margin-left: 10px;
+    }
+  }
 }
 
 .alert {
