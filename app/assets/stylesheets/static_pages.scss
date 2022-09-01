@@ -15,9 +15,9 @@
   background-size: cover;
   justify-content: center;
   .top-content {
-    padding: 0 clamp(6px, 10%, 60px);;
+    padding: 0 clamp(6px, 10%, 60px);
     position: absolute;
-    top: calc(40% - 50px);
+    top: calc(40% - 150px);
     left: 0;
     right: 0;
     bottom: 0;
@@ -29,14 +29,26 @@
     font-size: clamp(45px, 4.5vw, 120px);
     font-weight: bold;
     margin-top: 0;
-    padding-top: 10px;
   }
   h2 {
+    margin-top: 30px;
     font-weight: bold;
     font-size: clamp(20px, 1.5vw, 35px);
   }
-  .search-bar-content {
-    margin-top: 30px;
+  .btn-explore {
+    // position: relative;
+    background-color: $accent-blue;
+    margin-top: 70px;
+    padding-top: 10px;
+    @include shadow_btn;
+    border-radius: 30px;
+    height: 50px;
+    width: clamp(260px, 75%, 500px);
+    font-size: 20px;
+  }
+  form {
+    margin: 50px auto;
+    width: clamp(260px, 75%, 500px);
   }
   .top-form-control {
     border: none;
@@ -59,15 +71,5 @@
       padding-left: 10px;
       color: $main;
     }
-  }
-  .btn-explore {
-    background-color: $accent-blue;
-    margin-top: 30px;
-    padding-top: 10px;
-    @include shadow_btn;
-    border-radius: 30px;
-    height: 50px;
-    width: clamp(260px, 75%, 500px);
-    font-size: 20px;
   }
 }
