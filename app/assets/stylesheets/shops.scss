@@ -169,6 +169,12 @@
     .modal-footer {
       text-align: center;
     }
+    .btn-cm-modal {
+      @include shadow_btn;
+      &:hover {
+        color: $main;
+      }
+    }
   }
   .comment {
     margin-top: 30px;

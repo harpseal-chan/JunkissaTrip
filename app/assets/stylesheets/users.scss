@@ -41,7 +41,6 @@
   }
   h3 {
     @include title_border;
-
   }
   .bm-shop-wrapper {
     .bm-shop {
@@ -74,7 +73,9 @@
     overflow-x: scroll;
   }
   .user-comment {
-    margin-right: 15px;
+    width: 100%;
+    min-width: 150px;
+    margin-right: 20px;
     .user-cm-title {
       font-weight: bold;
     }
