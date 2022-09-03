@@ -1,0 +1,140 @@
+@import "_variables";
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+@mixin content {
+  margin: 35px auto;
+  padding-top: 20px;
+  padding-bottom: 50px; 
+  text-align: center;
+}
+
+@mixin form_layout {
+  @include wrapper_h1;
+  #error-explanation {
+    display: inline-block;
+    color: $error-message;
+    margin: 0 0 30px 0;
+    text-align: left;
+    width: clamp(300px, 100%, 700px);
+  }
+  .avatar {
+    @include avatar;
+    width: 150px;
+    height: 150px;
+  }
+  form {
+    margin: auto;
+  }
+  label {
+    text-align: left;
+    width: clamp(300px, 100%, 700px);
+  }
+  .input-field, textarea, select {
+    border: 1px solid #bbb;
+    width: clamp(300px, 100%, 700px);
+    height: 40px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    @include box_sizing;
+  }
+  .file_field {
+    width: clamp(300px, 100%, 700px);
+    margin: 30px auto;
+  }
+  p {
+    margin-top: 20px;
+    a {
+      color: $accent-blown;
+    }
+  }
+  .btn {
+    margin-top: 20px;
+    height: 50px;
+    width: clamp(100px, 50%, 250px);
+  }
+}
+
+@mixin shop_block {
+  padding: 30px;
+  background-color: #ffffff;
+  box-shadow: 3px 3px 4px rgba(0,0,0,.15);
+  border-radius: 6px;
+  h1 {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+}
+
+@mixin wrapper_h1 {
+  h1 {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 30px;
+    &:after {
+      width: 70%;
+      left: 50%;
+      background-color: $accent-blue;
+      border-radius: 5px; /* 線幅の半分 */
+      content: "";
+      display: block;
+      height: 10px;
+      transform: translate(20%, 50%);
+    }
+  }
+}
+
+@mixin title_border {
+  width: 50%;
+  margin: 50px auto 30px auto;
+  padding-bottom: 10px;
+  border-bottom: solid 2px;
+  border-color: $sub;
+}
+
+@mixin fade_up {
+  animation-name: fadeUpAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
+}
+
+@mixin avatar {
+  border-radius: 500rem;
+  object-fit: cover;
+}
+
+@mixin shadow_btn {
+  box-shadow: 3px 3px 4px rgba(0,0,0,.15);
+  transition:0.3s all;
+  &:hover {
+    color: #fff;
+    transform: translateY(2px);
+    box-shadow: 0px 0px 0px rgba(0,0,0,.15);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

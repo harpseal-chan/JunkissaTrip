@@ -4,7 +4,6 @@
       <div class="navbar-left">
         <%= link_to "純喫茶Trip" , root_path, id: "logo" %>
       </div>
-
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample">
           <span class="sr-only">Toggle navigation</span>
@@ -13,45 +12,43 @@
           <span class="icon-bar"></span>
         </button>
       </div>
-
       <div class="collapse navbar-collapse navbar-right" id="navbarEexample">
         <% if !home_page? %>
           <div class="navbar-form navbar-left">
             <%= render partial: 'layouts/search_bar' %>
           </div>
         <% end %>
-
-          <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav">
+          <li class="nav-item">
+            <%= link_to "店舗一覧", shops_path %>
+          </li>
+          <% if logged_in? %>
             <li class="nav-item">
-              <%= link_to "店舗一覧", shops_path %>
+              <%= link_to "マイページ", current_user %>
             </li>
-            <% if logged_in? %>
-              <li class="nav-item">
-                <%= link_to "マイページ", current_user %>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" id="header-dropdown" data-toggle="dropdown">
-                  <%= render 'shared/avatar', { user: current_user } %>
-                  <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <%= link_to "アカウント設定", edit_user_path(current_user) %>
-                  </li>
-                  <li>
-                    <%= link_to "ログアウト", logout_path, method: :delete %>
-                  </li>
-                </ul>
-              </li>
-              <% else %>
-                <li class="nav-item">
-                  <%= link_to "新規登録", signup_path %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" id="header-dropdown" data-toggle="dropdown">
+                <%= render 'shared/avatar', { user: current_user } %>
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to "アカウント設定", edit_user_path(current_user) %>
                 </li>
-                <li class="nav-item">
-                  <%= link_to "ログイン", login_path %>
+                <li>
+                  <%= link_to "ログアウト", logout_path, method: :delete %>
                 </li>
-                <% end %>
-          </ul>
+              </ul>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "新規登録", signup_path %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログイン", login_path %>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </nav>

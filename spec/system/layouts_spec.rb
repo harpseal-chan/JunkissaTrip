@@ -232,4 +232,11 @@ RSpec.describe "Layouts", type: :system do
       end
     end
   end
+
+  describe 'フッター' do
+    it 'Githubのリンクが表示されていること' do
+      visit root_path
+      expect(page).to have_link 'GitHub', href: 'https://github.com/harpseal-chan/JunkissaTrip'
+    end
+  end
 end
