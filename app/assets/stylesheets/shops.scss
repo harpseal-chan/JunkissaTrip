@@ -124,6 +124,16 @@
       padding: 0;
     }
   }
+  .btn-img-ex {
+    @include shadow_btn;
+    &:hover, &:focus {
+      color: $main;
+    }
+    margin-bottom: 30px;
+  }
+  .shop-img-detail {
+    width: 100%;
+  }
   .shop-info {
     dl {
       float: left;
