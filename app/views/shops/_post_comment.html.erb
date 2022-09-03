@@ -9,14 +9,14 @@
         <%= form_with model: [shop, comment], method: :post do |f| %>
           <div class="row">
             <%= f.label :content do %>
-            <i class="fa-solid fa-comment"></i>
               <%= Comment.human_attribute_name :content %>
+              <i class="fa-solid fa-comment"></i>
             <% end %>
             <%= f.text_area :content, required: true, rows: '6', placeholder: 'おすすめのメニューやお店の雰囲気などを入力してください' %>
             <%= f.hidden_field :shop_id, value: shop.id %>
             <div class="modal-footer">
-                <%= f.submit "投稿", class: 'btn'%>
-                <button type="button" class="btn" data-dismiss="modal">閉じる</button>
+                <%= f.submit "投稿", class: 'btn btn-cm-modal'%>
+                <button type="button" class="btn btn-cm-modal" data-dismiss="modal">閉じる</button>
             </div>
           </div>
         <% end %>

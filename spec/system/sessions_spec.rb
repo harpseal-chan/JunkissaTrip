@@ -30,4 +30,19 @@ RSpec.describe "Sessions", type: :system do
       expect(page).not_to have_selector '.alert-success'
     end
   end
+
+  context 'ログアウトした場合' do
+    before do
+      visit login_path
+      fill_in 'メールアドレス', with: user.email
+      fill_in 'パスワード', with: user.password
+      click_button 'ログイン'
+    end
+
+    it 'flash[:success]が表示されること' do
+      click_link 'header-dropdown'
+      click_link 'ログアウト'
+      expect(page).to have_selector '.alert-success'
+    end
+  end
 end

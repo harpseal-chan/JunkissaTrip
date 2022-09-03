@@ -21,6 +21,10 @@
               <%= image_tag 'no_image.png', alt: "店舗の写真", class: "shop-img" %>
             <% else %>
               <%= image_tag @shop.image, alt: "店舗の写真", class: "shop-img" %>
+              <button type="button" class="btn btn-img-ex" data-toggle="modal" data-target="#ShopImageModal">
+                画像を拡大する
+              </button>
+              <%= render 'shop_image', { image: @shop.image } %>
             <% end %>
           </div>
 

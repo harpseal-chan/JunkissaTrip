@@ -1,3 +1,33 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import "_variables";
+@import "_mixins";
+
+.signin-wrapper {
+  height: calc(87vh);
+  @include form_layout;
+  #remember-me {
+    width: clamp(300px, 100%, 700px);
+    font-weight: normal;
+    #rmm-chbx {
+      float: left;
+      width: 20px;
+      height: 20px;
+      margin-top: -1px;
+    }
+    span {
+      margin-left: 10px;
+    }
+  }
+  .btn-glogin {
+    @include shadow_btn;
+    padding-top: 15px;
+  }
+  .btn-login {
+    @include shadow_btn;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
