@@ -4,6 +4,9 @@
   <div class="row content-wrapper">
     <div class="shop-index-wrapper col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
       <h1>店舗一覧</h1>
+      <div class="search-bar-content col-xs-12">
+        <%= render 'static_pages/search_bar' %>
+      </div>
       <% unless @shops.blank? %>
         <div class="shops">
           <%= render partial: 'shop', collection: @shops, as: 'shop' %>

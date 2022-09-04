@@ -6,6 +6,30 @@
 
 .shop-index-wrapper {
   @include wrapper_h1;
+  form {
+    margin: 20px auto 50px auto;
+    width: clamp(260px, 75%, 500px);
+  }
+  .top-form-control {
+    border: none;
+    border-radius: 30px;
+    padding-left: 20px;
+    height: 50px;
+  }
+  .btn-search {
+    background-color: $accent-blown;
+    color: $main;
+    border-color: transparent;
+    padding-right: 10px;
+    font-size: 15px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    height: 46px;
+    .fa-magnifying-glass {
+      padding-left: 4px;
+      color: $main;
+    }
+  }
   .shops {
     padding-left: 0;
     list-style: none;
