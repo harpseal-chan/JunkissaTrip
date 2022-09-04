@@ -1,7 +1,8 @@
 class ShopsController < ApplicationController
   def index
-    result = @q.result
+    result = @q.result.includes(:features)
     @shops = result.page(params[:page])
+    @features = Feature.all
   end
 
   def show
