@@ -283,7 +283,27 @@ Shop.seed do |s|
   s.name = '喫茶 宝石箱'
   s.address = '東京都世田谷区南烏山４丁目１８−１８ 小山マンション'
   s.phone = ' 03-5969-8577'
-  s.opening = '12:00 - 17:00'
+  s.opening = '金土日 12:00 - 17:00'
   s.closed = '月〜木'
   s.image = 'shop_29.jpg'
+end
+
+Shop.seed do |s|
+  s.id = 30
+  s.name = '茶房マリヤ'
+  s.address = '長野県北佐久郡軽井沢町中軽井沢１６−１７'
+  s.phone = '0267-45-4884'
+  s.opening = '9:30 - 18:00'
+  s.closed = '木'
+  s.image = 'shop_30.jpg'
+end
+
+Shop.seed do |s|
+  s.id = 31
+  s.name = '旦念亭'
+  s.address = '長野県北佐久郡軽井沢町軽井沢東4-2'
+  s.phone = '0267-42-5616'
+  s.opening = '8:00 - 19:00'
+  s.closed = '水（GW, 7･8･9月は無休）'
+  s.image = 'shop_31.jpg'
 end
