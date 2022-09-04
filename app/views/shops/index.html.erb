@@ -4,20 +4,27 @@
   <div class="row content-wrapper">
     <div class="shop-index-wrapper col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
       <h1>店舗一覧</h1>
+      
       <div class="col-xs-12">
-        <button type="button" class="btn " data-toggle="modal" data-target="#ShopImageModal">
-          店舗のジャンルで絞り込む
-        </button>
-      </div>
-      <div class="col-xs-12">
-        <%= search_form_for @q, url: shops_path do |f| %>
-          <%= f.collection_check_boxes :features_id_in, @features, :id, :detail %>
+        <%= search_form_for @q, url: shops_path, id: "top-search-bar" do |f| %>
+          <div class="input-group">
+            <%= f.search_field :name_or_address_cont, class: "form-control top-form-control", placeholder: '店舗名または都道府県を入力' %>
+            <span class="input-group-btn">
+              <%= f.button type: :submit, class: "btn-search" do %>
+                <i class='fa-solid fa-magnifying-glass'></i>
+              <% end %>
+            </span>
+          </div>
+          <div class="col-xs-12">
+            <p>▼ 店舗のジャンルで絞り込む</p>
+          </div>    
+          <div class="feature-filter">
+            <%= f.collection_check_boxes :features_id_in, @features, :id, :detail %>
+          </div>
           <%= f.submit "検索" %>
         <% end %>
       </div>
-      <div class="search-bar-content col-xs-12">
-        <%= render 'static_pages/search_bar' %>
-      </div>
+
       <% unless @shops.blank? %>
         <div class="shops">
           <%= render partial: 'shop', collection: @shops, as: 'shop' %>
