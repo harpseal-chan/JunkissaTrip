@@ -11,7 +11,7 @@ RSpec.describe "Searches", type: :system do
 
   describe 'ヘッダーの検索バー' do
     before do
-      visit shops_path
+      visit shop_path(match_shop)
     end
 
     context '店舗名で検索' do

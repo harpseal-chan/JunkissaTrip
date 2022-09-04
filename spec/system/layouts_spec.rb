@@ -63,7 +63,8 @@ RSpec.describe "Layouts", type: :system do
 
       context 'トップページ以外にアクセスした場合' do
         it 'ヘッダーの検索バーが表示されること' do
-          visit shops_path
+          log_in user
+          visit user_path(user)
           expect(page).to have_selector '#header-search-bar'
         end
       end
