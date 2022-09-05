@@ -78,7 +78,7 @@ RSpec.describe "Layouts", type: :system do
 
     it '検索欄が存在すること' do
       visit root_path
-      expect(page).to have_selector '.top-form-control'
+      expect(page).to have_selector '.jt-form-control'
     end
   end
 
