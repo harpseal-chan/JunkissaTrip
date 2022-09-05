@@ -30,6 +30,25 @@
       color: $main;
     }
   }
+  .filter {
+    margin: 30px 0 20px 0;
+  }
+  .feature-filter {
+    background-color: $sub;
+    padding: 7px 0;
+    .filter-feature-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+  }
+  .btn-filter {
+    @include shadow_btn;
+    &:hover, &:focus {
+      color: $main;
+    }
+    margin-top: 20px;
+  }
   .shops {
     padding-left: 0;
     list-style: none;
