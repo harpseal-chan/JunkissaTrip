@@ -1,9 +1,9 @@
 <%= search_form_for @q, url: shops_path, id: "top-search-bar" do |f| %>
   <div class="input-group">
-    <%= f.search_field :name_or_address_cont, class: "form-control top-form-control", placeholder: '店舗名または都道府県を入力' %>
+    <%= f.search_field :name_or_address_cont, class: "form-control jt-form-control", placeholder: '店舗名または都道府県を入力' %>
     <span class="input-group-btn">
       <%= f.button type: :submit, class: "btn-search" do %>
-        検索<i class='fa-solid fa-magnifying-glass'></i>
+        <i class='fa-solid fa-magnifying-glass'></i>
       <% end %>
     </span>
   </div>

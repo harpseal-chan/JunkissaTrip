@@ -2,6 +2,7 @@ class ShopsController < ApplicationController
   def index
     result = @q.result
     @shops = result.page(params[:page])
+    @features = Feature.all
   end
 
   def show

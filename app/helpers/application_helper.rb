@@ -8,8 +8,9 @@ module ApplicationHelper
     end
   end
 
-  def home_page?
+  def exist_search_bar?
     return true if (controller_name == 'static_pages') && (action_name == 'home')
+    return true if (controller_name == 'shops') && (action_name == 'index')
 
     false
   end
