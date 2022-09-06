@@ -102,7 +102,7 @@ RSpec.describe "Layouts", type: :system do
 
   describe '店舗詳細ページ' do
     let(:shop) { FactoryBot.create(:shop1) }
-    let!(:shop_feature) { FactoryBot.create(:shop_feature) }
+    let!(:shop_feature) { FactoryBot.create(:shop_feature1) }
 
     before do
       visit shop_path(shop)

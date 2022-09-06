@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ShopFeature, type: :model do
-  let(:shop_feature) { FactoryBot.build(:shop_feature) }
+  let(:shop_feature) { FactoryBot.build(:shop_feature1) }
 
   context '有効な値の場合' do
     it 'shop_featureが有効であること' do
