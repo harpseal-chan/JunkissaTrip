@@ -1,0 +1,25 @@
+<%= search_form_for @q, url: shops_path, id: "top-search-bar" do |f| %>
+  <div class="input-group">
+    <%= f.search_field :name_or_address_cont, class: "form-control jt-form-control", placeholder: '店舗名または都道府県を入力' %>
+    <span class="input-group-btn">
+      <%= f.button type: :submit, class: "btn-search" do %>
+        <i class='fa-solid fa-magnifying-glass'></i>
+      <% end %>
+    </span>
+  </div>
+  <div id="FilterAccordion" class="filter col-xs-12">
+    <p data-toggle="collapse" data-parent="#FilterAccordion" href="#FilterAccordionCollapse">
+      ▼ 店舗のジャンルで絞り込む
+    </p>
+  </div>
+  <div id="FilterAccordionCollapse" class="panel-collapse collapse in">
+    <%= f.collection_check_boxes :features_id_in, @features, :id, :detail do |b| %>
+      <div class="feature-filter col-md-6 col-xs-12">
+        <%= image_tag b.object.icon_name, alt: "アイコン", class: "filter-feature-icon" %>
+        <%= b.label class: "ft-cb" %>
+        <%= b.check_box %>
+      </div>
+    <% end %>
+    <%= f.submit "検索", class: "btn btn-filter" %>
+  </div>
+<% end %>

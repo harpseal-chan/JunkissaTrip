@@ -63,7 +63,8 @@ RSpec.describe "Layouts", type: :system do
 
       context 'トップページ以外にアクセスした場合' do
         it 'ヘッダーの検索バーが表示されること' do
-          visit shops_path
+          log_in user
+          visit user_path(user)
           expect(page).to have_selector '#header-search-bar'
         end
       end
@@ -77,7 +78,7 @@ RSpec.describe "Layouts", type: :system do
 
     it '検索欄が存在すること' do
       visit root_path
-      expect(page).to have_selector '.top-form-control'
+      expect(page).to have_selector '.jt-form-control'
     end
   end
 
@@ -101,7 +102,7 @@ RSpec.describe "Layouts", type: :system do
 
   describe '店舗詳細ページ' do
     let(:shop) { FactoryBot.create(:shop1) }
-    let!(:shop_feature) { FactoryBot.create(:shop_feature) }
+    let!(:shop_feature) { FactoryBot.create(:shop_feature1) }
 
     before do
       visit shop_path(shop)
