@@ -1,4 +1,19 @@
 <footer>
-    <p class="copylight">©️ 2022 HarpSeal</p>
-    <%= link_to 'GitHub', 'https://github.com/harpseal-chan/JunkissaTrip', class: "github-link" %>
+  <p class="copylight">©️ 2022 純喫茶Trip</p>
+  <div class="row">
+    <div class="col-xs-3">
+      <a data-toggle="modal" data-target="#TermsOfServiceModal">
+        利用規約
+      </a>
+    </div>
+    <div class="col-xs-3">
+      <a data-toggle="modal" data-target="#PrivacyPolicyModal">
+        プライバシーポリシー
+      </a>
+    </div>
+  </div>
+  <%= link_to 'GitHub', 'https://github.com/harpseal-chan/JunkissaTrip', class: "github-link" %>
+  
+  <%= render 'shared/terms_of_service' %>
+  <%= render 'shared/privacy_policy' %>
 </footer>

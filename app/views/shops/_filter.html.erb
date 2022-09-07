@@ -12,7 +12,7 @@
       ▼ 店舗のジャンルで絞り込む
     </p>
   </div>
-  <div id="FilterAccordionCollapse" class="panel-collapse collapse in">
+  <div id="FilterAccordionCollapse" class="panel-collapse collapse">
     <%= f.collection_check_boxes :features_id_in, @features, :id, :detail do |b| %>
       <div class="feature-filter col-md-6 col-xs-12">
         <%= image_tag b.object.icon_name, alt: "アイコン", class: "filter-feature-icon" %>
