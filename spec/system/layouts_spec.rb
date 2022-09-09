@@ -235,9 +235,18 @@ RSpec.describe "Layouts", type: :system do
   end
 
   describe 'フッター' do
-    it 'Githubのリンクが表示されていること' do
+    before do
       visit root_path
-      expect(page).to have_link 'GitHub', href: 'https://github.com/harpseal-chan/JunkissaTrip'
+    end
+    
+    it '利用規約が表示されていること' do
+      click_link '利用規約'
+      expect(page).to have_selector '#TermsOfServiceModal'
+    end
+
+    it '利用規約が表示されていること' do
+      click_link 'プライバシーポリシー'
+      expect(page).to have_selector '#PrivacyPolicyModal'
     end
   end
 end

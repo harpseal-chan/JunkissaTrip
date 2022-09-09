@@ -97,12 +97,13 @@ footer {
   background-color: $accent-blue;
   letter-spacing: 0.08em;
   .copylight {
+    margin-top: 10px;
     p {
       color: $main;
     }
   }
   .policy {
-    margin-top: 30px;
+    margin-top: 20px;
     a {
       cursor: pointer;
       color: $main;
