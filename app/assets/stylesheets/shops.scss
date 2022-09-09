@@ -45,9 +45,6 @@
   }
   .btn-filter {
     @include shadow_btn;
-    &:hover, &:focus {
-      color: $main;
-    }
     margin-top: 20px;
   }
   .shops {
@@ -170,9 +167,6 @@
   }
   .btn-img-ex {
     @include shadow_btn;
-    &:hover, &:focus {
-      color: $main;
-    }
     margin-bottom: 30px;
   }
   .shop-img-detail {
@@ -225,9 +219,6 @@
     }
     .btn-cm-modal {
       @include shadow_btn;
-      &:hover {
-        color: $main;
-      }
     }
   }
   .comment {

@@ -122,6 +122,9 @@ footer {
       margin-bottom: 10px;
     }
   }
+  .btn-cls {
+    @include shadow_btn;
+  }
 }
 
 .content-wrapper {
