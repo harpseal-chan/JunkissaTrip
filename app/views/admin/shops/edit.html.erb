@@ -1,0 +1,16 @@
+<% provide(:title, '【管理】店舗情報編集') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h2>店舗<%= @shop.id %>情報編集</h2>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= render 'form', shop: @shop %>
+    </div>
+  </div>
+</div>

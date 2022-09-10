@@ -10,6 +10,7 @@
     <div class="col-xs-12">
       <table>
         <thead><tr>
+          <th></th>
           <th>id</th>
           <th>name</th>
           <th>address</th>
@@ -19,6 +20,9 @@
         </tr></thead>
         <% @shops.each do |shop| %>
           <tbody><tr>
+            <td>
+              <%= link_to '【編集】', edit_admin_shop_path(shop) %>
+            </td>
             <td><%= shop.id %></td>
             <td><%= shop.name %></td>
             <td><%= shop.address %></td>
