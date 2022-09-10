@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
   root 'static_pages#home'
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
@@ -10,5 +9,9 @@ Rails.application.routes.draw do
   resources :shops, only: [:index, :show] do
     resource :bookmarks, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
+  end
+
+  namespace :admin do
+    root 'static_pages#home'
   end
 end
