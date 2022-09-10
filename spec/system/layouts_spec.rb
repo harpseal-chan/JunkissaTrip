@@ -239,7 +239,7 @@ RSpec.describe "Layouts", type: :system do
     before do
       visit root_path
     end
-    
+
     it '利用規約が表示されていること' do
       click_link '利用規約'
       expect(page).to have_selector '#TermsOfServiceModal'
