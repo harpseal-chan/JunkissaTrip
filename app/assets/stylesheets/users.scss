@@ -22,9 +22,10 @@
     margin-bottom: 30px;
     @include shadow_btn;
   }
-  .btn-submit {
-    @include shadow_btn;
-  }
+}
+
+.btn-submit {
+  @include shadow_btn;
 }
 
 .user-detail-wrapper {
