@@ -24,6 +24,7 @@ RSpec.describe "Layouts", type: :system do
       end
 
       it 'マイページのリンクが存在すること' do
+        click_link 'header-dropdown'
         expect(page).to have_link 'マイページ', href: user_path(user)
       end
 
