@@ -189,11 +189,11 @@ RSpec.describe "Users", type: :request do
 
         before do
           patch user_path(not_admin_user), params: { user: { name: 'foobar',
-                                                   email: 'foo@bar.com',
-                                                   password: '',
-                                                   password_confirmation: '',
-                                                   avatar: fixture_file_upload("spec/fixtures/images/test_avatar2.png", 'image/png'),
-                                                   admin: true } }
+                                                             email: 'foo@bar.com',
+                                                             password: '',
+                                                             password_confirmation: '',
+                                                             avatar: fixture_file_upload("spec/fixtures/images/test_avatar2.png", 'image/png'),
+                                                             admin: true } }
         end
 
         it 'adminカラムは更新できないこと' do
@@ -205,7 +205,7 @@ RSpec.describe "Users", type: :request do
 
     describe 'ログアウト状態で更新' do
       let(:user) { FactoryBot.create(:harpseal) }
-      
+
       before do
         patch user_path(user), params: { user: { name: user.name, email: user.email } }
       end

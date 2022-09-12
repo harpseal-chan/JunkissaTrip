@@ -78,10 +78,10 @@ RSpec.describe "AdminShops", type: :request do
           @invalid_opening = ''
           @invalid_closed = ''
           patch admin_shop_path(shop), params: { shop: { name: @invalid_name,
-                                                   address: @invalid_address,
-                                                   phone: @invalid_phone,
-                                                   opening: @invalid_opening,
-                                                   closed: @invalid_closed, } }
+                                                         address: @invalid_address,
+                                                         phone: @invalid_phone,
+                                                         opening: @invalid_opening,
+                                                         closed: @invalid_closed } }
         end
 
         it '店舗情報が変更されていないこと' do
@@ -106,10 +106,10 @@ RSpec.describe "AdminShops", type: :request do
           @valid_opening = 'foobar'
           @valid_closed = 'foobar'
           patch admin_shop_path(shop), params: { shop: { name: @valid_name,
-                                                   address: @valid_address,
-                                                   phone: @valid_phone,
-                                                   opening: @valid_opening,
-                                                   closed: @valid_closed } }
+                                                         address: @valid_address,
+                                                         phone: @valid_phone,
+                                                         opening: @valid_opening,
+                                                         closed: @valid_closed } }
         end
 
         it '店舗情報が更新されていること' do
@@ -136,10 +136,10 @@ RSpec.describe "AdminShops", type: :request do
         @valid_opening = 'foobar'
         @valid_closed = 'foobar'
         patch admin_shop_path(shop), params: { shop: { name: @valid_name,
-                                                 address: @valid_address,
-                                                 phone: @valid_phone,
-                                                 opening: @valid_opening,
-                                                 closed: @valid_closed } }
+                                                       address: @valid_address,
+                                                       phone: @valid_phone,
+                                                       opening: @valid_opening,
+                                                       closed: @valid_closed } }
       end
 
       it 'rootにリダイレクトすること' do
@@ -155,10 +155,10 @@ RSpec.describe "AdminShops", type: :request do
         @valid_opening = 'foobar'
         @valid_closed = 'foobar'
         patch admin_shop_path(shop), params: { shop: { name: @valid_name,
-                                                 address: @valid_address,
-                                                 phone: @valid_phone,
-                                                 opening: @valid_opening,
-                                                 closed: @valid_closed } }
+                                                       address: @valid_address,
+                                                       phone: @valid_phone,
+                                                       opening: @valid_opening,
+                                                       closed: @valid_closed } }
       end
 
       it 'ログインページにリダイレクトすること' do

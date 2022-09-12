@@ -32,4 +32,26 @@ RSpec.describe "AdminUsers", type: :request do
       end
     end
   end
+
+  describe '#destroy' do
+    let(:user) { FactoryBot.create(:harpseal) }
+    let!(:other_user) { FactoryBot.create(:spottedseal) }
+
+    context '管理者ユーサーがほかのユーザーを削除した場合' do
+      before do
+        log_in user
+      end
+
+      it 'アカウントを削除できること' do
+        expect do
+          delete user_path(other_user)
+        end.to change(User, :count).by(-1)
+      end
+
+      it 'rootにリダイレクトすること' do
+        delete user_path(other_user)
+        expect(response).to redirect_to root_url
+      end
+    end
+  end
 end
