@@ -5,6 +5,7 @@ FactoryBot.define do
     password { 'password' }
     password_confirmation { 'password' }
     avatar { Rack::Test::UploadedFile.new('spec/fixtures/images/test_avatar.png', 'image/png') }
+    admin { true }
   end
 
   factory :phoca, class: User do
