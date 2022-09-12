@@ -17,6 +17,7 @@
           <th>phone</th>
           <th>opening</th>
           <th>closed</th>
+          <th>images</th>
         </tr></thead>
         <% @shops.each do |shop| %>
           <tbody><tr>
@@ -29,6 +30,13 @@
             <td><%= shop.phone %></td>
             <td><%= shop.opening %></td>
             <td><%= shop.closed %></td>
+            <td>
+              <% if shop.images.attached? %>
+                <% shop.images.each do |image| %>
+                  <%= image_tag image.variant(resize_to_limit: [200, 200]).processed, size: "100x100" %>
+                <% end %>
+              <% end %>
+            </td>
           </tr></tbody>
         <% end %>
       </table>

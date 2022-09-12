@@ -25,6 +25,7 @@ ja:
         phone: 電話番号
         opening: 営業時間
         closed: 定休日
+        images: 画像
     errors:
       models:
         user:

@@ -3,6 +3,15 @@
     <%= render 'shared/error_messages', object: shop %>
   </div>
   <div class="col-xs-12">
+    <%= f.label :images %>
+    <% if shop.images.attached? %>
+      <% shop.images.each do |image| %>
+        <%= image_tag image.variant(resize_to_limit: [200, 200]).processed, size: "100x100" %>
+      <% end %>
+    <% end %>
+    <%= f.file_field :images, accept: "image/jpeg, image/gif, image/png", multiple: true %>
+  </div>
+  <div class="col-xs-12">
     <%= f.label :name %>
   </div>
   <div class="col-xs-12">
