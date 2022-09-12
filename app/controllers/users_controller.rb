@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_or_admin_user, only: [:destroy]
   before_action :check_guest_user, only: [:edit]
 
   def show
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
       flash[:success] = 'アカウントを作成しました'
       redirect_to @user
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
       flash[:success] = 'アカウント情報を更新しました'
       redirect_to @user
     else
-      render 'edit'
+      render :edit
     end
   end
 
@@ -52,6 +53,14 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       return if current_user?(@user)
+
+      flash[:danger] = '無効なページです'
+      redirect_to root_url
+    end
+
+    def correct_or_admin_user
+      @user = User.find(params[:id])
+      return if current_user?(@user) || current_user.admin?
 
       flash[:danger] = '無効なページです'
       redirect_to root_url

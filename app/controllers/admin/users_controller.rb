@@ -5,4 +5,13 @@ class Admin::UsersController < ApplicationController
   def index
     @users = User.all
   end
+
+  def destroy
+    user = User.find(params[:id])
+    if user.destroy
+      flash[:success] = "ユーザーを削除しました"
+    else
+      flash[:danger] = "ユーザーの削除に失敗しました"
+    end
+  end
 end

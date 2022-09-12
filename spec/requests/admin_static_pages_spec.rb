@@ -20,7 +20,7 @@ RSpec.describe "AdminStaticPages", type: :request do
     end
 
     context '管理者ユーザー以外がアクセスした場合' do
-      let(:not_admin_user) { FactoryBot.create(:phoca) }
+      let(:not_admin_user) { FactoryBot.create(:spottedseal) }
 
       before do
         log_in not_admin_user

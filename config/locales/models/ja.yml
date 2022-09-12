@@ -31,6 +31,8 @@ ja:
           blank: を入力してください
           invalid: が不正な値です
           attributes:
+            email:
+              taken: はすでに使用されています
             password:
               too_short: は%{count}文字以上で入力してください
               too_log: は%{count}文字以下で入力してください

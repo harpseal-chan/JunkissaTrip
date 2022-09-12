@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :harpseal, class: User do
-    name { 'Harp Seal' }
+    name { 'たてごとあざらし' }
     email { 'harpseal@example.com' }
     password { 'password' }
     password_confirmation { 'password' }
@@ -8,9 +8,16 @@ FactoryBot.define do
     admin { true }
   end
 
-  factory :phoca, class: User do
-    name { 'Phoca' }
-    email { 'phoca@example.com' }
+  factory :ringedseal, class: User do
+    name { 'わもんあざらし' }
+    email { 'ringedseal@example.com' }
+    password { 'password' }
+    password_confirmation { 'password' }
+  end
+
+  factory :spottedseal, class: User do
+    name { 'ごまふあざらし' }
+    email { 'spottedseal@example.com' }
     password { 'password' }
     password_confirmation { 'password' }
   end

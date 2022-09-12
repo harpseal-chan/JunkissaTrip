@@ -200,7 +200,7 @@ RSpec.describe "Layouts", type: :system do
 
   describe 'アイコン画像' do
     let(:attached_user) { FactoryBot.create(:harpseal) }
-    let(:not_attached_user) { FactoryBot.create(:phoca) }
+    let(:not_attached_user) { FactoryBot.create(:spottedseal) }
 
     context 'アイコン画像がアタッチされている場合' do
       before do

@@ -74,7 +74,7 @@ RSpec.describe "Users", type: :request do
 
   describe '#show' do
     let!(:user) { FactoryBot.create(:harpseal) }
-    let!(:other_user) { FactoryBot.create(:phoca) }
+    let!(:other_user) { FactoryBot.create(:spottedseal) }
 
     context 'ログアウト状態で/users/idにアクセスした場合' do
       before do
@@ -122,9 +122,9 @@ RSpec.describe "Users", type: :request do
   end
 
   describe '#update' do
-    let(:user) { FactoryBot.create(:harpseal) }
-
     describe 'ログイン状態で更新' do
+      let(:user) { FactoryBot.create(:harpseal) }
+
       before do
         log_in user
       end
@@ -185,7 +185,7 @@ RSpec.describe "Users", type: :request do
       end
 
       context 'adminカラムの更新' do
-        let!(:not_admin_user) { FactoryBot.create(:phoca) }
+        let!(:not_admin_user) { FactoryBot.create(:spottedseal) }
 
         before do
           patch user_path(not_admin_user), params: { user: { name: 'foobar',
@@ -204,6 +204,8 @@ RSpec.describe "Users", type: :request do
     end
 
     describe 'ログアウト状態で更新' do
+      let(:user) { FactoryBot.create(:harpseal) }
+      
       before do
         patch user_path(user), params: { user: { name: user.name, email: user.email } }
       end
@@ -218,7 +220,8 @@ RSpec.describe "Users", type: :request do
     end
 
     describe '別のユーザーの情報を更新' do
-      let(:other_user) { FactoryBot.create(:phoca) }
+      let(:user) { FactoryBot.create(:ringedseal) }
+      let(:other_user) { FactoryBot.create(:spottedseal) }
 
       before do
         log_in user
@@ -268,8 +271,8 @@ RSpec.describe "Users", type: :request do
       end
     end
 
-    context '他のユーザの/users/id/editにアクセスした場合' do
-      let(:other_user) { FactoryBot.create(:phoca) }
+    context '他のユーザの編集ページにアクセスした場合' do
+      let(:other_user) { FactoryBot.create(:spottedseal) }
 
       before do
         log_in user
@@ -288,7 +291,8 @@ RSpec.describe "Users", type: :request do
 
   describe '#destroy' do
     let!(:user) { FactoryBot.create(:harpseal) }
-    let!(:other_user) { FactoryBot.create(:phoca) }
+    let!(:other_user1) { FactoryBot.create(:spottedseal) }
+    let!(:other_user2) { FactoryBot.create(:ringedseal) }
 
     context 'ログアウト状態の場合' do
       it 'アカウントを削除できないこと' do
@@ -305,17 +309,17 @@ RSpec.describe "Users", type: :request do
 
     context '他のユーザーのアカウントを削除した場合' do
       before do
-        log_in user
+        log_in other_user1
       end
 
       it 'アカウントを削除できないこと' do
         expect do
-          delete user_path(other_user)
+          delete user_path(other_user2)
         end.not_to change(User, :count)
       end
 
       it 'rootにリダイレクトすること' do
-        delete user_path(other_user)
+        delete user_path(other_user2)
         expect(response).to redirect_to root_url
       end
     end

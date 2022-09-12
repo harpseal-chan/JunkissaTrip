@@ -20,7 +20,7 @@ RSpec.describe "AdminShops", type: :request do
     end
 
     context '管理者ユーザー以外がアクセスした場合' do
-      let(:not_admin_user) { FactoryBot.create(:phoca) }
+      let(:not_admin_user) { FactoryBot.create(:spottedseal) }
 
       before do
         log_in not_admin_user
@@ -62,7 +62,7 @@ RSpec.describe "AdminShops", type: :request do
 
   describe '#update' do
     let(:admin_user) { FactoryBot.create(:harpseal) }
-    let(:not_admin_user) { FactoryBot.create(:phoca) }
+    let(:not_admin_user) { FactoryBot.create(:spottedseal) }
     let(:shop) { FactoryBot.create(:shop1) }
 
     describe '管理者ユーザーで店舗情報更新' do
