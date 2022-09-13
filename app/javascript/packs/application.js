@@ -13,3 +13,9 @@ import "bootstrap"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+$(function() {
+  $('#slider').slick({
+      dots: true,
+  });
+});

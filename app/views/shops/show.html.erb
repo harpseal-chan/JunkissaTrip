@@ -17,17 +17,16 @@
         
         <div class="row">
           <div class="col-xs-12 col-md-7">
-            <% if @shop.image.nil? %>
-              <%= image_tag 'no_image.png', alt: "店舗の写真", class: "shop-img" %>
+            <% if @shop.images.attached? %>
+              <div id="slider">
+                <% @shop.images.each do |image| %>
+                  <%= image_tag image, alt: "店舗の写真", class: "shop-img" %>
+                <% end %>
+              </div>
             <% else %>
-              <%= image_tag @shop.image, alt: "店舗の写真", class: "shop-img" %>
-              <button type="button" class="btn btn-img-ex" data-toggle="modal" data-target="#ShopImageModal">
-                画像を拡大する
-              </button>
-              <%= render 'shop_image', { image: @shop.image } %>
+              <%= image_tag 'no_image.png', alt: "店舗の写真", class: "shop-img" %>
             <% end %>
           </div>
-
           <div class="shop-info col-xs-12 col-md-5">
             <dl>
               <dt>住所</dt>
@@ -41,7 +40,6 @@
             </dl>
           </div>
         </div>
-  
         <div class="row">
           <div class="col-xs-12">
             <h3>コメント一覧</h3>
@@ -77,4 +75,5 @@
     </div>
   </div>
 </div>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <%= javascript_include_tag "googlemap.js" %>
