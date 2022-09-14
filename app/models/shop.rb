@@ -22,6 +22,10 @@ class Shop < ApplicationRecord
   validates :phone, length: { maximum: 20 }
   validates :opening, length: { maximum: 255 }
   validates :closed, length: { maximum: 255 }
+  validates :images, content_type: { in: %w[image/jpeg image/gif image/png],
+                                     message: "無効なファイル形式です" },
+                     size: { less_than: 5.megabytes,
+                             message: "サイズは5MB以下にしてください" }
 
   def bookmarked_by?(user)
     bookmarks.where(user_id: user).exists?

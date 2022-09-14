@@ -5,6 +5,7 @@ FactoryBot.define do
     phone { '000-0000-0000' }
     opening { '10:00 - 20:00' }
     closed { '日曜' }
+    images { Rack::Test::UploadedFile.new('spec/fixtures/images/test_avatar.png', 'image/png') }
   end
 
   factory :shop2, class: Shop do
