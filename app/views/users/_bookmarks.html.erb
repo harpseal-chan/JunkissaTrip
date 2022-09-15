@@ -1,9 +1,9 @@
 <div class="bm-shop col-lg-3 col-md-4 col-xs-6">
   <%= link_to shop, class: "bm-shop-link" do %>
-    <% if shop.image.nil? %>
-      <%= image_tag 'no_image.png', alt: "店舗の写真", class: "bm-shop-img" %>
+    <% if shop.images.attached? %>
+      <%= image_tag shop.images.first, alt: "店舗の写真", class: "bm-shop-img" %>
     <% else %>
-      <%= image_tag shop.image, alt: "店舗の写真", class: "bm-shop-img" %>
+      <%= image_tag 'no_image.png', alt: "店舗の写真", class: "bm-shop-img" %>
     <% end %>  
     <div class="mask">
       <h4><%= shop.name %></h4>
