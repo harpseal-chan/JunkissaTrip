@@ -25,7 +25,8 @@ class Shop < ApplicationRecord
   validates :images, content_type: { in: %w[image/jpeg image/gif image/png],
                                      message: "無効なファイル形式です" },
                      size: { less_than: 5.megabytes,
-                             message: "サイズは5MB以下にしてください" }
+                             message: "サイズは5MB以下にしてください" },
+                     limit: { max: 3, message: "投稿できるのは最大3枚です" }
 
   def bookmarked_by?(user)
     bookmarks.where(user_id: user).exists?

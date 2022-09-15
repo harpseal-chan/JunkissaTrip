@@ -276,3 +276,39 @@ Shop.seed do |s|
   s.opening = '8:00 - 19:00'
   s.closed = '水（GW, 7･8･9月は無休）'
 end
+
+Shop.seed do |s|
+  s.id = 32
+  s.name = '但馬屋珈琲店 本店'
+  s.address = '東京都新宿区西新宿1-2-6'
+  s.phone = '03-3342-0881'
+  s.opening = '10:00 - 23:00'
+  s.closed = '元旦'
+end
+
+Shop.seed do |s|
+  s.id = 33
+  s.name = 'Andart'
+  s.address = '東京都台東区台東２丁目２３−５ 星丸ビル 1F'
+  s.phone = ''
+  s.opening = '金 17:00 - 20:00 / 土日祝 12:00 - 18:00'
+  s.closed = '月火水木'
+end
+
+Shop.seed do |s|
+  s.id = 34
+  s.name = '珈琲店 スパニョラ'
+  s.address = '大阪府大阪市北区梅田１丁目１−３ 大阪駅前第3ビル B2F'
+  s.phone = '06-6347-1177'
+  s.opening = '月～土 8:00～20:15（LO20:00）/ 日・祝 11:00～18:00（LO17:45)'
+  s.closed = '年中無休'
+end
+
+Shop.seed do |s|
+  s.id = 35
+  s.name = 'みずさわ珈琲店'
+  s.address = '神奈川県川崎市高津区二子５丁目１１−２３ コーポタカツ'
+  s.phone = '044-812-1475'
+  s.opening = '9:00 - 20:00'
+  s.closed = '木'
+end
