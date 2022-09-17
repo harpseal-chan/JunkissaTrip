@@ -50,16 +50,16 @@ __バックエンド__
 
 __使用ツール__
 
-- テスト
-  - RSpec
-- 静的解析ツール
-  - rubocop
-- ページネーション
-  - kaminari
-- マップ
-  - GoogleMaps API
-  - geocoder
-- 検索・条件絞り込み
-  - ransack
-- 画像アップロード
-  - Active Storage
+- RSpec（テスト）
+- rubocop（静的解析）
+- kaminari（ページネーション）
+- GoogleMaps API, geocoder（マップ）
+- ransack（検索機能）
+- Active Storage（画像アップロード）
+  
+__インフラ構成図__
+
+- AWS
+  - EC2 / RDS(MySQL 8.0.28) / S3
+
+
