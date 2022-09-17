@@ -312,3 +312,12 @@ Shop.seed do |s|
   s.opening = '9:00 - 20:00'
   s.closed = '木'
 end
+
+Shop.seed do |s|
+  s.id = 36
+  s.name = 'モンレオン'
+  s.address = '神奈川県横浜市中区羽衣町３丁目６３'
+  s.phone = '045-261-7436'
+  s.opening = '平日 10:00 - 20:00 / 土 11:00 - 20:00'
+  s.closed = '日'
+end
