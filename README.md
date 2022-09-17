@@ -1,24 +1,29 @@
-# README
+# 純喫茶Trip
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## <img width="23px" height="23px" alt="アイコン" src="https://user-images.githubusercontent.com/102633054/190850730-e87072d0-e748-429f-9249-fb8560ad3ef6.png">  概要
+「昭和レトロな純喫茶」に特化した情報サイト。<br>
+店舗名やエリア名の検索、こだわり条件による絞り込みであなた好みの店舗を見つけられます。<br>
+ブックマーク機能や口コミ投稿で来店の記録を保存・共有することができます。<br>
 
-Things you may want to cover:
+<br>
+◆ 純喫茶とは？<br>
 
-* Ruby version
+Wikipediaによると「酒類を扱わない、純粋な喫茶店」と定義されていますが、<br>
+本サイトでは、以下の特徴がある喫茶店をすべて純喫茶としています。
+<br>
 
-* System dependencies
+- 昭和レトロまたはクラシックなインテリアのお店
+- クリームソーダやナポリタンなど昔懐かしいメニューを提供している
 
-* Configuration
 
-* Database creation
+## :bulb: 制作背景
 
-* Database initialization
+私は純喫茶巡りが趣味で、普段はSNSや地図アプリを使用して行きたいお店を探しています。<br>
+しかし、検索結果にチェーン店のカフェも含まれるため、純喫茶を探すのに時間がかかることがありました。<br>
+そこで純喫茶に特化した情報アプリがあれば、自分好みのお店をすぐに見つけられるのではと考え、アプリ作成に取り組みました。<br>
 
-* How to run the test suite
+## ターゲット
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- 年齢層 : １０代後半〜２０代後半
+  - 最近若者の間で昭和レトロが流行っており、純喫茶の来訪者が増やしたいため
+  
