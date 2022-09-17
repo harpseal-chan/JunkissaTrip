@@ -1,0 +1,45 @@
+<% provide(:title, '【管理】店舗一覧') %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2>店舗一覧</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <table>
+        <thead><tr>
+          <th></th>
+          <th>id</th>
+          <th>name</th>
+          <th>address</th>
+          <th>phone</th>
+          <th>opening</th>
+          <th>closed</th>
+          <th>images</th>
+        </tr></thead>
+        <% @shops.each do |shop| %>
+          <tbody><tr>
+            <td>
+              <%= link_to '【編集】', edit_admin_shop_path(shop) %>
+            </td>
+            <td><%= shop.id %></td>
+            <td><%= shop.name %></td>
+            <td><%= shop.address %></td>
+            <td><%= shop.phone %></td>
+            <td><%= shop.opening %></td>
+            <td><%= shop.closed %></td>
+            <td>
+              <% if shop.images.attached? %>
+                <% shop.images.each do |image| %>
+                  <%= image_tag image.variant(resize_to_limit: [200, 200]).processed, size: "100x100" %>
+                <% end %>
+              <% end %>
+            </td>
+          </tr></tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

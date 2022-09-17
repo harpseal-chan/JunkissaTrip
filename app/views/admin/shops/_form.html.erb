@@ -1,0 +1,47 @@
+<%= form_with model: [:admin, shop], local: true do |f| %>
+  <div class="col-xs-12">
+    <%= render 'shared/error_messages', object: shop %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.label :images %>
+    <% if shop.images.attached? %>
+      <% shop.images.each do |image| %>
+        <%= image_tag image.variant(resize_to_limit: [200, 200]).processed, size: "100x100" %>
+      <% end %>
+    <% end %>
+    <%= f.file_field :images, accept: "image/jpeg, image/gif, image/png", multiple: true %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.label :name %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.text_field :name, class: "input-field" %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.label :address %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.text_field :address, class: "input-field" %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.label :phone %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.text_field :phone, class: "input-field" %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.label :opening %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.text_field :opening, class: "input-field" %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.label :closed %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.text_field :closed, class: "input-field" %>
+  </div>
+  <div class="col-xs-12">
+    <%= f.submit "変更", class: "btn btn-submit" %>
+  </div>
+<% end %>

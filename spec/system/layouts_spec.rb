@@ -13,7 +13,7 @@ RSpec.describe "Layouts", type: :system do
       expect(page).to have_link '店舗一覧', href: shops_path
     end
 
-    context 'ログイン状態の場合' do
+    context '管理者ユーザーがログイン状態の場合' do
       before do
         log_in user
         visit root_path
@@ -21,6 +21,10 @@ RSpec.describe "Layouts", type: :system do
 
       it 'リンクがroot_pathのロゴが存在すること' do
         expect(page).to have_link '純喫茶Trip', href: root_path
+      end
+
+      it '管理者用ページのリンクが存在すること' do
+        expect(page).to have_link '管理者用ページ', href: admin_root_path
       end
 
       it 'マイページのリンクが存在すること' do
@@ -39,6 +43,19 @@ RSpec.describe "Layouts", type: :system do
       end
     end
 
+    context '一般ユーザーがログイン状態の場合' do
+      let!(:not_admin_user) { FactoryBot.create(:spottedseal) }
+
+      before do
+        log_in not_admin_user
+        visit root_path
+      end
+
+      it '管理者用ページのリンクが存在しないこと' do
+        expect(page).not_to have_link '管理者用ページ', href: admin_root_path
+      end
+    end
+
     context 'ログアウト状態の場合' do
       before do
         visit root_path
@@ -50,6 +67,10 @@ RSpec.describe "Layouts", type: :system do
 
       it '新規登録のリンクが存在すること' do
         expect(page).to have_link '新規登録', href: signup_path
+      end
+
+      it '管理者用ページのリンクが存在しないこと' do
+        expect(page).not_to have_link '管理者用ページ', href: admin_root_path
       end
     end
 
@@ -102,7 +123,7 @@ RSpec.describe "Layouts", type: :system do
   end
 
   describe '店舗詳細ページ' do
-    let(:shop) { FactoryBot.create(:shop1) }
+    let!(:shop) { FactoryBot.create(:shop1) }
     let!(:shop_feature) { FactoryBot.create(:shop_feature1) }
 
     before do
@@ -200,7 +221,7 @@ RSpec.describe "Layouts", type: :system do
 
   describe 'アイコン画像' do
     let(:attached_user) { FactoryBot.create(:harpseal) }
-    let(:not_attached_user) { FactoryBot.create(:phoca) }
+    let(:not_attached_user) { FactoryBot.create(:spottedseal) }
 
     context 'アイコン画像がアタッチされている場合' do
       before do
@@ -239,7 +260,7 @@ RSpec.describe "Layouts", type: :system do
     before do
       visit root_path
     end
-    
+
     it '利用規約が表示されていること' do
       click_link '利用規約'
       expect(page).to have_selector '#TermsOfServiceModal'

@@ -4,4 +4,5 @@ User.seed do |s|
   s.email = 'sample@mail.com'
   s.password = 'password'
   s.password_confirmation = 'password'
+  s.admin = true
 end
