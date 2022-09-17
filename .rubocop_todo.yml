@@ -89,6 +89,7 @@ Style/BlockComments:
 # SupportedStyles: nested, compact
 Style/ClassAndModuleChildren:
   Exclude:
+    - 'app/controllers/admin/*'
     - 'test/channels/application_cable/connection_test.rb'
     - 'test/test_helper.rb'
 

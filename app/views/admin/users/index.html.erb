@@ -1,0 +1,37 @@
+<% provide(:title, '【管理】ユーザー一覧') %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2>ユーザー一覧</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <table>
+        <thead><tr>
+          <th></th>
+          <th>id</th>
+          <th>name</th>
+          <th>email</th>
+          <th>avatar</th>
+        </tr></thead>
+        <% @users.each do |user| %>
+          <tbody><tr>
+            <td>
+              <%= link_to "【削除】 ", user, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+            </td>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <% if user.avatar.attached? %>
+              <td>
+                <%= image_tag user.avatar.variant(resize_to_limit: [50, 50]).processed %>
+              </td>
+            <% end %>
+          </tr></tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

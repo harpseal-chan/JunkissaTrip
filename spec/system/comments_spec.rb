@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Comments", type: :system do
   let!(:user) { FactoryBot.create(:harpseal) }
-  let!(:other_user) { FactoryBot.create(:phoca) }
+  let!(:other_user) { FactoryBot.create(:spottedseal) }
   let!(:shop) { FactoryBot.create(:shop1) }
   let!(:other_shop) { FactoryBot.create(:shop2) }
 

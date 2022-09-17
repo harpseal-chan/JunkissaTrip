@@ -1,6 +1,6 @@
 <div class="shop">
   <div class="row">
-    <%= link_to "", shop, class: "shop-name stretched-link" %>
+    <%= link_to "", shop, class: "shop-name stretched-link", data: { 'turbolinks': false } %>
     <div class="shop-name col-xs-12">
       <%= shop.name %>
     </div>
@@ -8,10 +8,10 @@
       <%= render partial: 'shared/features', collection: shop.features, as: 'feature' %>
     </div>
     <div class="col-xs-12 col-md-8">
-      <% if shop.image.nil? %>
-        <%= image_tag 'no_image.png', alt: "店舗の写真" %>
+      <% if shop.images.attached? %>
+        <%= image_tag shop.images.first, alt: "店舗の写真" %>
       <% else %>
-        <%= image_tag shop.image, alt: "店舗の写真" %>
+        <%= image_tag 'no_image.png', alt: "店舗の写真" %>
       <% end %>
     </div>
     <div class="col-xs-12 col-md-4">

@@ -9,6 +9,7 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      shop: 店舗
     # model毎に定義したいattributesを記述
     attributes:
       user:
@@ -18,14 +19,27 @@ ja:
         password_confirmation: パスワード（確認）
       comment:
         content: コメント
+      shop:
+        name: 店舗名
+        address: 住所
+        phone: 電話番号
+        opening: 営業時間
+        closed: 定休日
+        images: 画像
     errors:
       models:
         user:
           blank: を入力してください
           invalid: が不正な値です
           attributes:
+            email:
+              taken: はすでに使用されています
             password:
               too_short: は%{count}文字以上で入力してください
               too_log: は%{count}文字以下で入力してください
             password_confirmation:
               confirmation: が一致していません
+        shop:
+          blank: を入力してください
+          invalid: が不正な値です
+          

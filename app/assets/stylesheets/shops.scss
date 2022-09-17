@@ -165,12 +165,30 @@
       padding: 0;
     }
   }
-  .btn-img-ex {
-    @include shadow_btn;
-    margin-bottom: 30px;
+  .slick-prev, 
+  .slick-next {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    cursor: pointer;
+    outline: none;
+    height: 25px;
+    width: 25px;
   }
-  .shop-img-detail {
-    width: 100%;
+  .slick-prev {
+    left:2.5%;
+  }
+  .slick-next {
+    right:2.5%;
+  }
+  .slick-dots {
+    li {
+      font-size: 20px !important;
+      button:before {
+        font-size: 14px !important;
+        color: rgb(60, 60, 60) !important;
+      }
+    }
   }
   .shop-info {
     dl {

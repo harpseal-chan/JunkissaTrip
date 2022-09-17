@@ -5,7 +5,6 @@ Shop.seed do |s|
   s.phone = '03-5834-2922'
   s.opening = '11:00 - 18:00'
   s.closed = '水曜'
-  s.image = 'shop_1.jpg'
 end
 
 Shop.seed do |s|
@@ -15,7 +14,6 @@ Shop.seed do |s|
   s.phone = '044-422-3570'
   s.opening = '10:00 - 17:00'
   s.closed = '年中無休'
-  s.image = 'shop_2.jpg'
 end
 
 Shop.seed do |s|
@@ -25,7 +23,6 @@ Shop.seed do |s|
   s.phone = '03-3638-4003'
   s.opening = '金土 8:00 - 23:00 / 月火水木 8:00 - 0:00'
   s.closed = '日曜'
-  s.image = 'shop_3.jpg'
 end
 
 Shop.seed do |s|
@@ -35,7 +32,6 @@ Shop.seed do |s|
   s.phone = '06-6312-0709'
   s.opening = '5:30 - 23:00'
   s.closed = '年中無休'
-  s.image = 'shop_4.jpg'
 end
 
 Shop.seed do |s|
@@ -45,7 +41,6 @@ Shop.seed do |s|
   s.phone = '06-6345-3100'
   s.opening = '月～土 12:00 - 23:00'
   s.closed = '日曜・祝日・祝前日'
-  s.image = 'shop_5.jpg'
 end
 
 Shop.seed do |s|
@@ -55,7 +50,6 @@ Shop.seed do |s|
   s.phone = '06-6345-3400'
   s.opening = '月～土 9:00 - 20:30'
   s.closed = '日曜・祝日'
-  s.image = 'shop_6.jpg'
 end
 
 Shop.seed do |s|
@@ -65,7 +59,6 @@ Shop.seed do |s|
   s.phone = '075-221-0507'
   s.opening = '7:00 - 18:00'
   s.closed = '年中無休'
-  s.image = 'shop_7.jpg'
 end
 
 Shop.seed do |s|
@@ -75,7 +68,6 @@ Shop.seed do |s|
   s.phone = '06-6643-6076'
   s.opening = '10:00 - 18:00'
   s.closed = '不定休'
-  s.image = 'shop_8.jpg'
 end
 
 Shop.seed do |s|
@@ -85,7 +77,6 @@ Shop.seed do |s|
   s.phone = '075-221-0351'
   s.opening = '火〜金 13:00 - 19:00 / 土・日 13:00 - 19:30'
   s.closed = '月曜'
-  s.image = 'shop_9.jpg'
 end
 
 Shop.seed do |s|
@@ -95,7 +86,6 @@ Shop.seed do |s|
   s.phone = '03-3265-1374'
   s.opening = '10:00 - 19:00'
   s.closed = '日曜'
-  s.image = 'shop_10.jpg'
 end
 
 Shop.seed do |s|
@@ -105,7 +95,6 @@ Shop.seed do |s|
   s.phone = '0558-22-8092'
   s.opening = '10:30 - 20:00'
   s.closed = '金曜'
-  s.image = 'shop_11.jpg'
 end
 
 Shop.seed do |s|
@@ -115,7 +104,6 @@ Shop.seed do |s|
   s.phone = '03-3566-4081'
   s.opening = '11:00 - 19:30'
   s.closed = '不定休'
-  s.image = 'shop_12.jpg'
 end
 
 Shop.seed do |s|
@@ -125,7 +113,6 @@ Shop.seed do |s|
   s.phone = '03-3256-3941'
   s.opening = '月〜金 7:00 - 18:00 / 土 7:00 - 14:00'
   s.closed = '日曜'
-  s.image = 'shop_13.jpg'
 end
 
 Shop.seed do |s|
@@ -135,7 +122,6 @@ Shop.seed do |s|
   s.phone = '0558-22-3582'
   s.opening = '11:00 - 16:00'
   s.closed = '水曜・木曜'
-  s.image = 'shop_14.jpg'
 end
 
 Shop.seed do |s|
@@ -145,7 +131,6 @@ Shop.seed do |s|
   s.phone = '03-3312-7941'
   s.opening = '12:00 - 22:00'
   s.closed = '月曜'
-  s.image = 'shop_15.jpg'
 end
 
 Shop.seed do |s|
@@ -155,7 +140,6 @@ Shop.seed do |s|
   s.phone = ''
   s.opening = '金土日 12:00 - 18:30'
   s.closed = '月〜木曜・祝日'
-  s.image = 'shop_16.jpg'
 end
 
 Shop.seed do |s|
@@ -165,7 +149,6 @@ Shop.seed do |s|
   s.phone = '03-3735-3521'
   s.opening = '9:00 - 20:00'
   s.closed = '日曜'
-  s.image = 'shop_17.jpg'
 end
 
 Shop.seed do |s|
@@ -175,7 +158,6 @@ Shop.seed do |s|
   s.phone = '03-3761-6077'
   s.opening = '7:00 - 18:30'
   s.closed = '木曜'
-  s.image = 'shop_18.jpg'
 end
 
 Shop.seed do |s|
@@ -185,7 +167,6 @@ Shop.seed do |s|
   s.phone = '03-3580-5661'
   s.opening = '月〜金 8:00 - 19:00 / 土 8:00 - 17:00'
   s.closed = '日曜'
-  s.image = 'shop_19.jpg'
 end
 
 Shop.seed do |s|
@@ -195,7 +176,6 @@ Shop.seed do |s|
   s.phone = '03-3251-8033'
   s.opening = '月〜金 8:00 - 20:00 / 土 11:00 - 20:00'
   s.closed = '日曜'
-  s.image = 'shop_20.jpg'
 end
 
 Shop.seed do |s|
@@ -205,7 +185,6 @@ Shop.seed do |s|
   s.phone = '03-3338-4381'
   s.opening = '9:00 - 00:00'
   s.closed = '年中無休'
-  s.image = 'shop_21.jpg'
 end
 
 Shop.seed do |s|
@@ -215,7 +194,6 @@ Shop.seed do |s|
   s.phone = '03-3252-7608'
   s.opening = '平日 7:00 - 22:00 / 土曜 8:00 - 18:00 / 日曜 9:00 - 18:00'
   s.closed = '年中無休'
-  s.image = 'shop_22.jpg'
 end
 
 Shop.seed do |s|
@@ -225,7 +203,6 @@ Shop.seed do |s|
   s.phone = '050-5492-9264'
   s.opening = '9:00 - 16:00'
   s.closed = '水曜・木曜'
-  s.image = 'shop_23.jpg'
 end
 
 Shop.seed do |s|
@@ -235,7 +212,6 @@ Shop.seed do |s|
   s.phone = '03-3718-4434'
   s.opening = '12:00 - 18:00 / 20:00 - 0:00'
   s.closed = '月曜'
-  s.image = 'shop_24.jpg'
 end
 
 Shop.seed do |s|
@@ -245,7 +221,6 @@ Shop.seed do |s|
   s.phone = '06-6313-6797'
   s.opening = '平日 7:00 - 21:00 / 土日 8:00 - 18:30'
   s.closed = '水曜'
-  s.image = 'shop_25.jpg'
 end
 
 Shop.seed do |s|
@@ -255,7 +230,6 @@ Shop.seed do |s|
   s.phone = '045-641-7750'
   s.opening = '平日 10:00 - 18:00 / 土曜 10:30 - 18:00'
   s.closed = '日曜'
-  s.image = 'shop_26.jpg'
 end
 
 Shop.seed do |s|
@@ -265,7 +239,6 @@ Shop.seed do |s|
   s.phone = '03-3733-5775'
   s.opening = '10:00 - 19:30'
   s.closed = '東急プラザに準ずる'
-  s.image = 'shop_27.jpg'
 end
 
 Shop.seed do |s|
@@ -275,7 +248,6 @@ Shop.seed do |s|
   s.phone = ' 045-543-2725'
   s.opening = '9:00 - 19:00'
   s.closed = '年中無休'
-  s.image = 'shop_28.jpg'
 end
 
 Shop.seed do |s|
@@ -285,7 +257,6 @@ Shop.seed do |s|
   s.phone = ' 03-5969-8577'
   s.opening = '金土日 12:00 - 17:00'
   s.closed = '月〜木'
-  s.image = 'shop_29.jpg'
 end
 
 Shop.seed do |s|
@@ -295,7 +266,6 @@ Shop.seed do |s|
   s.phone = '0267-45-4884'
   s.opening = '9:30 - 18:00'
   s.closed = '木'
-  s.image = 'shop_30.jpg'
 end
 
 Shop.seed do |s|
@@ -305,5 +275,49 @@ Shop.seed do |s|
   s.phone = '0267-42-5616'
   s.opening = '8:00 - 19:00'
   s.closed = '水（GW, 7･8･9月は無休）'
-  s.image = 'shop_31.jpg'
+end
+
+Shop.seed do |s|
+  s.id = 32
+  s.name = '但馬屋珈琲店 本店'
+  s.address = '東京都新宿区西新宿1-2-6'
+  s.phone = '03-3342-0881'
+  s.opening = '10:00 - 23:00'
+  s.closed = '元旦'
+end
+
+Shop.seed do |s|
+  s.id = 33
+  s.name = 'Andart'
+  s.address = '東京都台東区台東２丁目２３−５ 星丸ビル 1F'
+  s.phone = ''
+  s.opening = '金 17:00 - 20:00 / 土日祝 12:00 - 18:00'
+  s.closed = '月火水木'
+end
+
+Shop.seed do |s|
+  s.id = 34
+  s.name = '珈琲店 スパニョラ'
+  s.address = '大阪府大阪市北区梅田１丁目１−３ 大阪駅前第3ビル B2F'
+  s.phone = '06-6347-1177'
+  s.opening = '月～土 8:00～20:15（LO20:00）/ 日・祝 11:00～18:00（LO17:45)'
+  s.closed = '年中無休'
+end
+
+Shop.seed do |s|
+  s.id = 35
+  s.name = 'みずさわ珈琲店'
+  s.address = '神奈川県川崎市高津区二子５丁目１１−２３ コーポタカツ'
+  s.phone = '044-812-1475'
+  s.opening = '9:00 - 20:00'
+  s.closed = '木'
+end
+
+Shop.seed do |s|
+  s.id = 36
+  s.name = 'モンレオン'
+  s.address = '神奈川県横浜市中区羽衣町３丁目６３'
+  s.phone = '045-261-7436'
+  s.opening = '平日 10:00 - 20:00 / 土 11:00 - 20:00'
+  s.closed = '日'
 end

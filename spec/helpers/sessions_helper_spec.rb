@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe SessionsHelper, type: :helper do
   describe 'current_userメソッド' do
-    let(:user) { FactoryBot.create(:phoca) }
+    let(:user) { FactoryBot.create(:spottedseal) }
     before do
       remember(user)
     end
