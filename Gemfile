@@ -37,9 +37,6 @@ gem 'kaminari'
 # For Search
 gem 'ransack'
 
-# Environment Valiable
-gem 'dotenv-rails'
-
 # Geocoding
 gem "geocoder"
 
