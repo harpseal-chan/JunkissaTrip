@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.test-rails
+    command: bundle exec puma -C config/puma.rb
+    ports:
+      - "3000:3000"
+    networks:
+      - jt-network
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: jt_development
+    platform: linux/x86_64
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - jt-network
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.test-nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    networks:
+      - jt-network
+
+networks:
+  jt-network:
+    external: true

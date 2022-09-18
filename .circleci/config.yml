@@ -7,14 +7,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      # - run:
-      #     name: Install Docker Compose
-      #     environment:
-      #       COMPOSE_VERSION: '1.29.2'
-      #     command: |
-      #       curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o ~/docker-compose
-      #       chmod +x ~/docker-compose
-      #       sudo mv ~/docker-compose /usr/local/bin/docker-compose
       - run:
           name: docker network create
           command: |
@@ -24,22 +16,22 @@ jobs:
           name: docker-compose up
           command: |
             set -x
-            docker-compose -f docker-compose-dev.yml up -d --build 
+            docker-compose -f docker-compose-test.yml up -d --build 
       - run:
           name: wait for DB setup
           command: |
             sleep 10
       - run:
           name: DB migration
-          command: docker-compose -f docker-compose-dev.yml run app rails db:migrate RAILS_ENV=test
+          command: docker-compose -f docker-compose-test.yml run app rails db:migrate RAILS_ENV=test
       - run:
-          name: test
+          name: run rspec
           command: |
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
               circleci tests split --split-by=timings)"
 
-            docker-compose -f docker-compose-dev.yml run app bundle exec rspec \
+            docker-compose -f docker-compose-test.yml run app bundle exec rspec \
               --format progress \
               --format RspecJunitFormatter \
               --out /tmp/test-results/rspec.xml \
@@ -47,4 +39,4 @@ jobs:
               $TEST_FILES
       - run:
           name: docker-compose down
-          command: docker-compose -f docker-compose-dev.yml down
+          command: docker-compose -f docker-compose-test.yml down
