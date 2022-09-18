@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     machine:
-      image: cimg/base:edge
+      image: cimg/base:current
     working_directory: ~/JunkissaTrip
     steps:
       - checkout
