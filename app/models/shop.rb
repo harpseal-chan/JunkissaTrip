@@ -22,7 +22,7 @@ class Shop < ApplicationRecord
   validates :phone, length: { maximum: 20 }
   validates :opening, length: { maximum: 255 }
   validates :closed, length: { maximum: 255 }
-  validates :images, content_type: { in: %w[image/jpeg image/gif image/png],
+  validates :images, content_type: { in: %w[image/jpeg image/gif image/png, image/jpg],
                                      message: "無効なファイル形式です" },
                      size: { less_than: 5.megabytes,
                              message: "サイズは5MB以下にしてください" },
