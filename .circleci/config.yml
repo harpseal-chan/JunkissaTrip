@@ -30,14 +30,21 @@ jobs:
           command: |
             sleep 10
       - run:
+          name: DB migration
+          command: docker-compose -f docker-compose-dev.yml run app rails db:migrate RAILS_ENV=test
+      - run:
           name: test
           command: |
             mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob 'spec/**/*_spec.rb' | circleci tests split --split-by=timings)"
-            docker-compose -f docker-compose-dev.yml exec rails_api bin/rspec --format progress \
-                                                                  --format RspecJunitFormatter \
-                                                                  --out /tmp/test-results/rspec.xml \
-                                                                  $TEST_FILES
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+              circleci tests split --split-by=timings)"
+
+            docker-compose -f docker-compose-dev.yml run app bundle exec rspec \
+              --format progress \
+              --format RspecJunitFormatter \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
       - run:
           name: docker-compose down
           command: docker-compose -f docker-compose-dev.yml down
