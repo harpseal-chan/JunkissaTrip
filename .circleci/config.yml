@@ -6,6 +6,7 @@ jobs:
     working_directory: ~/JunkissaTrip
     steps:
       - checkout
+      - setup_remote_docker
       # - run:
       #     name: Install Docker Compose
       #     environment:
@@ -15,15 +16,10 @@ jobs:
       #       chmod +x ~/docker-compose
       #       sudo mv ~/docker-compose /usr/local/bin/docker-compose
       - run:
-          name: docker-compose build
-          command: |
-            set -x
-            docker-compose -f docker-compose-dev.yml build
-      - run:
           name: docker-compose up
           command: |
             set -x
-            docker-compose -f docker-compose-dev.yml up -d
+            docker-compose -f docker-compose-dev.yml up -d --build 
       - run:
           name: wait for DB setup
           command: |
