@@ -16,6 +16,11 @@ jobs:
       #       chmod +x ~/docker-compose
       #       sudo mv ~/docker-compose /usr/local/bin/docker-compose
       - run:
+          name: docker network create
+          command: |
+            set -x
+            docker network create jt-network
+      - run:
           name: docker-compose up
           command: |
             set -x
