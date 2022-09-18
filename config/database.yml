@@ -50,7 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV['APP_DATABASE'] %>
-  username: <%= ENV['APP_DATABASE_USERNAME'] %>
-  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
-  host: <%= ENV['APP_DATABASE_HOST'] %>
+  database: <%= Rails.application.credentials.dig(:aws, :rds, :app_db) %>
+  username: <%= Rails.application.credentials.dig(:aws, :rds, :app_db_usr_name) %>
+  password: <%= Rails.application.credentials.dig(:aws, :rds, :app_db_pswd) %>
+  host: <%= Rails.application.credentials.dig(:aws, :rds, :app_db_host) %>
