@@ -3,9 +3,9 @@ jobs:
   build:
     docker:
       image: cimg/base:2022.09
-    environment:
-      RAILS_ENV: test
-      DB_HOST: "127.0.0.1"
+      environment:
+        RAILS_ENV: test
+        DB_HOST: "127.0.0.1"
     working_directory: ~/JunkissaTrip
     steps:
       - checkout
