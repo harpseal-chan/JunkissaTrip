@@ -3,6 +3,9 @@ jobs:
   build:
     docker:
       image: cimg/base:2022.09
+    environment:
+      RAILS_ENV: test
+      DB_HOST: "127.0.0.1"
     working_directory: ~/JunkissaTrip
     steps:
       - checkout
@@ -16,7 +19,12 @@ jobs:
           name: docker-compose up
           command: |
             set -x
-            docker-compose -f docker-compose-test.yml up -d --build 
+            docker-compose -f docker-compose-test.yml up -d --build
+      - run:
+          name: DB setup
+          command: |
+            docker-compose -f docker-compose-test.yml run app bundle exec rails db:create
+            docker-compose -f docker-compose-test.yml run app bundle exec rails db:schema:load
       - run:
           name: run rspec
           command: |

@@ -112,10 +112,6 @@ GEM
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     diff-lcs (1.5.0)
-    dotenv (2.8.1)
-    dotenv-rails (2.8.1)
-      dotenv (= 2.8.1)
-      railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.8.1)
     factory_bot (6.2.1)
@@ -252,6 +248,8 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.11.0)
+    rspec_junit_formatter (0.5.1)
+      rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (1.10.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
@@ -339,7 +337,6 @@ DEPENDENCIES
   byebug
   capistrano
   capybara (>= 3.26)
-  dotenv-rails
   factory_bot_rails
   geocoder
   gon
@@ -355,6 +352,7 @@ DEPENDENCIES
   rails (~> 6.1.4)
   ransack
   rspec-rails
+  rspec_junit_formatter
   rubocop (~> 1.10.0)
   sass-rails (>= 6)
   seed-fu
