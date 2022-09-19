@@ -18,16 +18,6 @@ jobs:
             set -x
             docker-compose -f docker-compose-test.yml up -d --build 
       - run:
-          name: wait for DB setup
-          command: |
-            sleep 30
-      - run:
-          name: DB create
-          command: docker-compose -f docker-compose-test.yml run app rails db:create RAILS_ENV=test
-      - run:
-          name: DB migrate
-          command: docker-compose -f docker-compose-test.yml run app rails db:migrate RAILS_ENV=test
-      - run:
           name: run rspec
           command: |
             mkdir /tmp/test-results
