@@ -20,9 +20,12 @@ jobs:
       - run:
           name: wait for DB setup
           command: |
-            sleep 10
+            sleep 30
       - run:
-          name: DB migration
+          name: DB create
+          command: docker-compose -f docker-compose-test.yml run app rails db:create RAILS_ENV=test
+      - run:
+          name: DB migrate
           command: docker-compose -f docker-compose-test.yml run app rails db:migrate RAILS_ENV=test
       - run:
           name: run rspec
