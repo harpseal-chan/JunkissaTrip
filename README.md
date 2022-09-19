@@ -32,7 +32,17 @@ Wikipediaによると「酒類を扱わない、純粋な喫茶店」と定義�
   
 ## :coffee: コア機能
 
-### 1. 店舗検索
+### 1. 店舗検索, 絞り込み
+
+<img alt="店舗検索" src="https://user-images.githubusercontent.com/102633054/190966780-72f24bd9-360c-4193-b853-86276a2144c0.gif">
+
+### 2. ブックマーク登録, コメント投稿機能
+
+<img alt="店舗検索" src="https://user-images.githubusercontent.com/102633054/190967623-d3c9d13f-9966-451e-9866-9dc6e0108ade.gif">
+
+ブックマークや投稿したコメントは、マイページにて確認できます。
+
+<img height="383px" width="700px" alt="マイページ" src="https://user-images.githubusercontent.com/102633054/191004706-66ecfd83-058c-4b64-996a-318d11931177.png">
 
 ## :computer: 使用技術
 
@@ -60,6 +70,11 @@ __使用ツール__
 __インフラ構成図__
 
 - AWS
-  - EC2 / RDS(MySQL 8.0.28) / S3
+  - EC2 / RDS(MySQL 8.0.28) / S3 他
+- デプロイツール
+  - Capistrano
+- 開発環境
+  - Docker-compose（Nginx, Rails）
 
+<img alt="インフラ構成図" src="https://user-images.githubusercontent.com/102633054/191001150-ffb6e6e3-9727-4c34-9831-37ac11e3ee35.png">
 
