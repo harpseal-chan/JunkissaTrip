@@ -247,11 +247,15 @@ end
 
 Shop.seed do |s|
   s.id = 20
-  s.name = 'ショパン（CHOPIN）'
+  s.name = 'CHOPIN'
   s.address = '東京都千代田区神田須田町1-19-9'
   s.phone = '03-3251-8033'
   s.opening = '月〜金 8:00 - 20:00 / 土 11:00 - 20:00'
   s.closed = '日曜'
+  s.smoking = '1F禁煙、2F加熱式たばこ限定'
+  s.access = '東京メトロ丸ノ内線 淡路町駅から徒歩３分 / 都営地下鉄新宿線 小川町駅から徒歩４分'
+  s.payment = '現金'
+  s.kana = 'ショパン'
 end
 
 Shop.seed do |s|
@@ -261,6 +265,10 @@ Shop.seed do |s|
   s.phone = '03-3338-4381'
   s.opening = '9:00 - 00:00'
   s.closed = '年中無休'
+  s.smoking = '全席禁煙'
+  s.access = 'JR中央線 阿佐ケ谷駅から徒歩1分'
+  s.payment = '現金'
+  s.kana = 'ギオン'
 end
 
 Shop.seed do |s|
@@ -270,6 +278,10 @@ Shop.seed do |s|
   s.phone = '03-3252-7608'
   s.opening = '平日 7:00 - 22:00 / 土曜 8:00 - 18:00 / 日曜 9:00 - 18:00'
   s.closed = '年中無休'
+  s.smoking = '1階全席禁煙 / 2階全席喫煙'
+  s.access = 'JR 神田駅北口より徒歩30秒'
+  s.payment = '現金 / 電子マネー（楽天Pay, 交通系IC）'
+  s.kana = 'カンダコーヒーエン カンダエキキタグチテン'
 end
 
 Shop.seed do |s|
@@ -278,16 +290,24 @@ Shop.seed do |s|
   s.address = '静岡県熱海市東海岸町2-15'
   s.phone = '050-5492-9264'
   s.opening = '9:00 - 16:00'
-  s.closed = '水曜・木曜'
+  s.closed = '水・木（月1回）'
+  s.smoking = '全席禁煙'
+  s.access = 'JR 熱海駅より徒歩11分'
+  s.payment = '現金'
+  s.kana = 'サンバード'
 end
 
 Shop.seed do |s|
   s.id = 24
-  s.name = 'DUN AROMA（ダン アロマ）'
+  s.name = 'DUN AROMA'
   s.address = '東京都目黒区平町１丁目２２−１２'
   s.phone = '03-3718-4434'
   s.opening = '12:00 - 18:00 / 20:00 - 0:00'
   s.closed = '月曜'
+  s.smoking = '全席禁煙'
+  s.access = '東急東横線 都立大学駅から徒歩3分'
+  s.payment = '現金'
+  s.kana = 'ダン アロマ'
 end
 
 Shop.seed do |s|
@@ -297,6 +317,10 @@ Shop.seed do |s|
   s.phone = '06-6313-6797'
   s.opening = '平日 7:00 - 21:00 / 土日 8:00 - 18:30'
   s.closed = '水曜'
+  s.smoking = '全席禁煙'
+  s.access = '地下鉄谷町線 東梅田駅7番出口直結'
+  s.payment = '現金 / カード（VISA、Master、JCB、AMEX、Diners）/ 電子マネー（交通系電子マネー、nanaco、WAON、iD）/ QRコード決済（PayPay、d払い）'
+  s.kana = 'キッサ サンシャイン'
 end
 
 Shop.seed do |s|
@@ -306,6 +330,10 @@ Shop.seed do |s|
   s.phone = '045-641-7750'
   s.opening = '平日 10:00 - 18:00 / 土曜 10:30 - 18:00'
   s.closed = '日曜'
+  s.smoking = '全席禁煙'
+  s.access = 'JR京浜東北線 関内駅南口から徒歩5分'
+  s.payment = '現金'
+  s.kana = 'コーヒーノダイガクイン ルミエール・ド・パリ'
 end
 
 Shop.seed do |s|
@@ -315,6 +343,10 @@ Shop.seed do |s|
   s.phone = '03-3733-5775'
   s.opening = '10:00 - 19:30'
   s.closed = '東急プラザに準ずる'
+  s.smoking = '全席禁煙'
+  s.access = 'JR京浜東北線, 東急多摩川線 蒲田駅すぐ'
+  s.payment = '現金 / カード（VISA、Master、JCB）/ 電子マネー'
+  s.kana = 'シビタス'
 end
 
 Shop.seed do |s|
@@ -324,6 +356,10 @@ Shop.seed do |s|
   s.phone = ' 045-543-2725'
   s.opening = '9:00 - 19:00'
   s.closed = '年中無休'
+  s.smoking = '全席喫煙可'
+  s.access = '東急東横線 綱島駅から徒歩1分'
+  s.payment = '現金'
+  s.kana = 'サガン'
 end
 
 Shop.seed do |s|
@@ -333,6 +369,10 @@ Shop.seed do |s|
   s.phone = ' 03-5969-8577'
   s.opening = '金土日 12:00 - 17:00'
   s.closed = '月〜木'
+  s.smoking = '全席禁煙'
+  s.access = '京王線 千歳烏山駅東口より徒歩5分'
+  s.payment = '現金'
+  s.kana = 'キッサ ホウセキバコ'
 end
 
 Shop.seed do |s|
@@ -342,6 +382,10 @@ Shop.seed do |s|
   s.phone = '0267-45-4884'
   s.opening = '9:30 - 18:00'
   s.closed = '木'
+  s.smoking = ''
+  s.access = 'しなの鉄道 中軽井沢駅から徒歩9分'
+  s.payment = '現金'
+  s.kana = 'サボウ マリヤ'
 end
 
 Shop.seed do |s|
@@ -351,6 +395,10 @@ Shop.seed do |s|
   s.phone = '0267-42-5616'
   s.opening = '8:00 - 19:00'
   s.closed = '水（GW, 7･8･9月は無休）'
+  s.smoking = '分煙'
+  s.access = 'JR 軽井沢駅北口より徒歩3分'
+  s.payment = '現金'
+  s.kana = 'タンネンテイ'
 end
 
 Shop.seed do |s|
@@ -360,6 +408,10 @@ Shop.seed do |s|
   s.phone = '03-3342-0881'
   s.opening = '10:00 - 23:00'
   s.closed = '元旦'
+  s.smoking = '全席喫煙可'
+  s.access = '新宿駅西口より徒歩3分'
+  s.payment = '現金'
+  s.kana = 'タジマヤコーヒーテン ホンテン'
 end
 
 Shop.seed do |s|
@@ -369,6 +421,10 @@ Shop.seed do |s|
   s.phone = ''
   s.opening = '金 17:00 - 20:00 / 土日祝 12:00 - 18:00'
   s.closed = '月火水木'
+  s.smoking = '全席禁煙'
+  s.access = '東京メトロ日比谷線 仲御徒町駅から徒歩6分'
+  s.payment = '現金'
+  s.kana = 'アンダート'
 end
 
 Shop.seed do |s|
@@ -378,6 +434,10 @@ Shop.seed do |s|
   s.phone = '06-6347-1177'
   s.opening = '月～土 8:00～20:15（LO20:00）/ 日・祝 11:00～18:00（LO17:45)'
   s.closed = '年中無休'
+  s.smoking = '月〜土喫煙可、日・祝禁煙'
+  s.access = '地下鉄谷町線 東梅田駅・JR北新地駅から徒歩5分'
+  s.payment = '現金 / カード'
+  s.kana = 'コーヒーテン スパニョラ'
 end
 
 Shop.seed do |s|
@@ -387,6 +447,10 @@ Shop.seed do |s|
   s.phone = '044-812-1475'
   s.opening = '9:00 - 20:00'
   s.closed = '木'
+  s.smoking = '全席禁煙'
+  s.access = '田園都市線 高津駅から徒歩５分'
+  s.payment = '現金'
+  s.kana = 'ミズサワコーヒーテン'
 end
 
 Shop.seed do |s|
@@ -396,4 +460,8 @@ Shop.seed do |s|
   s.phone = '045-261-7436'
   s.opening = '平日 10:00 - 20:00 / 土 11:00 - 20:00'
   s.closed = '日'
+  s.smoking = '全席喫煙可'
+  s.access = 'JR 関内駅から徒歩6分 / 横浜市営地下鉄ブルーライン 伊勢佐木長者町駅から徒歩4分'
+  s.payment = '現金'
+  s.kana = 'モンレオン'
 end
