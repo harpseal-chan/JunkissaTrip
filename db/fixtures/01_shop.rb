@@ -5,6 +5,10 @@ Shop.seed do |s|
   s.phone = '03-5834-2922'
   s.opening = '11:00 - 18:00'
   s.closed = '水曜'
+  s.smoking = '全席禁煙'
+  s.access = '千駄木駅から徒歩8分、日暮里駅から徒歩8分'
+  s.payment = '現金'
+  s.kana = 'キッサ ニカイ'
 end
 
 Shop.seed do |s|
@@ -14,6 +18,10 @@ Shop.seed do |s|
   s.phone = '044-422-3570'
   s.opening = '10:00 - 17:00'
   s.closed = '年中無休'
+  s.smoking = '全席禁煙'
+  s.access = '新丸子駅から徒歩2分'
+  s.payment = '現金'
+  s.kana = 'キッサ マリモ'
 end
 
 Shop.seed do |s|
@@ -23,15 +31,23 @@ Shop.seed do |s|
   s.phone = '03-3638-4003'
   s.opening = '金土 8:00 - 23:00 / 月火水木 8:00 - 0:00'
   s.closed = '日曜'
+  s.smoking = '全席禁煙'
+  s.access = '亀戸駅から徒歩2分'
+  s.payment = '現金'
+  s.kana = 'コーヒードウジョウ サムライ'
 end
 
 Shop.seed do |s|
   s.id = 4
-  s.name = 'ニューYC'
+  s.name = 'ニューY・C'
   s.address = '大阪府大阪市北区角田町9-26 新梅田食道街'
   s.phone = '06-6312-0709'
   s.opening = '5:30 - 23:00'
   s.closed = '年中無休'
+  s.smoking = '全席喫煙可'
+  s.access = '阪急梅田駅すぐ、JR梅田駅から徒歩2分'
+  s.payment = '現金'
+  s.kana = 'ニュー ワイ・シー'
 end
 
 Shop.seed do |s|
@@ -41,6 +57,10 @@ Shop.seed do |s|
   s.phone = '06-6345-3100'
   s.opening = '月～土 12:00 - 23:00'
   s.closed = '日曜・祝日・祝前日'
+  s.smoking = '全席喫煙可'
+  s.access = '大阪市営四つ橋線西梅田駅より徒歩1分, JR東西線北新地駅より徒歩1分'
+  s.payment = '現金'
+  s.kana = 'キッサアンドバー キングオブキングス'
 end
 
 Shop.seed do |s|
@@ -50,6 +70,10 @@ Shop.seed do |s|
   s.phone = '06-6345-3400'
   s.opening = '月～土 9:00 - 20:30'
   s.closed = '日曜・祝日'
+  s.smoking = '全席喫煙可'
+  s.access = '大阪市営四つ橋線西梅田駅より徒歩1分, JR東西線北新地駅より徒歩1分'
+  s.payment = '現金 / 電子マネー（iD）'
+  s.kana = 'マヅラキッサテン'
 end
 
 Shop.seed do |s|
@@ -59,6 +83,10 @@ Shop.seed do |s|
   s.phone = '075-221-0507'
   s.opening = '7:00 - 18:00'
   s.closed = '年中無休'
+  s.smoking = '全席禁煙（店舗内に喫煙ブースあり）'
+  s.access = '京都市営地下鉄烏丸線・東西線 御池烏丸駅(5番出口)より徒歩6分'
+  s.payment = '現金 / 電子マネー / カード（Master、JCB、AMEX、Diners、VISA）'
+  s.kana = 'イノダコーヒ ホンテン'
 end
 
 Shop.seed do |s|
@@ -68,6 +96,10 @@ Shop.seed do |s|
   s.phone = '06-6643-6076'
   s.opening = '10:00 - 18:00'
   s.closed = '不定休'
+  s.smoking = '全席喫煙可'
+  s.access = '恵美須町駅から徒歩3分'
+  s.payment = '現金 / 電子マネー'
+  s.kana = 'キッサドレミ'
 end
 
 Shop.seed do |s|
@@ -77,6 +109,10 @@ Shop.seed do |s|
   s.phone = '075-221-0351'
   s.opening = '火〜金 13:00 - 19:00 / 土・日 13:00 - 19:30'
   s.closed = '月曜'
+  s.smoking = '全席禁煙'
+  s.access = '阪急京都線 河原町駅(1A出口)から徒歩1分 / 京阪本線 祇園四条駅(4番出口)から徒歩3分'
+  s.payment = '現金'
+  s.kana = 'キッサソワレ'
 end
 
 Shop.seed do |s|
@@ -86,6 +122,10 @@ Shop.seed do |s|
   s.phone = '03-3265-1374'
   s.opening = '10:00 - 19:00'
   s.closed = '日曜'
+  s.smoking = '全席喫煙可'
+  s.access = '永田町駅から徒歩5分'
+  s.payment = '現金'
+  s.kana = 'カヒドウ ヒラカワチョウテン'
 end
 
 Shop.seed do |s|
@@ -95,6 +135,10 @@ Shop.seed do |s|
   s.phone = '0558-22-8092'
   s.opening = '10:30 - 20:00'
   s.closed = '金曜'
+  s.smoking = '全席喫煙可'
+  s.access = '伊豆急下田駅から徒歩6分'
+  s.payment = '現金'
+  s.kana = 'コオヒイハウス コーヒーカン'
 end
 
 Shop.seed do |s|
@@ -103,7 +147,11 @@ Shop.seed do |s|
   s.address = '東京都中央区銀座4-1 西銀座デパート B1F'
   s.phone = '03-3566-4081'
   s.opening = '11:00 - 19:30'
-  s.closed = '不定休'
+  s.closed = '西銀座デパートに準ずる'
+  s.smoking = '分煙'
+  s.access = '東京メトロ 銀座駅C7,C5出口直結 / JR有楽町駅から徒歩3分'
+  s.payment = '現金'
+  s.kana = 'ブリッヂ'
 end
 
 Shop.seed do |s|
@@ -113,6 +161,10 @@ Shop.seed do |s|
   s.phone = '03-3256-3941'
   s.opening = '月〜金 7:00 - 18:00 / 土 7:00 - 14:00'
   s.closed = '日曜'
+  s.smoking = '全席禁煙'
+  s.access = 'JR,東京メトロ 神田駅から徒歩3分 / 東京メトロ 淡路町駅から徒歩6分'
+  s.payment = '現金'
+  s.kana = 'コーヒーセンモンテン エース'
 end
 
 Shop.seed do |s|
@@ -122,6 +174,10 @@ Shop.seed do |s|
   s.phone = '0558-22-3582'
   s.opening = '11:00 - 16:00'
   s.closed = '水曜・木曜'
+  s.smoking = '全席禁煙'
+  s.access = 'JR,東京メトロ 神田駅から徒歩3分 / 東京メトロ 淡路町駅から徒歩6分'
+  s.payment = '現金'
+  s.kana = 'コーヒーセンモンテン エース'
 end
 
 Shop.seed do |s|
@@ -131,6 +187,10 @@ Shop.seed do |s|
   s.phone = '03-3312-7941'
   s.opening = '12:00 - 22:00'
   s.closed = '月曜'
+  s.smoking = '全席禁煙'
+  s.access = 'JR高円寺駅南口より徒歩5分'
+  s.payment = '現金'
+  s.kana = 'アールザドクショカン'
 end
 
 Shop.seed do |s|
@@ -140,6 +200,10 @@ Shop.seed do |s|
   s.phone = ''
   s.opening = '金土日 12:00 - 18:30'
   s.closed = '月〜木曜・祝日'
+  s.smoking = '全席禁煙'
+  s.access = 'JR,大阪メトロ 弁天町駅南口より徒歩3分'
+  s.payment = '現金'
+  s.kana = 'キッサココ'
 end
 
 Shop.seed do |s|
@@ -149,6 +213,10 @@ Shop.seed do |s|
   s.phone = '03-3735-3521'
   s.opening = '9:00 - 20:00'
   s.closed = '日曜'
+  s.smoking = '全席喫煙可'
+  s.access = 'JR蒲田駅 東口から徒歩5分'
+  s.payment = '現金'
+  s.kana = 'チェリー'
 end
 
 Shop.seed do |s|
@@ -158,6 +226,10 @@ Shop.seed do |s|
   s.phone = '03-3761-6077'
   s.opening = '7:00 - 18:30'
   s.closed = '木曜'
+  s.smoking = '全席禁煙'
+  s.access = 'JR大森駅 東口から徒歩3分'
+  s.payment = '現金'
+  s.kana = 'キッサテイルアン'
 end
 
 Shop.seed do |s|
@@ -167,6 +239,10 @@ Shop.seed do |s|
   s.phone = '03-3580-5661'
   s.opening = '月〜金 8:00 - 19:00 / 土 8:00 - 17:00'
   s.closed = '日曜'
+  s.smoking = '全席喫煙可（3本まで喫煙可。ただし子供来店時は禁煙）'
+  s.access = '東京メトロ銀座線 虎ノ門駅 出入口1から徒歩5分 / 都営地下鉄三田線 内幸町駅から徒歩５分'
+  s.payment = '現金'
+  s.kana = 'コーヒーアンドプリン へッケルン'
 end
 
 Shop.seed do |s|
