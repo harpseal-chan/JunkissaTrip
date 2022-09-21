@@ -1,14 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Shop, type: :model do
-  let(:shop) { Shop.new(name: '純喫茶',
-                        address: '住所',
-                        phone: '0000-0000-0000',
-                        opening: '10:00 - 20:00',
-                        closed: '水曜',
-                        smoking: '',
-                        access: '',
-                        payment: '' ) }
+  let(:shop) do
+    Shop.new(name: '純喫茶',
+             kana: 'じゅんきっさ',
+             address: '住所',
+             phone: '0000-0000-0000',
+             opening: '10:00 - 20:00',
+             closed: '水曜',
+             smoking: '',
+             access: '',
+             payment: '')
+  end
 
   context '有効な値で店舗登録' do
     it 'shopが有効であること' do
@@ -85,6 +88,18 @@ RSpec.describe Shop, type: :model do
   context 'paymentカラムのバリデーション' do
     it 'paymentが256文字以上の場合、shopが無効であること' do
       shop.payment = "a" * 256
+      expect(shop).not_to be_valid
+    end
+  end
+  
+  context 'kanaカラムのバリデーション' do
+    it 'kanaが空の場合、shopが無効であること' do
+      shop.kana = ' '
+      expect(shop).not_to be_valid
+    end
+
+    it 'kanaが256文字以上の場合、shopが無効であること' do
+      shop.kana = "a" * 256
       expect(shop).not_to be_valid
     end
   end
