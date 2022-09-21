@@ -136,6 +136,10 @@ RSpec.describe "Layouts", type: :system do
       expect(page).to have_content shop.phone
       expect(page).to have_content shop.opening
       expect(page).to have_content shop.closed
+      expect(page).to have_content shop.smoking
+      expect(page).to have_content shop.payment
+      expect(page).to have_content shop.kana
+      expect(page).to have_content shop.access
     end
 
     it '店舗の地図（GoogleMap）が表示されていること' do

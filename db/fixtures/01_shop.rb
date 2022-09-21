@@ -175,9 +175,9 @@ Shop.seed do |s|
   s.opening = '11:00 - 16:00'
   s.closed = '水曜・木曜'
   s.smoking = '全席禁煙'
-  s.access = 'JR,東京メトロ 神田駅から徒歩3分 / 東京メトロ 淡路町駅から徒歩6分'
+  s.access = '伊豆急下田駅から徒歩7分'
   s.payment = '現金'
-  s.kana = 'コーヒーセンモンテン エース'
+  s.kana = 'ジャシュウモン'
 end
 
 Shop.seed do |s|
