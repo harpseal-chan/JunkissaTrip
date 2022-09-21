@@ -4,9 +4,12 @@
     <div class="row content-wrapper">
       <div class="col-xs-12 col-md-10 col-md-offset-1" id="shop-detail-wrapper">
         <div class="row">
-          <h1 class="col-xs-12 col-md-9">
-            <%= @shop.name %>
-          </h1>
+          <div class="col-xs-12 col-md-9 text-left">
+            <h4><%= @shop.kana %></h4>
+          </div>
+          <div class="col-xs-12 col-md-9 text-left">
+            <h1><%= @shop.name %></h1>  
+          </div>
           <div class="col-xs-7 col-md-3">
             <%= render 'shops/bookmark_button' %>
           </div>
@@ -31,12 +34,18 @@
             <dl>
               <dt>住所</dt>
               <dd><%= @shop.address %></dd>
+              <dt>アクセス</dt>
+              <dd><%= @shop.access %></dd>
               <dt>電話番号</dt>
               <dd><%= @shop.phone %></dd>
               <dt>営業時間</dt>
               <dd><%= @shop.opening %></dd>
               <dt>定休日</dt>
               <dd><%= @shop.closed %></dd>
+              <dt>禁煙 / 喫煙</dt>
+              <dd><%= @shop.smoking %></dd>
+              <dt>決済方法</dt>
+              <dd><%= @shop.payment %></dd>
             </dl>
           </div>
         </div>
