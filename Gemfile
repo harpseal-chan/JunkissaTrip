@@ -70,6 +70,8 @@ group :development do
   gem 'spring'
   # A deployment automation tool built on Ruby, Rake, and SSH.
   gem 'capistrano'
+  # help to kill N+1 queries and unused eager loading
+  gem 'bullet'
 end
 
 group :test do
