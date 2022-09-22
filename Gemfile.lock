@@ -93,6 +93,9 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
     builder (3.2.4)
+    bullet (7.0.3)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     byebug (11.1.3)
     capistrano (3.17.1)
       airbrussh (>= 1.0.0)
@@ -112,10 +115,6 @@ GEM
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     diff-lcs (1.5.0)
-    dotenv (2.8.1)
-    dotenv-rails (2.8.1)
-      dotenv (= 2.8.1)
-      railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.8.1)
     factory_bot (6.2.1)
@@ -305,6 +304,7 @@ GEM
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.2.0)
+    uniform_notifier (1.16.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -336,10 +336,10 @@ DEPENDENCIES
   bcrypt (~> 3.1.13)
   bootsnap (>= 1.4.4)
   bootstrap-sass (= 3.4.1)
+  bullet
   byebug
   capistrano
   capybara (>= 3.26)
-  dotenv-rails
   factory_bot_rails
   geocoder
   gon

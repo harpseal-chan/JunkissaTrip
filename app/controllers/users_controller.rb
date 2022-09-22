@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @bookmark_shops = @user.bookmark_shops.preload(images_attachments: :blob)
+    @comments = @user.comments.preload(:shop)
   end
 
   def new

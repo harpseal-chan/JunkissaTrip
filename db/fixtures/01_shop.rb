@@ -53,7 +53,7 @@ end
 Shop.seed do |s|
   s.id = 5
   s.name = '喫茶＆Bar King of Kings'
-  s.address = '大阪市北区梅田1-3-1 大阪駅前第1ビルB1F'
+  s.address = '大阪府北区梅田１丁目３−１ 大阪駅前第１ビル B1'
   s.phone = '06-6345-3100'
   s.opening = '月～土 12:00 - 23:00'
   s.closed = '日曜・祝日・祝前日'
@@ -66,7 +66,7 @@ end
 Shop.seed do |s|
   s.id = 6
   s.name = 'マヅラ喫茶店'
-  s.address = '大阪市北区梅田1-3-1 大阪駅前第1ビルB1F'
+  s.address = '大阪府北区梅田１丁目３−１ 大阪駅前第１ビル B1'
   s.phone = '06-6345-3400'
   s.opening = '月～土 9:00 - 20:30'
   s.closed = '日曜・祝日'
