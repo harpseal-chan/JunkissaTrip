@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   def index
-    result = @q.result.preload(:features, :images_attachments, images_attachments: :blob)
+    result = @q.result.preload(:features, images_attachments: :blob)
     @shops = result.page(params[:page])
     @features = Feature.all
   end

@@ -32,7 +32,7 @@
           <p id="bm-not-found">ブックマークした店舗はありません</p>
         <% else %>
           <div class="bm-shops">
-            <%= render partial: 'bookmarks', collection: @user.bookmark_shops, as: 'shop' %>
+            <%= render partial: 'bookmarks', collection: @bookmark_shops, as: 'bookmark_shop' %>
           </div>
         <% end %>
       </div>
@@ -43,7 +43,7 @@
           <p id="cm-not-found">投稿したコメントはありません</p>
         <% else %>
           <div class="user-comments">
-            <%= render partial: 'comments', collection: @user.comments, as: 'comment' %>
+            <%= render partial: 'comments', collection: @comments, as: 'comment' %>
           </div>
         <% end %>
       </div>
