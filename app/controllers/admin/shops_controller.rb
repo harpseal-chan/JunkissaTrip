@@ -3,7 +3,7 @@ class Admin::ShopsController < ApplicationController
   before_action :admin_user
 
   def index
-    @shops = Shop.all
+    @shops = Shop.all.preload(images_attachments: :blob)
   end
 
   def edit
