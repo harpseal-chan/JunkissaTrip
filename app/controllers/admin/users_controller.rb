@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_action :admin_user
 
   def index
-    @users = User.all
+    @users = User.all.preload(avatar_attachment: :blob)
   end
 
   def destroy

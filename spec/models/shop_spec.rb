@@ -91,7 +91,7 @@ RSpec.describe Shop, type: :model do
       expect(shop).not_to be_valid
     end
   end
-  
+
   context 'kanaカラムのバリデーション' do
     it 'kanaが空の場合、shopが無効であること' do
       shop.kana = ' '

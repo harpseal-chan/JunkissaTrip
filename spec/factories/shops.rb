@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :shop1, class: Shop do
     sequence(:name) { |n| "純喫茶-#{n}" }
+    sequence(:kana) { |n| "じゅんきっさ-#{n}" }
     sequence(:address) { |n| "住所-#{n}" }
     phone { '000-0000-0000' }
     opening { '10:00 - 20:00' }
@@ -10,6 +11,7 @@ FactoryBot.define do
 
   factory :shop2, class: Shop do
     name { 'きっさ ふぉーか' }
+    kana { 'きっさ ふぉーか' }
     address { '大阪府' }
     phone { '000-0000-0000' }
     opening { '10:00 - 20:00' }
