@@ -465,3 +465,29 @@ Shop.seed do |s|
   s.payment = '現金'
   s.kana = 'モンレオン'
 end
+
+Shop.seed do |s|
+  s.id = 37
+  s.name = 'カフェ アルル'
+  s.address = '東京都新宿区新宿５丁目１０−８'
+  s.phone = '03-3356-0003'
+  s.opening = '月〜土 11:30 - 21:00'
+  s.closed = '日'
+  s.smoking = '全席喫煙可'
+  s.access = '東京メトロ丸ノ内線 新宿三丁目駅 徒歩6分、新宿御苑前駅 徒歩7分'
+  s.payment = '現金'
+  s.kana = 'カフェ アルル'
+end
+
+Shop.seed do |s|
+  s.id = 38
+  s.name = '楽屋'
+  s.address = '東京都新宿区新宿3-6-4 ２Ｆ'
+  s.phone = '03-3351-4924'
+  s.opening = '10:00 - 20:00'
+  s.closed = '不定休'
+  s.smoking = '全席喫煙可'
+  s.access = '東京メトロ丸ノ内線 新宿三丁目駅(E3) 徒歩1分 / JR山手線 新宿駅(A6) 徒歩5分（390m）/ 都営大江戸線 新宿西口駅(A6) 徒歩5分'
+  s.payment = '現金'
+  s.kana = 'ガクヤ'
+end
