@@ -491,3 +491,29 @@ Shop.seed do |s|
   s.payment = '現金'
   s.kana = 'ガクヤ'
 end
+
+Shop.seed do |s|
+  s.id = 39
+  s.name = 'モニカ'
+  s.address = '神奈川県川崎市中原区新丸子東2-907 ハイツ武蔵小杉 1階'
+  s.phone = '044-433-1090'
+  s.opening = '平日 10:00 - 19:30 / 土日 10:00 - 19:00'
+  s.closed = '不定休'
+  s.smoking = '全席禁煙'
+  s.access = '東急東横線, JR南武線 武蔵小杉駅 徒歩4分 / 東急東横線 新丸子駅 徒歩5分'
+  s.payment = '現金'
+  s.kana = 'モニカ'
+end
+
+Shop.seed do |s|
+  s.id = 40
+  s.name = '文明堂茶館ル・カフェ'
+  s.address = '神奈川県横浜市中区伊勢佐木町1-5-3 文明堂ビルディング1F'
+  s.phone = '045-243-0002'
+  s.opening = '11:00 - 18:50'
+  s.closed = '年中無休'
+  s.smoking = '全席禁煙'
+  s.access = 'JR京浜東北・根岸線 関内駅 北口徒歩4分'
+  s.payment = '現金 / カード（VISA、Master、JCB、AMEX、Diners）/ 電子マネー（交通系電子マネー、 PayPay）'
+  s.kana = 'ブンメイドウサカン ル・カフェ'
+end
