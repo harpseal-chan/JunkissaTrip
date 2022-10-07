@@ -104,6 +104,13 @@ RSpec.describe "Layouts", type: :system do
     end
   end
 
+  describe 'マップ検索ページ' do
+    it 'マップが表示されていること' do
+      visit maps_path
+      expect(page).to have_selector '#search-map'
+    end
+  end
+
   describe '店舗一覧ページ' do
     let!(:shops) { FactoryBot.create_list(:shop1, 30) }
 
