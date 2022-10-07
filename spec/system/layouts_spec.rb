@@ -143,7 +143,7 @@ RSpec.describe "Layouts", type: :system do
     end
 
     it '店舗の地図（GoogleMap）が表示されていること' do
-      expect(page).to have_selector '#map'
+      expect(page).to have_selector '#shop-map'
     end
 
     it '店舗の特徴アイコンが表示されていること' do

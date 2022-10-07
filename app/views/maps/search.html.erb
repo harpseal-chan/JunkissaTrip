@@ -1,5 +1,7 @@
 <% provide(:title, 'マップ検索') %>
 
 <div class="container-fluid">
-  
+  <div id="search-map"></div>
 </div>
+<%= javascript_include_tag "search_map.js" %>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:google, :api_key) %>&callback=initSearchMap"async defer></script>

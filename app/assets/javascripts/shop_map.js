@@ -2,7 +2,7 @@ function initMap() {
   let lat = gon.lat
   let lng = gon.lng
   
-  var map = new google.maps.Map(document.getElementById('map'), {
+  var map = new google.maps.Map(document.getElementById('shop-map'), {
     center: {
       lat: lat,
       lng: lng

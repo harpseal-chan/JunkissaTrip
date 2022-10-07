@@ -6,6 +6,9 @@ FactoryBot.define do
     phone { '000-0000-0000' }
     opening { '10:00 - 20:00' }
     closed { '日曜' }
+    smoking { '禁煙' }
+    payment { '現金' }
+    access { 'アクセス' }
     images { Rack::Test::UploadedFile.new('spec/fixtures/images/test_avatar.png', 'image/png') }
   end
 
