@@ -4,5 +4,6 @@ class MapsController < ApplicationController
     default_lng = 139.767125
     gon.lat = default_lat
     gon.lng = default_lng
+    gon.shops = Shop.all
   end
 end

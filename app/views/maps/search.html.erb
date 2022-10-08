@@ -1,7 +1,13 @@
 <% provide(:title, 'マップ検索') %>
 
 <div class="container-fluid">
-  <div id="search-map"></div>
+  <div class="row content-wrapper">
+    <div class="shop-index-wrapper col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      <h1>マップ検索</h1>
+      <div id="search-map"></div>
+      
+    </div>  
+  </div>
 </div>
 <%= javascript_include_tag "search_map.js" %>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:google, :api_key) %>&callback=initSearchMap"async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=<%= Rails.application.credentials.dig(:google, :api_key) %>&callback=initSearchMap"async defer></script>

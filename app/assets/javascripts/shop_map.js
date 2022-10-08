@@ -3,10 +3,11 @@ function initMap() {
   let lng = gon.lng
   
   var map = new google.maps.Map(document.getElementById('shop-map'), {
-    center: {
-      lat: lat,
-      lng: lng
-    },
+    center: { lat: lat, lng: lng },
+    streetViewControl: false,
+    fullscreenControl: false,
+    mapTypeControl: false,
+    gestureHandling: 'greedy',
     zoom: 19,
   });
 
