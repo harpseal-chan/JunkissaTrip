@@ -28,7 +28,7 @@ function initSearchMap() {
   var circle = new google.maps.Circle({
     center: new google.maps.LatLng(lat, lng),
     map: map,
-    radius: 1500,
+    radius: 1000,
     clickable: false,
     fillColor: '#653e03',
     fillOpacity: 0.1,

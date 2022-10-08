@@ -10,6 +10,10 @@
 #  closed     :string
 
 class Shop < ApplicationRecord
+  acts_as_mappable :default_units => :kms,
+                   :lat_column_name => :latitude,
+                   :lng_column_name => :longitude
+
   has_many :bookmarks, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :shop_features, dependent: :destroy
@@ -19,8 +23,10 @@ class Shop < ApplicationRecord
   validates :name, presence: true, length: { maximum: 255 }
   validates :kana, presence: true, length: { maximum: 255 }
   validates :address, presence: true, uniqueness: true, length: { maximum: 255 }
-  geocoded_by :address
-  before_save :geocode
+  # geocoded_by :address
+  before_save :geocode, if: :address_changed?
+  validates :longitude, presence: true
+  validates :latitude, presence: true
   validates :phone, length: { maximum: 20 }
   validates :opening, length: { maximum: 255 }
   validates :closed, length: { maximum: 255 }

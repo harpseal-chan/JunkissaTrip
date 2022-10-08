@@ -7,7 +7,6 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.preload(images_attachments: :blob).find(params[:id])
-    @shop.geocode
     gon.lat = @shop.latitude
     gon.lng = @shop.longitude
     @new_comment = Comment.new
