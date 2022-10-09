@@ -35,7 +35,7 @@ function initSearchMap() {
   circle = new google.maps.Circle({
     center: new google.maps.LatLng(lat, lng),
     map: map,
-    radius: 1000,
+    radius: 1500,
     clickable: false,
     fillColor: '#653e03',
     fillOpacity: 0.1,

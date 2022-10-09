@@ -1,19 +1,20 @@
 class MapsController < ApplicationController
-  def search    
+  def search
     if params[:lat_lng]
       gon.lat = geo_params[:latitude].to_f
       gon.lng = geo_params[:longitude].to_f
     else
-      default_lat = 35.681236
-      default_lng = 139.767125
-      gon.lat = default_lat
-      gon.lng = default_lng
+      # default lat_lng
+      gon.lat = 35.681236
+      gon.lng = 139.767125
     end
-    radius = 1.0
-    gon.shops = Shop.all.within(radius, :origin => [gon.lat, gon.lng])
+    circle = 1.5
+    @shops = Shop.all.within(circle, origin: [gon.lat, gon.lng])
+    gon.shops = @shops
   end
 
   private
+
     def geo_params
       params.require(:lat_lng).permit(:latitude, :longitude)
     end

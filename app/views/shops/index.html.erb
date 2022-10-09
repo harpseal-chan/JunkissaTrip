@@ -7,7 +7,7 @@
       <div class="col-xs-12">
         <%= render partial: 'filter' %>
       </div>
-      <% unless @shops.blank? %>
+      <% if @shops.present? %>
         <div class="shops">
           <%= render partial: 'shop', collection: @shops, as: 'shop' %>
         </div>

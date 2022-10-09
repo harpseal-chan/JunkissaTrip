@@ -10,9 +10,9 @@
 #  closed     :string
 
 class Shop < ApplicationRecord
-  acts_as_mappable :default_units => :kms,
-                   :lat_column_name => :latitude,
-                   :lng_column_name => :longitude
+  acts_as_mappable default_units: :kms,
+                   lat_column_name: :latitude,
+                   lng_column_name: :longitude
 
   has_many :bookmarks, dependent: :destroy
   has_many :comments, dependent: :destroy

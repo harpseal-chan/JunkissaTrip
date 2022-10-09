@@ -1,16 +1,29 @@
 <% provide(:title, 'マップ検索') %>
 
 <div class="container-fluid">
-  <div class="row content-wrapper">
-    <div class=" col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+  <div id="map-search-wrapper" class="row content-wrapper">
+    <div class="col-xs-12">
       <h1>マップ検索</h1>
+    </div>
+    <div class=" col-xs-12">
       <div id="search-map"></div>
+    </div>
+    <div class=" col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
       <%= form_with scope: :lat_lng, url: maps_path, method: :get do |f| %>
         <%= f.number_field :latitude, id: 'lat', step: '0.0000001', value: '', type: 'hidden' %>
         <%= f.number_field :longitude, id: 'lng', step: '0.0000001', value: '', type: 'hidden' %>
         <%= f.submit "周辺の純喫茶をさがす", class: "btn btn-submit" %>
       <% end %>
-    </div>  
+    </div>
+    <% if @shops.present? %>
+      <div class="shops col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+        <%= render partial: 'shops/shop', collection: @shops, as: 'shop' %>
+      </div>
+    <% else %>
+      <div id="shop-not-found">
+        <h4>条件に合う純喫茶がありません</h4>
+      </div>
+    <% end %>
   </div>
 </div>
 <%= javascript_include_tag "search_map.js" %>
