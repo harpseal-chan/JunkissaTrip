@@ -2,9 +2,14 @@
 
 <div class="container-fluid">
   <div class="row content-wrapper">
-    <div class="shop-index-wrapper col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div class=" col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
       <h1>マップ検索</h1>
       <div id="search-map"></div>
+      <%= form_with scope: :lat_lng, url: maps_path, method: :get do |f| %>
+        <%= f.number_field :latitude, id: 'lat', step: '0.0000001', value: '', type: 'hidden' %>
+        <%= f.number_field :longitude, id: 'lng', step: '0.0000001', value: '', type: 'hidden' %>
+        <%= f.submit "周辺の純喫茶をさがす", class: "btn btn-submit" %>
+      <% end %>
     </div>  
   </div>
 </div>

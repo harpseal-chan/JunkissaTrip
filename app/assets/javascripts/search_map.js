@@ -84,15 +84,14 @@ clickMap = (lat_lng, map) => {
   lng = Math.floor(lng * 10000000) / 10000000;
 
   //座標をhidden formに入力する
-  // document.getElementById('lat').value = lat;
-  // document.getElementById('lng').value = lng;
+  document.getElementById('lat').value = lat;
+  document.getElementById('lng').value = lng;
 
   //中心に移動
   map.panTo(lat_lng);
 
-  // マーカーの更新
+  // マーカーとサークルの更新
   updateMarker(lat_lng, map);
-
   updateCircle(lat, lng, map);
 }
 
