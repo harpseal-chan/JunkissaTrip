@@ -1,9 +1,16 @@
+let lat = gon.lat;
+let lng = gon.lng;
+let map = null
+let marker = null;
+let circle = null;
+let shops = gon.shops
+let shopMarkers = [];
+let shopInfoWindows = [];
+
 function initSearchMap() {
-  let lat = gon.lat
-  let lng = gon.lng
-  
+
   // マップの初期化
-  var map = new google.maps.Map(document.getElementById('search-map'), {
+  map = new google.maps.Map(document.getElementById('search-map'), {
     center: { lat: lat, lng: lng },
     streetViewControl: false,
     // scrollwheel: false,
@@ -14,7 +21,7 @@ function initSearchMap() {
   });
 
   // ピンの初期化
-  var marker = new google.maps.Marker({
+  marker = new google.maps.Marker({
     position: { lat: lat, lng: lng },
     map: map,
     animation: google.maps.Animation.DROP
@@ -25,7 +32,7 @@ function initSearchMap() {
   });
 
   // サークルの初期化
-  var circle = new google.maps.Circle({
+  circle = new google.maps.Circle({
     center: new google.maps.LatLng(lat, lng),
     map: map,
     radius: 1000,
@@ -37,13 +44,12 @@ function initSearchMap() {
     strokeWeight: 0.7,
   });
 
-  var shopMarkers = [];
-  if (gon.shops) {
-    for (let i = 0; i < gon.shops.length; i++) {
+  if (shops) {
+    for (let i = 0; i < shops.length; i++) {
       // 店舗の座標取得
       markerLatLng = new google.maps.LatLng({
-        lat: parseFloat(gon.shops[i]['latitude']),
-        lng: parseFloat(gon.shops[i]['longitude'])
+        lat: parseFloat(shops[i]['latitude']),
+        lng: parseFloat(shops[i]['longitude'])
       });
 
       // 店舗マーカーの作成
@@ -52,6 +58,65 @@ function initSearchMap() {
         map: map,
         animation: google.maps.Animation.DROP
       });
+
+      // 店舗情報ウィンドウの作成
+      let id = shops[i]['id']
+      shopInfoWindows[i] = new google.maps.InfoWindow({
+        content: `<a href='/shops/${id}'>${shops[i].name}</a>`
+      });
+      shopInfoWindows[i].open(map, shopMarkers[i]);
     }
   }
+
+  // マーカーの移動
+  map.addListener('click', function(e){
+    clickMap(e.latLng, map);
+  });
+}
+
+window.initMap = initSearchMap;
+
+clickMap = (lat_lng, map) => {
+  lat = lat_lng.lat();
+  lng = lat_lng.lng();
+
+  lat = Math.floor(lat * 10000000) / 10000000;
+  lng = Math.floor(lng * 10000000) / 10000000;
+
+  //座標をhidden formに入力する
+  // document.getElementById('lat').value = lat;
+  // document.getElementById('lng').value = lng;
+
+  //中心に移動
+  map.panTo(lat_lng);
+
+  // マーカーの更新
+  updateMarker(lat_lng, map);
+
+  updateCircle(lat, lng, map);
+}
+
+updateMarker = (pos, map) => {
+  marker.setMap(null);
+  marker = null;
+  marker = new google.maps.Marker({
+    position: pos,
+    map: map
+  });
+}
+
+updateCircle = (lat, lng, map) => {
+  circle.setMap(null);
+  circle = null;
+  circle = new google.maps.Circle({
+    center: new google.maps.LatLng(lat, lng),
+    map: map,
+    radius: 1000,
+    clickable: false,
+    fillColor: '#653e03',
+    fillOpacity: 0.1,
+    strokeColor: '#653e03',
+    strokeOpacity: 0.6,
+    strokeWeight: 0.7,
+  });
 }
