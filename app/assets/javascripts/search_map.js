@@ -20,11 +20,11 @@ function initSearchMap() {
     zoom: 14,
   });
 
-  // ピンの初期化
+  // マーカーの初期化
   marker = new google.maps.Marker({
     position: { lat: lat, lng: lng },
     map: map,
-    animation: google.maps.Animation.DROP
+    animation: google.maps.Animation.DROP,
   });
 
   marker.addListener('click', function() {
@@ -45,27 +45,7 @@ function initSearchMap() {
   });
 
   if (shops) {
-    for (let i = 0; i < shops.length; i++) {
-      // 店舗の座標取得
-      markerLatLng = new google.maps.LatLng({
-        lat: parseFloat(shops[i]['latitude']),
-        lng: parseFloat(shops[i]['longitude'])
-      });
-
-      // 店舗マーカーの作成
-      shopMarkers[i] = new google.maps.Marker({
-        position: markerLatLng,
-        map: map,
-        animation: google.maps.Animation.DROP
-      });
-
-      // 店舗情報ウィンドウの作成
-      let id = shops[i]['id']
-      shopInfoWindows[i] = new google.maps.InfoWindow({
-        content: `<a href='/shops/${id}'>${shops[i].name}</a>`
-      });
-      shopInfoWindows[i].open(map, shopMarkers[i]);
-    }
+    initShopInfo();
   }
 
   // マーカーの移動
@@ -83,7 +63,7 @@ clickMap = (lat_lng, map) => {
   lat = Math.floor(lat * 10000000) / 10000000;
   lng = Math.floor(lng * 10000000) / 10000000;
 
-  //座標をhidden formに入力する
+  //緯度経度をformに入力する
   document.getElementById('lat').value = lat;
   document.getElementById('lng').value = lng;
 
@@ -118,4 +98,44 @@ updateCircle = (lat, lng, map) => {
     strokeOpacity: 0.6,
     strokeWeight: 0.7,
   });
+}
+
+initShopInfo = () => {
+  const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let labelIndex = 0;
+
+  for (let i = 0; i < shops.length; i++) {
+    // 店舗の緯度・経度取得
+    markerLatLng = new google.maps.LatLng({
+      lat: parseFloat(shops[i]['latitude']),
+      lng: parseFloat(shops[i]['longitude'])
+    });
+
+    // 店舗マーカーの作成
+    shopMarkers[i] = new google.maps.Marker({
+      position: markerLatLng,
+      map: map,
+      label: {
+        text: labels[labelIndex++ % labels.length],
+        color: '#f7f6f2',
+        fontSize: '18px'
+      },
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        fillColor: "#653e03",
+        fillOpacity: 1.0,
+        scale: 14,
+        strokeColor: "#653e03",
+        strokeWeight: 1.0
+      },
+      animation: google.maps.Animation.DROP
+    });
+
+    // 店舗情報ウィンドウの作成
+    let id = shops[i]['id']
+    shopInfoWindows[i] = new google.maps.InfoWindow({
+      content: `<a href='/shops/${id}'>${shops[i].name}</a>`
+    });
+    // shopInfoWindows[i].open(map, shopMarkers[i]);
+  }
 }
