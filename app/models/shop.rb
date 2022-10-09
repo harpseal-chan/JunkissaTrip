@@ -23,8 +23,6 @@ class Shop < ApplicationRecord
   validates :name, presence: true, length: { maximum: 255 }
   validates :kana, presence: true, length: { maximum: 255 }
   validates :address, presence: true, uniqueness: true, length: { maximum: 255 }
-  # geocoded_by :address
-  before_save :geocode, if: :address_changed?
   validates :longitude, presence: true
   validates :latitude, presence: true
   validates :phone, length: { maximum: 20 }
