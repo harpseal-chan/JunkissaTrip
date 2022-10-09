@@ -12,7 +12,7 @@
       <%= form_with scope: :lat_lng, url: maps_path, method: :get do |f| %>
         <%= f.number_field :latitude, id: 'lat', step: '0.0000001', value: '', type: 'hidden' %>
         <%= f.number_field :longitude, id: 'lng', step: '0.0000001', value: '', type: 'hidden' %>
-        <%= f.submit "周辺の純喫茶をさがす", class: "btn btn-submit" %>
+        <%= f.submit "周辺の純喫茶をさがす", class: "btn btn-map-search" %>
       <% end %>
     </div>
     <% if @shops.present? %>
