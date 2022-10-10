@@ -1,9 +1,9 @@
 function initMap() {
-  let lat = gon.lat
-  let lng = gon.lng
+  let shop_lat = gon.shop_lat
+  let shop_lng = gon.shop_lng
   
-  var map = new google.maps.Map(document.getElementById('shop-map'), {
-    center: { lat: lat, lng: lng },
+  var shop_map = new google.maps.Map(document.getElementById('shop-map'), {
+    center: { lat: shop_lat, lng: shop_lng },
     streetViewControl: false,
     fullscreenControl: false,
     mapTypeControl: false,
@@ -12,17 +12,11 @@ function initMap() {
   });
 
   var transitLayer = new google.maps.TransitLayer();
-  transitLayer.setMap(map);
+  transitLayer.setMap(shop_map);
 
-  var marker = new google.maps.Marker({
-                position: {
-                  lat: lat,
-                  lng: lng
-                },
-                map: map,
-                });
-
-  marker.addListener('click', function() {
-    infowindow.open(map, marker);
+  var shop_marker = new google.maps.Marker({
+    position: { lat: shop_lat, lng: shop_lng },
+    map: shop_map,
   });
 }
+window.initMap = initMap;

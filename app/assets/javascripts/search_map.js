@@ -135,12 +135,5 @@ initShopInfo = () => {
 
     let label_id = "result-label-" + (i + 1).toString();
     document.getElementById(label_id).textContent = labelText;
-
-    // 店舗情報ウィンドウの作成
-    let id = shops[i]['id']
-    shopInfoWindows[i] = new google.maps.InfoWindow({
-      content: `<a href='/shops/${id}'>${shops[i].name}</a>`
-    });
-    // shopInfoWindows[i].open(map, shopMarkers[i]);
   }
 }
