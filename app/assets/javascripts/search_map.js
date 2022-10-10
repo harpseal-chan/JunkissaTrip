@@ -103,8 +103,10 @@ updateCircle = (lat, lng, map) => {
 initShopInfo = () => {
   const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let labelIndex = 0;
-
+  
   for (let i = 0; i < shops.length; i++) {
+    let labelText = labels[labelIndex++ % labels.length]
+
     // 店舗の緯度・経度取得
     markerLatLng = new google.maps.LatLng({
       lat: parseFloat(shops[i]['latitude']),
@@ -116,7 +118,7 @@ initShopInfo = () => {
       position: markerLatLng,
       map: map,
       label: {
-        text: labels[labelIndex++ % labels.length],
+        text: labelText,
         color: '#f7f6f2',
         fontSize: '18px'
       },
@@ -130,6 +132,9 @@ initShopInfo = () => {
       },
       animation: google.maps.Animation.DROP
     });
+
+    let label_id = "result-label-" + (i + 1).toString();
+    document.getElementById(label_id).textContent = labelText;
 
     // 店舗情報ウィンドウの作成
     let id = shops[i]['id']

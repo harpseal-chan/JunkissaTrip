@@ -17,6 +17,7 @@ module ApplicationHelper
 
   def maps_path?
     return true if (controller_name == 'maps') && (action_name == 'search')
+
     false
   end
 end
