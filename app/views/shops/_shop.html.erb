@@ -1,6 +1,11 @@
 <div class="shop">
   <div class="row">
-    <%= link_to "", shop, class: "shop-name stretched-link", data: { 'turbolinks': false } %>
+    <%= link_to "", shop, class: "stretched-link", data: { 'turbolinks': false } %>
+    <% if maps_path? %>
+      <div class="result_label col-xs-1">
+        a
+      </div>
+    <% end %>
     <div class="shop-name col-xs-12">
       <%= shop.name %>
     </div>

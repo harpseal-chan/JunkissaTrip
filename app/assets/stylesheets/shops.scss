@@ -146,7 +146,8 @@
       font-size: 20px;
       margin-bottom: 10px;
     }
-    dd {      
+    dd {
+      color: $accent-blown-t;      
       font-size: 17px;
       margin-bottom: 20px;
       margin-left: 20px;
@@ -204,9 +205,9 @@
       font-size: clamp(12px, 1.4vw, 15px);
     }
     .cm-title {
-      font-weight: bold;
       float: left;
-      margin-top: 20px;
+      margin-top: 25px;
+      font-size: 15px;
     }
     .cm-content {
       text-align: left;
