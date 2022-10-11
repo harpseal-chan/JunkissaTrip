@@ -597,3 +597,18 @@ Shop.seed do |s|
   s.payment = '現金 / カード（VISA、Master、JCB、AMEX、Diners）/ 電子マネー（交通系電子マネー、 PayPay）'
   s.kana = 'ブンメイドウサカン ル・カフェ'
 end
+
+Shop.seed do |s|
+  s.id = 41
+  s.name = '珈琲西武 本店'
+  s.address = '東京都新宿区新宿３丁目３４−９ 2・3F メトロ会館'
+  s.latitude = 35.690593360105126
+  s.longitude = 139.70255756815254
+  s.phone = '03-3354-1441'
+  s.opening = '7:30 - 23:30'
+  s.closed = '年中無休'
+  s.smoking = '分煙（3階は加熱式たばこ限定の喫煙席）'
+  s.access = 'JR新宿駅から徒歩3分 / 新宿三丁目駅から徒歩3分'
+  s.payment = '現金'
+  s.kana = 'コーヒーセイブ ホンテン'
+end
