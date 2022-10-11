@@ -13,7 +13,6 @@ function initSearchMap() {
   map = new google.maps.Map(document.getElementById('search-map'), {
     center: { lat: lat, lng: lng },
     streetViewControl: false,
-    // scrollwheel: false,
     fullscreenControl: false,
     mapTypeControl: false,
     gestureHandling: 'greedy',
@@ -52,9 +51,44 @@ function initSearchMap() {
   map.addListener('click', function(e){
     clickMap(e.latLng, map);
   });
-}
 
-window.initMap = initSearchMap;
+  // 現在地へ移動ボタン
+  const currentLocation = document.createElement('button');
+  currentLocation.textContent = '現在地へ移動';
+  currentLocation.classList.add("btn", "btn-cur-lo");
+  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(currentLocation);
+
+  currentLocation.addEventListener('click', () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          map.setCenter(pos);
+          updateMarker(pos, map);
+          updateCircle(pos.lat, pos.lng, map);
+          document.getElementById('lat').value = pos.lat;
+          document.getElementById('lng').value = pos.lng;
+        },
+        (error) => {
+          var errorInfo = [
+            '原因不明のエラーが発生しました',
+            'ページが許可を得ていないため、位置情報の取得に失敗しました。',
+            '内部エラー発生により位置情報の取得に失敗しました。',
+            'タイムアウトにより位置情報の取得に失敗しました。'
+          ];
+
+          var errorMessage = errorInfo[error.code]
+          alert(errorMessage);
+        }
+      );
+    } else {
+      window.alert('ご使用の端末では対応しておりません。');
+    }
+  });
+}
 
 clickMap = (lat_lng, map) => {
   lat = lat_lng.lat();
@@ -90,7 +124,7 @@ updateCircle = (lat, lng, map) => {
   circle = new google.maps.Circle({
     center: new google.maps.LatLng(lat, lng),
     map: map,
-    radius: 1000,
+    radius: 1500,
     clickable: false,
     fillColor: '#653e03',
     fillOpacity: 0.1,
@@ -137,3 +171,5 @@ initShopInfo = () => {
     document.getElementById(label_id).textContent = labelText;
   }
 }
+
+window.initMap = initSearchMap;
