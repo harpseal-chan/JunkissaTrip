@@ -20,6 +20,9 @@
     height: 50px;
     width: 40%;
   }
+  .btn-map-err {
+    margin-top: 30px;
+  }
   .shops {
     @include shop_index;
     [id^=result-label] {

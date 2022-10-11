@@ -10,9 +10,14 @@
     </div>
     <div class=" col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
       <%= form_with scope: :lat_lng, url: maps_path, method: :get do |f| %>
-        <%= f.number_field :latitude, id: 'lat', step: '0.0000001', value: '', type: 'hidden' %>
-        <%= f.number_field :longitude, id: 'lng', step: '0.0000001', value: '', type: 'hidden' %>
+        <%= f.number_field :latitude, id: 'lat', step: '0.0000001', value: @latitude, type: 'hidden' %>
+        <%= f.number_field :longitude, id: 'lng', step: '0.0000001', value: @longitude, type: 'hidden' %>
         <%= f.submit "周辺の純喫茶をさがす", class: "btn btn-map-search" %>
+      <% end %>
+      <%= form_with scope: :lat_lng, url: maps_path, method: :get do |f| %>
+        <%= f.number_field :latitude, id: 'lat', step: '0.0000001', value: 35.681236, type: 'hidden' %>
+        <%= f.number_field :longitude, id: 'lng', step: '0.0000001', value: 139.767125, type: 'hidden' %>
+        <%= f.submit "マップが表示されない場合はこちらをクリック", class: "btn-map-err" %>
       <% end %>
     </div>
     <% if @shops.present? %>
