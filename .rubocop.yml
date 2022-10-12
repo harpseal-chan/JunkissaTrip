@@ -7,7 +7,8 @@ AllCops:
     - 'db/**/*'
     - 'Capfile'
     - 'config/deploy.rb'
-    
+    - config/initializers/geokit_config.rb
+  SuggestExtensions: false
   DisplayCopNames: true
 
 Style/Documentation:
@@ -24,7 +25,7 @@ Metrics/BlockLength:
     - 'config/environments/*'
 
 Metrics/AbcSize:
-  Max: 25
+  Max: 40
 
 # 日本語コメントチェックを無効
 Style/AsciiComments:

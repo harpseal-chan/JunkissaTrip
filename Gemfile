@@ -38,7 +38,8 @@ gem 'kaminari'
 gem 'ransack'
 
 # Geocoding
-gem "geocoder"
+gem 'geocoder'
+gem 'geokit-rails'
 
 # Use Rails Valiable in JS
 gem "gon"
