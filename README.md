@@ -89,13 +89,17 @@ __使用ツール__
 - RSpec（テスト）
 - rubocop（静的解析）
 - kaminari（ページネーション）
-- GoogleMaps API, geocoder（マップ）
-- ransack（検索機能）
+- Google Maps JavaScript API, Maps Embed API, geokit-rails（マップ検索）
+- ransack（店舗検索）
 - Active Storage（画像アップロード）
 
 <br>
 
 __インフラ構成図 / 開発環境__
+
+- インフラ：AWS（EC2, RDS, S3, Route53, ALBほか）
+- 開発環境：docker-compose
+- デプロイツール： Caspitrano
 
 <img alt="インフラ構成図" src="https://user-images.githubusercontent.com/102633054/191001150-ffb6e6e3-9727-4c34-9831-37ac11e3ee35.png">
 
@@ -103,4 +107,4 @@ __インフラ構成図 / 開発環境__
 
 ## ER図
 
-<img alt="ER図" src="https://user-images.githubusercontent.com/102633054/191128693-4e8694a9-346d-450d-a11c-77082309be1b.png">
+<img alt="ER図" src="https://user-images.githubusercontent.com/102633054/195459298-45533694-df9d-4f72-8815-d21c7fd6c692.png">
