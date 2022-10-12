@@ -3,8 +3,8 @@ FactoryBot.define do
     sequence(:name) { |n| "純喫茶-#{n}" }
     sequence(:kana) { |n| "じゅんきっさ-#{n}" }
     sequence(:address) { |n| "東京都-#{n}" }
-    latitude { 35.72349474594741 }
-    longitude { 139.7687022980862 }
+    latitude { 35.681236 }
+    longitude { 139.767725 }
     phone { '000-0000-0000' }
     opening { '10:00 - 20:00' }
     closed { '日曜' }

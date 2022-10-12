@@ -22,7 +22,7 @@ RSpec.describe "Maps", type: :request do
 
       context 'マーカーの位置から半径1km以内に店舗がある場合' do
         it '条件に合う店舗が表示されること' do
-          get maps_path, params: { lat_lng: { latitude: 35.723, longitude: 139.7687 } }
+          get maps_path, params: { lat_lng: { latitude: 35.681, longitude: 139.767 } }
           expect(response.body).to include match_shop.name
           expect(response.body).not_to include not_match_shop.name
         end
