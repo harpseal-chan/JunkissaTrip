@@ -35,15 +35,20 @@
     font-weight: bold;
     font-size: clamp(17px, 1.5vw, 35px);
   }
-  .btn-explore {
-    background-color: $accent-blue;
-    margin-top: 70px;
+  .btn-explore, .btn-map-search {
+    margin-top: 40px;
     padding-top: 10px;
     @include shadow_btn;
     border-radius: 30px;
     height: 50px;
     width: clamp(265px, 75%, 500px);
     font-size: 20px;
+  }
+  .btn-explore {
+    background-color: $accent-blown;
+  }
+  .btn-map-search {
+    background-color: $accent-blue;
   }
   form {
     margin: 50px auto;

@@ -5,6 +5,8 @@ RSpec.describe Shop, type: :model do
     Shop.new(name: '純喫茶',
              kana: 'じゅんきっさ',
              address: '住所',
+             longitude: 0,
+             latitude: 0,
              phone: '0000-0000-0000',
              opening: '10:00 - 20:00',
              closed: '水曜',
