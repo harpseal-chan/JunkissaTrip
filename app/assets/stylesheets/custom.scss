@@ -3,6 +3,10 @@
 @import "_variables";
 @import "_mixins";
 
+* {
+  font-family: "Hiragino Maru Gothic ProN W4";
+}
+
 header {
   #logo {
     float: left;

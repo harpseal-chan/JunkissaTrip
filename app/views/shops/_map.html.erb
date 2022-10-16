@@ -1,2 +1,1 @@
-<div id="map"></div>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:google, :api_key) %>&callback=initMap"async defer></script>
+<iframe id="shop-map" frameborder="0" style="border: 0" src="https://www.google.com/maps/embed/v1/place?key=<%= Rails.application.credentials.dig(:google_map, :em_api_key) %>&q=<%= shop.name %>&center=<%= shop.latitude %>,<%= shop.longitude %>&&zoom=17" allowfullscreen></iframe>

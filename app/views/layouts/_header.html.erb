@@ -20,6 +20,9 @@
         <% end %>
         <ul class="nav navbar-nav">
           <li class="nav-item">
+            <%= link_to "マップから探す", maps_path %>
+          </li>
+          <li class="nav-item">
             <%= link_to "店舗一覧", shops_path %>
           </li>
           <% if logged_in? %>
