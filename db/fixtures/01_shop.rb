@@ -612,3 +612,33 @@ Shop.seed do |s|
   s.payment = '現金'
   s.kana = 'コーヒーセイブ ホンテン'
 end
+
+Shop.seed do |s|
+  s.id = 42
+  s.name = '珈琲館 紅鹿舎'
+  s.address = '東京都千代田区有楽町１丁目６−８ 松井ビル 1F'
+  s.latitude = 35.67359823205922
+  s.longitude = 139.76091783025558
+  s.phone = '03-3502-0848'
+  s.opening = '平日 11:00 - 23:00 / 土日祝 10:00 - 23:00'
+  s.closed = '年中無休'
+  s.smoking = '分煙（加熱式たばこ限定）'
+  s.access = '東京メトロ日比谷線 日比谷駅から徒歩2分 / 丸の内線 有楽町駅から徒歩3分'
+  s.payment = '現金'
+  s.kana = 'コーヒーカン ベニシカ'
+end
+
+Shop.seed do |s|
+  s.id = 43
+  s.name = '喫茶ネグラ'
+  s.address = '東京都世田谷区北沢2-26-13 PACKAGEONE 1F 北側'
+  s.latitude = 35.66245951225431
+  s.longitude = 139.6660761539155
+  s.phone = '03-6361-9874'
+  s.opening = '平日 12:00 - 20:00 / 土日祝・春季GW冬季休暇期間 11:00 - 21:00'
+  s.closed = '不定休'
+  s.smoking = '全席禁煙'
+  s.access = '小田急小田原線・京王井の頭線 下北沢駅から徒歩８分'
+  s.payment = '現金'
+  s.kana = 'キッサ ネグラ'
+end
