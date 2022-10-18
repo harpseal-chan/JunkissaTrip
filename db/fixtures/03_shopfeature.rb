@@ -40,6 +40,8 @@ feature_id_list = [
   { id: 39, feature_ids: [1, 3, 5, 7, 8] },
   { id: 40, feature_ids: [2, 5, 6] },
   { id: 41, feature_ids: [2, 3, 6, 8] },
+  { id: 42, feature_ids: [2, 3, 6, 8] },
+  { id: 43, feature_ids: [4, 5] },
 ]
 
 i = 1
