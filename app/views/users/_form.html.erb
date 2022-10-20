@@ -4,7 +4,7 @@
   </div>
   <div class="col-xs-12">
     <span class="avatar">
-      <%= render 'shared/avatar', { user: @user } %>
+      <%= f.label :avatar %>
       <%= f.file_field :avatar, accept: "image/jpeg, image/gif, image/png", class: "file_field" %>
     </span>
   </div>
