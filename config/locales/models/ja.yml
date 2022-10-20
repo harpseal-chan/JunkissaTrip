@@ -13,6 +13,7 @@ ja:
     # model毎に定義したいattributesを記述
     attributes:
       user:
+        avatar: アイコン画像
         name: ユーザー名
         email: メールアドレス
         password: パスワード

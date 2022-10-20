@@ -246,7 +246,7 @@ RSpec.describe "Layouts", type: :system do
 
       it 'アタッチしたアイコン画像がアカウント設定ページとヘッダーに表示されていること' do
         visit edit_user_path(attached_user)
-        expect(page).to have_selector("img[src$='test_avatar.png']", count: 2)
+        expect(page).to have_selector("img[src$='test_avatar.png']", count: 1)
       end
     end
 
@@ -262,7 +262,7 @@ RSpec.describe "Layouts", type: :system do
 
       it 'デフォルトアイコン画像がアカウント設定ページとヘッダーに表示されていること' do
         visit edit_user_path(not_attached_user)
-        expect(page).to have_selector("#avatar-default", count: 2)
+        expect(page).to have_selector("#avatar-default", count: 1)
       end
     end
   end
