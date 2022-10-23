@@ -23,6 +23,6 @@ class Admin::ShopsController < ApplicationController
   private
 
     def shop_params
-      params.require(:shop).permit(:name, :address, :latitude, :longitude, :phone, :opening, :closed, :image, images: [])
+      params.require(:shop).permit(:name, :address, :latitude, :longitude, :phone, :opening, :closed, images: [])
     end
 end
