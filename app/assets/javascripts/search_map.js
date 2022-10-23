@@ -4,8 +4,6 @@ let map = null
 let marker = null;
 let circle = null;
 let shops = gon.shops
-let shopMarkers = [];
-let shopInfoWindows = [];
 
 function initSearchMap() {
 
@@ -26,10 +24,6 @@ function initSearchMap() {
     animation: google.maps.Animation.DROP,
   });
 
-  marker.addListener('click', function() {
-    infowindow.open(map, marker);
-  });
-
   // サークルの初期化
   circle = new google.maps.Circle({
     center: new google.maps.LatLng(lat, lng),
@@ -44,6 +38,7 @@ function initSearchMap() {
   });
 
   if (shops) {
+    //　検索結果の店舗情報の初期化
     initShopInfo();
   }
 
@@ -52,41 +47,15 @@ function initSearchMap() {
     clickMap(e.latLng, map);
   });
 
-  // 現在地へ移動ボタン
+  // 現在地へ移動ボタンを追加
   const currentLocation = document.createElement('button');
   currentLocation.textContent = '現在地へ移動';
   currentLocation.classList.add("btn", "btn-cur-lo");
   map.controls[google.maps.ControlPosition.TOP_RIGHT].push(currentLocation);
 
+  // 現在地へ移動
   currentLocation.addEventListener('click', () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
-          map.setCenter(pos);
-          updateMarker(pos, map);
-          updateCircle(pos.lat, pos.lng, map);
-          document.getElementById('lat').value = pos.lat;
-          document.getElementById('lng').value = pos.lng;
-        },
-        (error) => {
-          var errorInfo = [
-            '原因不明のエラーが発生しました',
-            'ウェブサイトの許可を得ていないため位置情報の取得に失敗しました。',
-            '内部エラー発生により位置情報の取得に失敗しました。',
-            'タイムアウトにより位置情報の取得に失敗しました。'
-          ];
-
-          var errorMessage = errorInfo[error.code]
-          alert(errorMessage);
-        }
-      );
-    } else {
-      window.alert('ご使用の端末では対応しておりません。');
-    }
+    moveCurrentLocation();
   });
 }
 
@@ -137,6 +106,7 @@ updateCircle = (lat, lng, map) => {
 initShopInfo = () => {
   const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let labelIndex = 0;
+  let shopMarkers = [];
   
   for (let i = 0; i < shops.length; i++) {
     let labelText = labels[labelIndex++ % labels.length]
@@ -167,8 +137,40 @@ initShopInfo = () => {
       animation: google.maps.Animation.DROP
     });
 
-    let label_id = "result-label-" + (i + 1).toString();
-    document.getElementById(label_id).textContent = labelText;
+    // 検索結果の店舗にマップのマーカーと同じラベル文字を追加
+    let labelId = "result-label-" + (i + 1).toString();
+    document.getElementById(labelId).textContent = labelText;
+  }
+}
+
+moveCurrentLocation = () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        map.setCenter(pos);
+        updateMarker(pos, map);
+        updateCircle(pos.lat, pos.lng, map);
+        document.getElementById('lat').value = pos.lat;
+        document.getElementById('lng').value = pos.lng;
+      },
+      (error) => {
+        var errorInfo = [
+          '原因不明のエラーが発生しました',
+          'ウェブサイトの許可を得ていないため位置情報の取得に失敗しました。',
+          '内部エラー発生により位置情報の取得に失敗しました。',
+          'タイムアウトにより位置情報の取得に失敗しました。'
+        ];
+
+        var errorMessage = errorInfo[error.code]
+        alert(errorMessage);
+      }
+    );
+  } else {
+    window.alert('ご使用の端末では対応しておりません。');
   }
 }
 
