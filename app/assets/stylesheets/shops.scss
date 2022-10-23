@@ -126,6 +126,9 @@
     outline: none;
     height: 25px;
     width: 25px;
+    &:before {
+      font-size: 30px;
+    }
   }
   .slick-prev {
     left:2.5%;
