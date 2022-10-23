@@ -33,6 +33,22 @@ RSpec.describe "Users", type: :request do
       end
     end
 
+    context 'アイコン画像をアップロードして、ほかのユーザー情報が無効な値の場合' do
+      let(:only_avater_params) do
+        { user: { name: '',
+                  email: 'user@example,com',
+                  password: 'pass',
+                  password_confirmation: 'word',
+                  avatar: fixture_file_upload('spec/fixtures/images/test_avatar.png', 'image/png') } }
+      end
+
+      it 'ユーザーを登録できないこと' do
+        expect do
+          post users_path, params: only_avater_params
+        end.not_to change(User, :count)
+      end
+    end
+
     context '有効な値の場合' do
       let(:valid_user_params) do
         { user: { name: 'Example User',
