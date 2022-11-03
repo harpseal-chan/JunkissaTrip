@@ -1,9 +1,9 @@
-<% provide(:title, 'マップ検索') %>
+<% provide(:title, 'マップから探す') %>
 
 <div class="container-fluid">
   <div id="map-search-wrapper" class="row content-wrapper">
     <div class="col-xs-12">
-      <h1>マップ検索</h1>
+      <h1>マップから探す</h1>
     </div>
     <div class=" col-xs-12">
       <div id="search-map"></div>
@@ -12,7 +12,7 @@
       <%= form_with scope: :lat_lng, url: maps_path, method: :get do |f| %>
         <%= f.number_field :latitude, id: 'lat', step: '0.0000001', value: @latitude, type: 'hidden' %>
         <%= f.number_field :longitude, id: 'lng', step: '0.0000001', value: @longitude, type: 'hidden' %>
-        <%= f.submit "周辺の純喫茶をさがす", class: "btn btn-map-search" %>
+        <%= f.submit "周辺の純喫茶を探す", class: "btn btn-map-search" %>
       <% end %>
     </div>
     <% if @shops.present? %>
