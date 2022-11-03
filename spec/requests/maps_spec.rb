@@ -11,8 +11,8 @@ RSpec.describe "Maps", type: :request do
         expect(response).to have_http_status :ok
       end
 
-      it 'タイトルに"マップ検索 | 純喫茶Trip"が表示されること' do
-        expect(response.body).to include full_title('マップ検索')
+      it 'タイトルに"マップから探す | 純喫茶Trip"が表示されること' do
+        expect(response.body).to include full_title('マップから探す')
       end
     end
 
