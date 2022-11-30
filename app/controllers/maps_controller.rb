@@ -12,7 +12,7 @@ class MapsController < ApplicationController
     @longitude = gon.lng
     # radius = 1.5
     # @shops = Shop.all.within(radius, origin: [gon.lat, gon.lng]).by_distance(origin: [gon.lat, gon.lng]).preload(:features, images_attachments: :blob)
-    @shops = Shop.all.preload(:features, images_attachments: :blob)
+    @shops = Shop.all
     gon.shops = @shops
   end
 
