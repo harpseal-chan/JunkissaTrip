@@ -57,6 +57,25 @@ initShopInfo = () => {
       },
       animation: google.maps.Animation.DROP
     });
+
+    let shopInfoWindows = [];
+
+    // 店舗情報ウィンドウの作成
+    let id = shops[i]['id']
+    shopInfoWindows[i] = new google.maps.InfoWindow({
+      content: `<a href='/shops/${id}'>${shops[i].name}</a>`
+    });
+
+    shopMarkers[i].addListener('mouseover', function(){
+      shopInfoWindows[i].open({
+        anchor: shopMarkers[i],
+        map,
+      });
+    });
+
+    shopMarkers[i].addListener('mouseout', function(){
+      shopInfoWindows[i].close();
+    });
   }
 }
 

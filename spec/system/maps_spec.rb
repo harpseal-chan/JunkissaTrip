@@ -6,5 +6,4 @@ RSpec.describe "Maps", type: :system do
   before do
     driven_by(:rack_test)
   end
-
 end
