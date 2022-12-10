@@ -5,6 +5,9 @@
 
 * {
   font-family: "Hiragino Maru Gothic ProN W4";
+  &:hover {
+    outline: none;
+  }
 }
 
 header {

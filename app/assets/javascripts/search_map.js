@@ -1,22 +1,19 @@
-let lat = gon.lat;
-let lng = gon.lng;
 let map = null
 let shops = gon.shops
 
 function initSearchMap() {
-
   // マップの初期化
   map = new google.maps.Map(document.getElementById('search-map'), {
-    center: { lat: lat, lng: lng },
+    center: { lat: 35.681236, lng: 139.767125 },
     streetViewControl: false,
     fullscreenControl: false,
     mapTypeControl: false,
-    gestureHandling: 'greedy',
+    gestureHandling: 'auto',
     zoom: 14,
   });
 
   if (shops) {
-    //　検索結果の店舗情報の初期化
+    //　店舗情報の初期化
     initShopInfo();
   }
 
@@ -58,12 +55,17 @@ initShopInfo = () => {
       animation: google.maps.Animation.DROP
     });
 
+    // 店舗マーカークリック時に店舗詳細ページへ遷移
+    shopMarkers[i].addListener('click', function() {
+      let url = '/shops/' + shops[i]['id']
+      location.href = url;
+    });
+
     let shopInfoWindows = [];
 
     // 店舗情報ウィンドウの作成
-    let id = shops[i]['id']
     shopInfoWindows[i] = new google.maps.InfoWindow({
-      content: `<a href='/shops/${id}'>${shops[i].name}</a>`
+      content: `${shops[i].name}`
     });
 
     shopMarkers[i].addListener('mouseover', function(){
@@ -71,6 +73,7 @@ initShopInfo = () => {
         anchor: shopMarkers[i],
         map,
       });
+      // document.getElementById("*").style.cssText = "outline: none;";
     });
 
     shopMarkers[i].addListener('mouseout', function(){
@@ -88,8 +91,6 @@ moveCurrentLocation = () => {
           lng: position.coords.longitude,
         };
         map.setCenter(pos);
-        document.getElementById('lat').value = pos.lat;
-        document.getElementById('lng').value = pos.lng;
       },
       (error) => {
         var errorInfo = [

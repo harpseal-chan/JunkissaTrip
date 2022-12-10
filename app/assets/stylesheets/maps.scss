@@ -10,9 +10,7 @@
     height: 500px;
     margin: 30px 0;
   }
-  *:focus {
-    outline: none;
-  }
+  
   .btn-cur-lo {
     @include shadow_btn;
     margin-top: 20px;
