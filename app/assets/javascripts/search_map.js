@@ -1,5 +1,6 @@
 let map = null;
 let shops = gon.shops;
+let shopInfoWindows;
 
 function initSearchMap() {
   // マップの初期化
@@ -25,11 +26,14 @@ function initSearchMap() {
   currentLocation.addEventListener('click', () => {
     moveCurrentLocation();
   });
+
+  google.maps.event.addDomListener(map, "click", function () {
+    shopInfoWindows.close(); 
+  });
 }
 
 initShopInfo = () => {
   let shopMarkers = [];
-  let shopInfoWindows = [];
   
   for (let i = 0; i < shops.length; i++) {
 
@@ -54,43 +58,36 @@ initShopInfo = () => {
       animation: google.maps.Animation.DROP
     });
 
-    // 店舗マーカークリック時に店舗詳細ページへ遷移
-    shopMarkers[i].addListener('click', function() {
-      let url = '/shops/' + shops[i].id;
-      location.href = url;
-    });
+    shopMarkers[i].addListener('click', function(){
 
-    shopMarkers[i].addListener('mouseover', function(){
       // 店舗情報ウィンドウのHTML要素
       const contentHtml =
         '<h4>' + shops[i].name + '</h4>' +
         '<div class="shop-info">' +
-          '<h5>住所</h5>' +
-          '<p>' + shops[i].address + '</p>' +
+          '<h5 class="title">住所</h5>' +
+          '<p class="content">' + shops[i].address + '</p>' +
         '</div>' +
         '<div class="shop-info">' +
-          '<h5>営業時間</h5>' +
-          '<p>' + shops[i].opening + '</p>' +
+          '<h5 class="title">営業時間</h5>' +
+          '<p class="content">' + shops[i].opening + '</p>' +
         '</div>' +
         '<div class="shop-info">' +
-          '<h5>定休日</h5>' +
-          '<p>' + shops[i].closed + '</p>' +
-        '</div>';
+          '<h5 class="title">定休日</h5>' +
+          '<p class="content">' + shops[i].closed + '</p>' +
+        '</div>' + 
+        '<a class="detail" href="/shops/' + shops[i].id + '">詳細ページへ</a>';
   
       // 店舗情報ウィンドウの作成
-      shopInfoWindows[i] = new google.maps.InfoWindow({
+      shopInfoWindows = new google.maps.InfoWindow({
         content: contentHtml,
         maxWidth: 200,
       });
 
-      shopInfoWindows[i].open({
+      // 店舗情報ウィンドウを開く
+      shopInfoWindows.open({
         anchor: shopMarkers[i],
         map,
       });
-    });
-
-    shopMarkers[i].addListener('mouseout', function(){
-      shopInfoWindows[i].close();
     });
   }
 }

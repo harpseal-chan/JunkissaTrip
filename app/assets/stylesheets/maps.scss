@@ -7,19 +7,20 @@
 #map-search-wrapper {
   @include wrapper_h1;
   #search-map {
-    height: 500px;
+    height: 600px;
     margin: 30px 0;
   }
   h4 {
     font-weight: bold;
+    margin: 5px 0 0 0;
   }
-  p, h5 {
+  .shop-info {
     line-height: 13px;
   }
-  h5 {
+  .title {
     float: left;
   }
-  p {
+  .content {
     clear: both;
     text-align: left;
     color: $accent-blown-t;
@@ -27,6 +28,10 @@
   }
   .shop-info {
     margin-bottom: 6px;
+  }
+  .detail {
+    outline: none;
+    color: $accent-blown;
   }
   .btn-cur-lo {
     @include shadow_btn;
