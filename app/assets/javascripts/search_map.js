@@ -1,6 +1,7 @@
 let map = null;
+let shopInfoWindow;
+let currentInfoWindow = null;
 let shops = gon.shops;
-let shopInfoWindows;
 
 function initSearchMap() {
   // マップの初期化
@@ -17,18 +18,19 @@ function initSearchMap() {
   initShopInfo();
 
   // 現在地へ移動ボタンを追加
-  const currentLocation = document.createElement('button');
-  currentLocation.textContent = '現在地へ移動';
-  currentLocation.classList.add("btn", "btn-cur-lo");
-  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(currentLocation);
-
-  // 現在地へ移動
-  currentLocation.addEventListener('click', () => {
+  const currentLocationBtn = document.createElement('button');
+  currentLocationBtn.textContent = '現在地へ移動';
+  currentLocationBtn.classList.add("btn", "btn-cur-lo");
+  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(currentLocationBtn);
+  
+  currentLocationBtn.addEventListener('click', () => {
+    // 現在地へ移動
     moveCurrentLocation();
   });
 
-  google.maps.event.addDomListener(map, "click", function () {
-    shopInfoWindows.close(); 
+  // マップの任意の場所をクリックすると店舗情報ウィンドウを閉じる
+  google.maps.event.addListener(map, 'click', () => {
+    shopInfoWindow.close(); 
   });
 }
 
@@ -36,7 +38,6 @@ initShopInfo = () => {
   let shopMarkers = [];
   
   for (let i = 0; i < shops.length; i++) {
-
     // 店舗の緯度・経度取得
     markerLatLng = new google.maps.LatLng({
       lat: parseFloat(shops[i]['latitude']),
@@ -58,38 +59,49 @@ initShopInfo = () => {
       animation: google.maps.Animation.DROP
     });
 
+    // 店舗マーカークリック時に店舗情報ウィンドウを表示
     shopMarkers[i].addListener('click', function(){
-
-      // 店舗情報ウィンドウのHTML要素
-      const contentHtml =
-        '<h4>' + shops[i].name + '</h4>' +
-        '<div class="shop-info">' +
-          '<h5 class="title">住所</h5>' +
-          '<p class="content">' + shops[i].address + '</p>' +
-        '</div>' +
-        '<div class="shop-info">' +
-          '<h5 class="title">営業時間</h5>' +
-          '<p class="content">' + shops[i].opening + '</p>' +
-        '</div>' +
-        '<div class="shop-info">' +
-          '<h5 class="title">定休日</h5>' +
-          '<p class="content">' + shops[i].closed + '</p>' +
-        '</div>' + 
-        '<a class="detail" href="/shops/' + shops[i].id + '">詳細ページへ</a>';
-  
-      // 店舗情報ウィンドウの作成
-      shopInfoWindows = new google.maps.InfoWindow({
-        content: contentHtml,
-        maxWidth: 200,
-      });
-
-      // 店舗情報ウィンドウを開く
-      shopInfoWindows.open({
-        anchor: shopMarkers[i],
-        map,
-      });
+      updateShopInfoWindow(shopMarkers[i], shops[i]);
     });
   }
+}
+
+updateShopInfoWindow = (shopMarker, shop) => {
+  // 店舗情報ウィンドウのHTML要素
+  const contentHtml =
+  '<h4>' + shop.name + '</h4>' +
+  '<div class="shop-info">' +
+    '<h5 class="title">住所</h5>' +
+    '<p class="content">' + shop.address + '</p>' +
+  '</div>' +
+  '<div class="shop-info">' +
+    '<h5 class="title">営業時間</h5>' +
+    '<p class="content">' + shop.opening + '</p>' +
+  '</div>' +
+  '<div class="shop-info">' +
+    '<h5 class="title">定休日</h5>' +
+    '<p class="content">' + shop.closed + '</p>' +
+  '</div>' + 
+  '<a class="detail" href="/shops/' + shop.id + '">詳細ページへ</a>';
+
+  // 現在開いているウィンドウを閉じる
+  if(currentInfoWindow) {
+    currentInfoWindow.close();
+  }
+
+  // 店舗情報ウィンドウの作成
+  shopInfoWindow = new google.maps.InfoWindow({
+    content: contentHtml,
+    maxWidth: 200,
+  });
+
+  // 店舗情報ウィンドウを開く
+  shopInfoWindow.open({
+    anchor: shopMarker,
+    map,
+  });
+
+  currentInfoWindow = shopInfoWindow;
 }
 
 moveCurrentLocation = () => {
