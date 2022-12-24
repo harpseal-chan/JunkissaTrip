@@ -2,6 +2,7 @@ let map = null;
 let shopInfoWindow;
 let currentInfoWindow = null;
 let shops = gon.shops;
+let shopFeatures = gon.shop_features
 
 function initSearchMap() {
   // マップの初期化
@@ -36,13 +37,15 @@ function initSearchMap() {
 
 initShopInfo = () => {
   let shopMarkers = [];
-  
+
   for (let i = 0; i < shops.length; i++) {
     // 店舗の緯度・経度取得
     markerLatLng = new google.maps.LatLng({
       lat: parseFloat(shops[i]['latitude']),
       lng: parseFloat(shops[i]['longitude'])
     });
+    
+    console.log(shopFeatures[i]);
 
     // 店舗マーカーの作成
     shopMarkers[i] = new google.maps.Marker({
