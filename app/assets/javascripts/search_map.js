@@ -75,15 +75,19 @@ updateShopInfoWindow = (shopMarker, shop) => {
   for (var i=0; i<filteredSFs.length; i++) {
     features.push(Features.find((v) => v.id === filteredSFs[i].feature_id));
   }
-  let featureIcon = "";
+  let feature = "";
   for (var i=0; i<features.length; i++) {
-    featureIcon += '<img alt="' + features[i].detail + '" src=/assets/' + features[i].icon_name + '>';
+    feature +=
+    '<div class="feature">' +
+      '<li class="feature-detail">' +
+        '<img alt="' + features[i].detail + '" src=/assets/' + features[i].icon_name + ' class="feature-icon">' + features[i].detail +
+      '</li>' +
+    '</div>';
   }
   
   // 店舗情報ウィンドウのHTML要素
   const contentHtml =
   '<h4>' + shop.name + '</h4>' +
-  featureIcon +
   '<div class="shop-info">' +
     '<h5 class="title">住所</h5>' +
     '<p class="content">' + shop.address + '</p>' +
@@ -95,7 +99,9 @@ updateShopInfoWindow = (shopMarker, shop) => {
   '<div class="shop-info">' +
     '<h5 class="title">定休日</h5>' +
     '<p class="content">' + shop.closed + '</p>' +
-  '</div>' + 
+  '</div>' +
+  '<h5 class="title">特徴</h5>' +
+  feature +
   '<a class="detail" href="/shops/' + shop.id + '">詳細ページへ</a>';
 
   // 現在開いているウィンドウを閉じる
