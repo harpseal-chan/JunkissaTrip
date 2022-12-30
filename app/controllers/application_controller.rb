@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
 
-  before_action :set_q
-
   private
 
     def logged_in_user
@@ -11,10 +9,6 @@ class ApplicationController < ActionController::Base
       store_location
       flash[:danger] = 'ログインしてください'
       redirect_to login_url
-    end
-
-    def set_q
-      @q = Shop.ransack(params[:q])
     end
 
     def admin_user

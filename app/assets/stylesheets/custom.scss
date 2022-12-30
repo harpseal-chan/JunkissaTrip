@@ -205,6 +205,7 @@ footer {
 .btn-filter {
   @include shadow_btn;
   margin-top: 20px;
+  width: 150px;
 }
 .btn-search {
   background-color: $accent-blown;

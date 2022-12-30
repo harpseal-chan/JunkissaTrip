@@ -6,6 +6,13 @@
 
 #map-search-wrapper {
   @include wrapper_h1;
+  #map-search {
+    margin: auto;
+    width: 70%;
+  }
+  .btn-filter {
+    margin-bottom: 30px;
+  }
   #search-map {
     height: 600px;
   }
