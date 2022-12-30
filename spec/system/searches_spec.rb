@@ -22,15 +22,5 @@ RSpec.describe "Searches", type: :system do
         expect(page).not_to have_content not_match_shop.name
       end
     end
-
-    # context '店舗の特徴を絞り込み検索' do
-    #   it '条件に合う店舗のみ表示されること' do
-    #     # find('#FilterAccordion').click
-    #     find("#q_features_id_in_1").click
-    #     click_button '検索'
-    #     expect(page).to have_content match_shop.name
-    #     expect(page).not_to have_content not_match_shop.name
-    #   end
-    # end
   end
 end
