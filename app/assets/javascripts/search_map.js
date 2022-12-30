@@ -1,7 +1,8 @@
 let map = null;
 let shopInfoWindow;
 let currentInfoWindow = null;
-let shopFeatures = gon.shop_features
+const shopFeatures = gon.shop_features;
+const Features = gon.features;
 
 function initSearchMap() {
 
@@ -37,17 +38,17 @@ function initSearchMap() {
 
 initShopInfo = (shops) => {
   let shopMarkers = [];
-
+  
   for (let i = 0; i < shops.length; i++) {
     // 店舗の緯度・経度取得
-    markerLatLng = new google.maps.LatLng({
+    LatLng = new google.maps.LatLng({
       lat: parseFloat(shops[i]['latitude']),
       lng: parseFloat(shops[i]['longitude'])
     });
 
     // 店舗マーカーの作成
     shopMarkers[i] = new google.maps.Marker({
-      position: markerLatLng,
+      position: LatLng,
       map: map,
       icon: {
         path: google.maps.SymbolPath.CIRCLE,
@@ -68,9 +69,21 @@ initShopInfo = (shops) => {
 }
 
 updateShopInfoWindow = (shopMarker, shop) => {
+  // 店舗の特徴を取得
+  const filteredSFs = shopFeatures.filter((v) => v.shop_id === shop.id);
+  let features = [];
+  for (var i=0; i<filteredSFs.length; i++) {
+    features.push(Features.find((v) => v.id === filteredSFs[i].feature_id));
+  }
+  let featureIcon = "";
+  for (var i=0; i<features.length; i++) {
+    featureIcon += '<img alt="' + features[i].detail + '" src=/assets/' + features[i].icon_name + '>';
+  }
+  
   // 店舗情報ウィンドウのHTML要素
   const contentHtml =
   '<h4>' + shop.name + '</h4>' +
+  featureIcon +
   '<div class="shop-info">' +
     '<h5 class="title">住所</h5>' +
     '<p class="content">' + shop.address + '</p>' +
