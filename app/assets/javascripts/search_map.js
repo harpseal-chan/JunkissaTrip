@@ -1,10 +1,10 @@
 let map = null;
 let shopInfoWindow;
 let currentInfoWindow = null;
-let shops = gon.shops;
 let shopFeatures = gon.shop_features
 
 function initSearchMap() {
+
   // マップの初期化
   map = new google.maps.Map(document.getElementById('search-map'), {
     center: { lat: 35.681236, lng: 139.767125 },
@@ -16,7 +16,7 @@ function initSearchMap() {
   });
 
   //　店舗情報の初期化
-  initShopInfo();
+  initShopInfo(gon.shops);
 
   // 現在地へ移動ボタンを追加
   const currentLocationBtn = document.createElement('button');
@@ -35,7 +35,7 @@ function initSearchMap() {
   });
 }
 
-initShopInfo = () => {
+initShopInfo = (shops) => {
   let shopMarkers = [];
 
   for (let i = 0; i < shops.length; i++) {
@@ -44,8 +44,6 @@ initShopInfo = () => {
       lat: parseFloat(shops[i]['latitude']),
       lng: parseFloat(shops[i]['longitude'])
     });
-    
-    console.log(shopFeatures[i]);
 
     // 店舗マーカーの作成
     shopMarkers[i] = new google.maps.Marker({
