@@ -16,43 +16,6 @@
     padding-left: 20px;
     height: 50px;
   }
-  .btn-search {
-    background-color: $accent-blown;
-    color: $main;
-    border-color: transparent;
-    padding-right: 10px;
-    font-size: 15px;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-    height: 46px;
-    .fa-magnifying-glass {
-      padding-left: 4px;
-      color: $main;
-    }
-  }
-  #FilterAccordion {
-    p {
-      font-size: 17px;
-    }
-  }
-  .filter {
-    margin: 30px 0 20px 0;
-    cursor: pointer;
-  }
-  .feature-filter {
-    background-color: $sub;
-    padding: 7px 0;
-    font-size: 15px;
-    .filter-feature-icon {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-    }
-  }
-  .btn-filter {
-    @include shadow_btn;
-    margin-top: 20px;
-  }
   .shops {
     @include shop_index;
   }
@@ -78,7 +41,7 @@
       .feature-icon {  
         width: 30px;
         height: 30px;
-        margin-right: 10px;      
+        margin-right: 10px;
       }
       .feature-detail {
         display: none;
