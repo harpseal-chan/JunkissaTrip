@@ -73,24 +73,6 @@ RSpec.describe "Layouts", type: :system do
         expect(page).not_to have_link '管理者用ページ', href: admin_root_path
       end
     end
-
-    describe '検査バー' do
-      context 'トップページにアクセスした場合' do
-        it '検索バーがトップページに表示され、ヘッダーの検索バーが非表示になること' do
-          visit root_path
-          expect(page).to have_selector '#top-search-bar'
-          expect(page).not_to have_selector '#header-search-bar'
-        end
-      end
-
-      context 'トップページ以外にアクセスした場合' do
-        it 'ヘッダーの検索バーが表示されること' do
-          log_in user
-          visit user_path(user)
-          expect(page).to have_selector '#header-search-bar'
-        end
-      end
-    end
   end
 
   describe 'トップページ' do
@@ -98,9 +80,12 @@ RSpec.describe "Layouts", type: :system do
       visit root_path
     end
 
-    it '検索欄が存在すること' do
-      visit root_path
-      expect(page).to have_selector '.jt-form-control'
+    it '店舗一覧リンクが存在すること' do
+      expect(page).to have_link href: shops_path
+    end
+
+    it 'マップから探すページのリンクが存在すること' do
+      expect(page).to have_link href: maps_path
     end
   end
 

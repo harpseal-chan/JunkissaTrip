@@ -1,0 +1,17 @@
+<%= search_form_for @q, url: maps_path, id: "map-search" do |f| %>
+  <div id="FilterAccordion" class="filter col-xs-12">
+    <p data-toggle="collapse" data-parent="#FilterAccordion" href="#FilterAccordionCollapse">
+      ▼ お店の特徴で絞り込む
+    </p>
+  </div>
+  <div id="FilterAccordionCollapse" class="panel-collapse collapse">
+    <%= f.collection_check_boxes :features_id_in, @features, :id, :detail do |b| %>
+      <div class="feature-filter col-md-6 col-xs-12">
+        <%= image_tag b.object.icon_name, alt: "アイコン", class: "filter-feature-icon" %>
+        <%= b.label class: "ft-cb" %>
+        <%= b.check_box %>
+      </div>
+    <% end %>
+    <%= f.submit "検索", class: "btn btn-filter" %>
+  </div>
+<% end %>

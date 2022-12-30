@@ -6,9 +6,59 @@
 
 #map-search-wrapper {
   @include wrapper_h1;
+  #map-search {
+    margin: auto;
+    width: 80%;
+  }
+  .btn-filter {
+    margin-bottom: 30px;
+  }
   #search-map {
-    height: 500px;
-    margin: 30px 0;
+    height: 600px;
+  }
+  h4 {
+    font-weight: bold;
+    margin: 5px 0;
+  }
+  .feature {
+    width: 95%;
+    clear: both;
+    margin-left: 3px;
+  }
+  .feature-icon {
+    text-align: left;
+    width: 20px;
+    height: 20px;
+    margin: 4px 4px 4px 0;
+  }
+  .feature-detail {
+    list-style: none;
+    color: $accent-blown-t;
+    text-align: left;
+    margin-top: 2px;
+    font-size: 10px;
+  }
+  .shop-info {
+    line-height: 13px;
+    clear: both;
+  }
+  .title {
+    float: left;
+    margin: 5px 0;
+  }
+  .content {
+    clear: both;
+    text-align: left;
+    color: $accent-blown-t;
+    margin-left: 5px;
+    margin-bottom: 3px;
+  }
+  .shop-info {
+    margin-bottom: 6px;
+  }
+  .detail {
+    outline: none;
+    color: $accent-blown;
   }
   .btn-cur-lo {
     @include shadow_btn;
@@ -19,26 +69,5 @@
     @include shadow_btn;
     height: 50px;
     width: 200px;
-  }
-  .btn-map-err {
-    margin-top: 30px;
-  }
-  .shops {
-    @include shop_index;
-    [id^=result-label] {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: $accent-blown;
-      color: $main;
-      margin-bottom: 10px;
-      margin-left: 10px;
-      line-height: 40px;
-      font-size: 20px;
-      padding-left: 13px;
-    }
-  }
-  .not-found {
-    margin: 40px 0;
   }
 }

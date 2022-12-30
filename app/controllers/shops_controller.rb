@@ -1,5 +1,6 @@
 class ShopsController < ApplicationController
   def index
+    @q = Shop.ransack(params[:q])
     result = @q.result.preload(:features, images_attachments: :blob)
     @shops = result.page(params[:page])
     @features = Feature.all
