@@ -42,6 +42,11 @@ feature_id_list = [
   { id: 41, feature_ids: [2, 3, 6, 8] },
   { id: 42, feature_ids: [2, 3, 6, 8] },
   { id: 43, feature_ids: [4, 5] },
+  { id: 44, feature_ids: [1, 5, 7] },
+  { id: 45, feature_ids: [3, 5] },
+  { id: 46, feature_ids: [1, 2, 7, 8] },
+  { id: 47, feature_ids: [3, 5] },
+  { id: 48, feature_ids: [2, 3, 6] },
 ]
 
 i = 1
