@@ -642,3 +642,78 @@ Shop.seed do |s|
   s.payment = '現金'
   s.kana = 'キッサ ネグラ'
 end
+
+Shop.seed do |s|
+  s.id = 44
+  s.name = '宮越屋珈琲 新橋店'
+  s.address = '東京都港区新橋1丁目7-10 近鉄銀座中央通りビル3'
+  s.latitude = 35.6668348061485
+  s.longitude = 139.76094966852145
+  s.phone = '03-3573-8188'
+  s.opening = '平日 10:00-22:00 / 土日祝 10:00-21:00'
+  s.closed = '元旦'
+  s.smoking = '全席喫煙可'
+  s.access = 'JR/東京メトロ 新橋駅 徒歩３分'
+  s.payment = '現金のみ'
+  s.kana = 'ミヤコシヤコーヒー シンバシテン'
+end
+
+Shop.seed do |s|
+  s.id = 45
+  s.name = '喫茶you'
+  s.address = '東京都中央区銀座４丁目１３−１７ 高野ビル'
+  s.latitude = 35.66946966853382
+  s.longitude = 139.76865836665021
+  s.phone = '03-6226-0482'
+  s.opening = '11:00 - 16:30'
+  s.closed = '年末年始'
+  s.smoking = '全席禁煙'
+  s.access = '東京メトロ日比谷線 東銀座駅５番出口 徒歩１分'
+  s.payment = '現金のみ'
+  s.kana = 'キッサ ユー'
+end
+
+Shop.seed do |s|
+  s.id = 46
+  s.name = 'トリコロール 本店'
+  s.address = '東京都中央区銀座５丁目９−１７'
+  s.latitude = 35.670246430814
+  s.longitude = 139.76502338778553
+  s.phone = '03-3571-1811'
+  s.opening = '8:00 - 18:00'
+  s.closed = '無休'
+  s.smoking = '全席禁煙'
+  s.access = '都営地下鉄 銀座駅A3出口から徒歩3分, 東銀座駅から徒歩3分'
+  s.payment = '現金, カード（VISA,JCB,AMEX）'
+  s.kana = 'トリコロール ホンテン'
+end
+
+Shop.seed do |s|
+  s.id = 47
+  s.name = 'ミカド'
+  s.address = '東京都墨田区江東橋3-6-10'
+  s.latitude = 35.69390896397534
+  s.longitude = 139.81469807570673
+  s.phone = '03-3634-4632'
+  s.opening = '11:00 - 16:00'
+  s.closed = '土日祝'
+  s.smoking = '全席喫煙可'
+  s.access = 'JR中央/総武線 錦糸町駅 徒歩4分'
+  s.payment = '現金'
+  s.kana = 'ミカド'
+end
+
+Shop.seed do |s|
+  s.id = 48
+  s.name = 'ニット'
+  s.address = '東京都墨田区江東橋4-26-12 小沢ビル1F'
+  s.latitude = 35.69546967192229
+  s.longitude = 139.8164673700639
+  s.phone = '03-3631-3884'
+  s.opening = '月〜土 9:00-20:00 / 祝 9:00-18:00'
+  s.closed = '日'
+  s.smoking = '全席禁煙'
+  s.access = 'ＪＲ総武線/東京メトロ半蔵門線 錦糸町駅 徒歩3分'
+  s.payment = '現金'
+  s.kana = 'ニット'
+end
