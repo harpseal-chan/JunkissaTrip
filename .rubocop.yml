@@ -4,15 +4,12 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   Exclude:
     - "vendor/**/*" # rubocop config/default.yml
-    - 'db/**/*'
-    - 'Capfile'
-    - 'config/deploy.rb'
+    - "db/**/*"
+    - "Capfile"
+    - "config/deploy.rb"
     - config/initializers/geokit_config.rb
   SuggestExtensions: false
   DisplayCopNames: true
-
-Style/Documentation:
-  Enabled: false
 
 # private/protected は一段深くインデントする
 Layout/IndentationConsistency:
@@ -21,8 +18,8 @@ Layout/IndentationConsistency:
 # ブロックの行数チェック
 Metrics/BlockLength:
   Exclude:
-    - 'spec/**/*'
-    - 'config/environments/*'
+    - "spec/**/*"
+    - "config/environments/*"
 
 Metrics/AbcSize:
   Max: 40
@@ -30,3 +27,108 @@ Metrics/AbcSize:
 # 日本語コメントチェックを無効
 Style/AsciiComments:
   Enabled: false
+
+Bundler/OrderedGems:
+  Exclude:
+    - "Gemfile"
+
+Layout/ArgumentAlignment:
+  Exclude:
+    - "bin/webpack"
+    - "bin/webpack-dev-server"
+
+Layout/DotPosition:
+  Exclude:
+    - "bin/yarn"
+
+Layout/EmptyLineAfterGuardClause:
+  Exclude:
+    - "bin/bundle"
+
+Layout/MultilineMethodCallIndentation:
+  Exclude:
+    - "bin/yarn"
+
+Layout/MultilineOperationIndentation:
+  Exclude:
+    - "bin/bundle"
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  Exclude:
+    - "config/environments/production.rb"
+
+Metrics/CyclomaticComplexity:
+  Max: 9
+
+Metrics/MethodLength:
+  Max: 13
+
+Metrics/PerceivedComplexity:
+  Max: 9
+
+Style/BlockComments:
+  Exclude:
+    - "spec/spec_helper.rb"
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - "app/controllers/admin/*"
+    - "test/channels/application_cable/connection_test.rb"
+    - "test/test_helper.rb"
+
+Style/Documentation:
+  # Enabled: false
+  Exclude:
+    - "spec/**/*"
+    - "test/**/*"
+    - "app/controllers/**/*"
+    - "app/helpers/*"
+    - "app/models/*"
+    - "config/application.rb"
+
+Style/EmptyMethod:
+  Exclude:
+    - "app/controllers/static_pages_controller.rb"
+
+Style/ExpandPathArguments:
+  Exclude:
+    - "bin/bundle"
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GlobalStdStream:
+  Exclude:
+    - "config/environments/production.rb"
+
+Style/IfUnlessModifier:
+  Exclude:
+    - "bin/bundle"
+
+Style/InverseMethods:
+  Exclude:
+    - "bin/yarn"
+
+Style/PerlBackrefs:
+  Exclude:
+    - "bin/bundle"
+
+Style/RedundantFetchBlock:
+  Exclude:
+    - "config/puma.rb"
+
+Style/SpecialGlobalVars:
+  EnforcedStyle: use_perl_names
+
+Style/StderrPuts:
+  Exclude:
+    - "bin/yarn"
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Layout/LineLength:
+  Max: 198
