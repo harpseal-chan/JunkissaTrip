@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.13'
 # Use Active Storage Validations
-gem 'active_storage_validations', '0.8.2'
+gem 'active_storage_validations', '1.1.4'
 # AWS SDK S3
 gem 'aws-sdk-s3', '1.113.0', require: false
 
@@ -44,7 +44,7 @@ gem "gon"
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
-gem 'mini_magick', '4.9.5'
+gem 'mini_magick', '4.12.0'
 
 # jQuery
 gem 'jquery-rails'
@@ -55,7 +55,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rubocop', '~> 1.10.0', require: false
+  gem 'rubocop', '~> 1.60.0', require: false
 end
 
 group :development do
@@ -82,6 +82,3 @@ group :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
