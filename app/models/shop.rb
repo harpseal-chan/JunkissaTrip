@@ -40,4 +40,12 @@ class Shop < ApplicationRecord
   def bookmarked_by?(user)
     bookmarks.where(user_id: user).exists?
   end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[address name]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    ["features"]
+  end
 end

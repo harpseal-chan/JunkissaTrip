@@ -84,6 +84,7 @@ Style/Documentation:
     - "app/controllers/**/*"
     - "app/helpers/*"
     - "app/models/*"
+    - "app/mailers/*"
     - "config/application.rb"
 
 Style/EmptyMethod:
