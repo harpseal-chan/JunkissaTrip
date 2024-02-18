@@ -49,7 +49,7 @@ RSpec.describe "Comments", type: :request do
   end
 
   describe "#destroy" do
-    let!(:comment) { FactoryBot.create(:comment, user: user, shop: shop) }
+    let!(:comment) { FactoryBot.create(:comment, user:, shop:) }
 
     context 'ログアウト状態の場合' do
       it 'アカウントを削除できないこと' do
