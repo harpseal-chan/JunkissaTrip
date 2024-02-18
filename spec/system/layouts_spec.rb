@@ -185,7 +185,7 @@ RSpec.describe "Layouts", type: :system do
 
     context 'ブックマークが1件以上ある場合' do
       before do
-        @bookmark = FactoryBot.create(:bookmark, user: user, shop: shop)
+        @bookmark = FactoryBot.create(:bookmark, user:, shop:)
         visit user_path(user)
       end
 
@@ -203,7 +203,7 @@ RSpec.describe "Layouts", type: :system do
 
     context '投稿コメントが1件以上ある場合' do
       before do
-        @comment = FactoryBot.create(:comment, user: user, shop: shop)
+        @comment = FactoryBot.create(:comment, user:, shop:)
         visit user_path(user)
       end
 
